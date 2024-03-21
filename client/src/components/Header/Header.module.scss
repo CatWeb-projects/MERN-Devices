@@ -1,0 +1,24 @@
+.header {
+  padding-top: 46px;
+
+  &--container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: #101010;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
+    border-radius: 16px;
+    position: relative;
+  }
+
+  &--logo {
+    padding-left: 16px;
+
+    svg {
+      height: auto;
+      width: 40px;
+    }
+  }
+}
