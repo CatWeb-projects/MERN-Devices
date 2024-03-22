@@ -1,4 +1,4 @@
-export const sliderImagesData = [
+export const sliderData = [
   { id: 101, imgUrl: '/images/PC.jpg', link: '/pc', altName: 'PC' },
   { id: 102, imgUrl: '/images/car.jpeg', link: '/auto', altName: 'Car' },
   {

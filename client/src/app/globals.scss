@@ -1,6 +1,7 @@
 :root {
   --device-white: #fff;
   --device-dark: #262626;
+  --device-light: #ededed;
 }
 
 body,
@@ -13,7 +14,7 @@ html {
 
 body {
   background-color: var(--device-dark);
-  min-height: 100vh;
+  height: 100vh;
 }
 
 *,

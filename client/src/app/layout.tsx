@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import CacheProvider from 'react-inlinesvg/provider';
 import NextTopLoader from 'nextjs-toploader';
+import { Providers } from './providers'
 import { Header } from "@/components";
 import "./globals.scss";
 
@@ -20,7 +21,9 @@ export default function RootLayout({
         <body>
           <NextTopLoader showSpinner={false} height={4} />
           <Header />
-          {children}
+          <Providers>
+            {children}
+          </Providers>
         </body>
       </html>
     </CacheProvider>

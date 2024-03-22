@@ -1,0 +1,33 @@
+"use client";
+
+import { useState } from 'react';
+import { Button } from '@chakra-ui/react';
+import { Icon } from '../Icon/Icon';
+import styles from './Search.module.scss';
+
+export const Search = () => {
+  const [searchValue, setSearchValue] = useState<string>('');
+
+  const onSearchChange = (e: { target: { value: string } }) => {
+    setSearchValue(e.target.value.toLowerCase());
+  };
+  return (
+    <div className={styles.search}>
+      <input
+        type="text"
+        // style={
+        //   searchValue && searchDevices?.length > 0
+        //     ? { borderRadius: '8px 8px 0 0' }
+        //     : {}
+        // }
+        // placeholder={t('search')}
+        value={searchValue}
+        onChange={onSearchChange}
+      />
+
+      <Button>
+        <Icon type="zoom" />
+      </Button>
+    </div>
+  )
+}
