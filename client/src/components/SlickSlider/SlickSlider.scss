@@ -1,0 +1,28 @@
+.slick-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  border-radius: 16px;
+  margin-top: 16px;
+
+  img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    min-width: 100%;
+    min-height: auto;
+    max-height: 520px;
+    border-radius: 16px;
+    object-fit: cover;
+  }
+}
+
+.slick-dots {
+  bottom: 0;
+  display: flex !important;
+  padding: 16px;
+
+  li button:before {
+    font-size: 16px;
+    color: #00bcd4;
+  }
+}

@@ -9,7 +9,7 @@ export const useSlider = create((set) => ({
     set({ loading: true });
 
     try {
-      const response: any = await axios.get('http://localhost:3005/slider');
+      const response: any = await axios.get('http://localhost:3200/slider');
       set({ slides: response })
     } catch (error: any) {
       set({ error: error.message });

@@ -1,21 +1,31 @@
 export const sliderData = [
-  { id: 101, imgUrl: '/images/PC.jpg', link: '/pc', altName: 'PC' },
-  { id: 102, imgUrl: '/images/car.jpeg', link: '/auto', altName: 'Car' },
+  {
+    id: 101,
+    imgUrl: 'http://localhost:3200/images/PC.jpg',
+    link: '/pc',
+    altName: 'PC',
+  },
+  {
+    id: 102,
+    imgUrl: 'http://localhost:3200/images/car.jpeg',
+    link: '/auto',
+    altName: 'Car',
+  },
   {
     id: 103,
-    imgUrl: '/images/smartphones.jpg',
+    imgUrl: 'http://localhost:3200/images/smartphones.jpg',
     link: '/categories/phones/all',
     altName: 'Smartphones',
   },
   {
     id: 104,
-    imgUrl: '/images/work-gadgets.jpg',
+    imgUrl: 'http://localhost:3200/images/work-gadgets.jpg',
     link: '/categories/gadgets/all',
     altName: 'Work Gadgets',
   },
   {
     id: 105,
-    imgUrl: '/images/work-place.jpg',
+    imgUrl: 'http://localhost:3200/images/work-place.jpg',
     link: '/work-place',
     altName: 'Work Place',
   },
@@ -35,7 +45,7 @@ export const sliderData = [
   },
   {
     id: 108,
-    imgUrl: '/images/future.jpg',
+    imgUrl: 'http://localhost:3200/images/future.jpg',
     link: '/categories/sport-and-health/all',
     altName: 'Future',
   },

@@ -1,9 +1,9 @@
 import { SlickSlider } from "@/components";
-import styles from "./page.module.scss";
+import "./page.scss";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <main className="main">
      <SlickSlider />
     </main>
   );

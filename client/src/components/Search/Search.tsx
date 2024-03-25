@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Button } from '@chakra-ui/react';
 import { Icon } from '../Icon/Icon';
-import styles from './Search.module.scss';
+import './Search.scss';
 
 export const Search = () => {
   const [searchValue, setSearchValue] = useState<string>('');
@@ -12,7 +12,7 @@ export const Search = () => {
     setSearchValue(e.target.value.toLowerCase());
   };
   return (
-    <div className={styles.search}>
+    <div className="search">
       <input
         type="text"
         // style={
