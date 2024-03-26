@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import Slider from 'react-slick';
+import Slider, { Settings } from 'react-slick';
 import { useSlider } from "@/store/store";
 
 import "slick-carousel/slick/slick.css";
@@ -11,13 +11,13 @@ import './SlickSlider.scss';
 
 
 export const SlickSlider = () => {
-  const [slides, getSlides] = useSlider((state: any) => [state.slides, state.getSlides]);
+  const [slides, getSlides] = useSlider((state) => [state.slides, state.getSlides]);
 
   useEffect(() => {
     getSlides();
   }, []);
 
-  const settings = {
+  const settings: Settings = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -25,20 +25,19 @@ export const SlickSlider = () => {
     arrows: false,
     autoplay: true,
     autoplaySpeed: 5000,
+    lazyLoad: 'anticipated'
   };
 
-  console.log(slides.data, 'slides')
   return (
     <div className="slick-wrapper">
       <Slider {...settings}>
-      {slides.data &&
-        slides.data.map((slide: any) => (
+      {slides &&
+        slides.map((slide) => (
           <Link href={slide.link} key={slide.id}>
             <img
               data-lazy={slide.imgUrl}
               src={slide.imgUrl}
               alt={slide.altName}
-              // src="/images/loader.gif"
             />
           </Link>
         ))}

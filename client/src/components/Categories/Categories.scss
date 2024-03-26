@@ -1,0 +1,133 @@
+.categories {
+  max-width: 1400px;
+  margin: 16px auto;
+  
+   &--wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 140px);
+    grid-template-rows: 1fr;
+    justify-items: center;
+  }
+
+  &--card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 115px;
+    margin-right: 8px;
+    color: #fff;
+    font-size: 20px;
+    transition: all 0.3s;
+
+    // @include mobile {
+    //   width: rem(30px);
+    // }
+
+    &:hover {
+      color: #ff9800;
+    }
+  }
+
+  &--img {
+    width: 104px;
+    height: 104px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #101010;
+    border-radius: 50%;
+    margin-bottom: 8px;
+    transition: all 0.3s ease-out;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 50%;
+    }
+  }
+
+  &--title {
+    word-wrap: break-word;
+  }
+
+  // .phones:hover {
+  //   color: #3fa2cd;
+
+  //   .categories__img {
+  //     box-shadow: 0 0 16px 8px #3fa2cd;
+  //   }
+  // }
+
+  // .laptops:hover {
+  //   color: #58e600;
+
+  //   .categories__img {
+  //     box-shadow: 0 0 16px 8px #58e600;
+  //   }
+  // }
+
+  // .gadgets:hover {
+  //   color: #e85b10;
+
+  //   .categories__img {
+  //     box-shadow: 0 0 16px 8px #e85b10;
+  //   }
+  // }
+
+  // .apple:hover {
+  //   color: #e53b26;
+
+  //   .categories__img {
+  //     box-shadow: 0 0 16px 8px #e53b26;
+  //   }
+  // }
+
+  // .audio:hover {
+  //   color: #d93c8d;
+
+  //   .categories__img {
+  //     box-shadow: 0 0 16px 8px #d93c8d;
+  //   }
+  // }
+
+  // .sport-and-health:hover {
+  //   color: #8c57a7;
+
+  //   .categories__img {
+  //     box-shadow: 0 0 16px 8px #8c57a7;
+  //   }
+  // }
+
+  // .personal-transport:hover {
+  //   color: #32e5e5;
+
+  //   .categories__img {
+  //     box-shadow: 0 0 16px 8px #32e5e5;
+  //   }
+  // }
+
+  // .tv-photo-optics:hover {
+  //   color: #2146c1;
+
+  //   .categories__img {
+  //     box-shadow: 0 0 16px 8px #2146c1;
+  //   }
+  // }
+
+  // .accessories:hover {
+  //   color: #844d97;
+
+  //   .categories__img {
+  //     box-shadow: 0 0 16px 8px #844d97;
+  //   }
+  // }
+
+  // .appliances:hover {
+  //   color: #36bcbe;
+
+  //   .categories__img {
+  //     box-shadow: 0 0 16px 8px #36bcbe;
+  //   }
+  // }
+}

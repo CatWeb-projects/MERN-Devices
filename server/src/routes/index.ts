@@ -1,2 +1,2 @@
-export { CategoriesController } from './categories.controller';
-export { SliderImagesController } from './slider.controller';
+export { CategoriesController } from './categories/categories.controller';
+export { SliderImagesController } from './slider/slider.controller';

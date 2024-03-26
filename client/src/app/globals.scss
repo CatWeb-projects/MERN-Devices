@@ -2,6 +2,14 @@
   --device-white: #fff;
   --device-dark: #262626;
   --device-light: #ededed;
+  --device-blue: #262262;
+  --device-red: #EA5300;
+  --device-dark-red: #B24008;
+  --device-orange: #FFBA09;
+  --device-dark-orange: #F48C07;
+  --device-grey: #C4C9D9;
+  --device-dark-grey: #808080;
+  --device-light-grey: #F5F6FB;
 }
 
 body,
@@ -56,6 +64,11 @@ h4,
 h5,
 h6 {
   margin: 0;
+}
+
+h1 {
+  font-size: 32px;
+  color: var(--device-dark-grey);
 }
 
 ::-webkit-scrollbar {

@@ -7,7 +7,7 @@ async function bootstrap() {
   app.enableCors();
 
   const config = new DocumentBuilder()
-    .setTitle('Devices')
+    .setTitle('TechnoHeart')
     .setVersion('1.0.0')
     .addBearerAuth()
     .build();

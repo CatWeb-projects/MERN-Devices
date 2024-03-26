@@ -1,52 +1,64 @@
+import { baseUrl } from '../helpers/baseUrl';
+
 export const sliderData = [
   {
-    id: 101,
-    imgUrl: 'http://localhost:3200/images/PC.jpg',
+    id: 1,
+    imgUrl: `${baseUrl}/images/anniversary.webp`,
+    link: '/offers',
+    altName: 'offers',
+  },
+  {
+    id: 2,
+    imgUrl: `${baseUrl}/images/macbook_air_14.webp`,
+    link: '/macbook-air',
+    altName: 'macbook-air',
+  },
+  {
+    id: 3,
+    imgUrl: `${baseUrl}/images/PC.jpg`,
     link: '/pc',
     altName: 'PC',
   },
   {
-    id: 102,
-    imgUrl: 'http://localhost:3200/images/car.jpeg',
+    id: 4,
+    imgUrl: `${baseUrl}/images/car.jpeg`,
     link: '/auto',
     altName: 'Car',
   },
   {
-    id: 103,
-    imgUrl: 'http://localhost:3200/images/smartphones.jpg',
-    link: '/categories/phones/all',
+    id: 5,
+    imgUrl: `${baseUrl}/images/smartphones.jpg`,
+    link: '/phones',
     altName: 'Smartphones',
   },
   {
-    id: 104,
-    imgUrl: 'http://localhost:3200/images/work-gadgets.jpg',
-    link: '/categories/gadgets/all',
+    id: 6,
+    imgUrl: `${baseUrl}/images/work-gadgets.jpg`,
+    link: '/gadgets',
     altName: 'Work Gadgets',
   },
   {
-    id: 105,
-    imgUrl: 'http://localhost:3200/images/work-place.jpg',
+    id: 7,
+    imgUrl: `${baseUrl}/images/work-place.jpg`,
     link: '/work-place',
     altName: 'Work Place',
   },
   {
-    id: 106,
-    imgUrl:
-      'https://darwin.md/images/slider/2021/04/site_macbook_pro_2020_m1_1400x520px_rom.webp',
-    link: '/device/macbook-pro-13-2020-myd82zpa',
-    altName: 'Macbook Pro 2020',
-  },
-  {
-    id: 107,
-    imgUrl:
-      'https://darwin.md/images/slider/2021/10/beneficiu_rasunator_1400x520_ro.webp',
-    link: '/categories/audio/all',
+    id: 8,
+    imgUrl: `${baseUrl}/images/soundbar.webp`,
+    link: '/audio',
     altName: 'Soundbar',
   },
   {
-    id: 108,
-    imgUrl: 'http://localhost:3200/images/future.jpg',
-    link: '/categories/sport-and-health/all',
+    id: 9,
+    imgUrl: `${baseUrl}/images/future.jpg`,
+    link: '/sport-and-health',
+    altName: 'Future',
+  },
+  {
+    id: 10,
+    imgUrl: `${baseUrl}/images/all_wearables.webp`,
+    link: '/sport-and-health',
     altName: 'Future',
   },
 ];

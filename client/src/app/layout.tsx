@@ -6,7 +6,7 @@ import { Header } from "@/components";
 import "./globals.scss";
 
 export const metadata: Metadata = {
-  title: "Devices",
+  title: "TechnoHeart",
   description: "Best devices you can find",
 };
 

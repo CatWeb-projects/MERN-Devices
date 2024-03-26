@@ -4,7 +4,7 @@ import { IconInterface } from './Icon.interface';
 export function Icon({
   className = '',
   type,
-  color = '#737373',
+  color = '',
   height = '20px',
   width = '20px',
   onClick,

@@ -2,8 +2,6 @@ import { Module } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { ConfigModule } from '@nestjs/config';
 import { join } from 'path';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { CategoriesController, SliderImagesController } from './routes';
 
 @Module({
@@ -14,9 +12,10 @@ import { CategoriesController, SliderImagesController } from './routes';
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: '.env',
+      cache: true,
     }),
   ],
-  controllers: [AppController, CategoriesController, SliderImagesController],
-  providers: [AppService],
+  controllers: [CategoriesController, SliderImagesController],
+  providers: [],
 })
 export class AppModule {}
