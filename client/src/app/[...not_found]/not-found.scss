@@ -1,0 +1,10 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > p {
+    color: var(--device-dark-grey);
+    font-size: 20px;
+  }
+}
