@@ -14,7 +14,7 @@ export const CategoriesItem = ({ category }: CategoriesItemProps) => {
       onMouseOver={(e) =>
         (e.currentTarget.style.color = `${category.shadowColor}`)
       }
-      onMouseOut={(e) => (e.currentTarget.style.color = `#fff`)}
+      onMouseOut={(e) => (e.currentTarget.style.color = ``)}
     >
 
       <div

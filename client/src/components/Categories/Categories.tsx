@@ -5,6 +5,7 @@ import { useCategories } from '@/store/store';
 import { CategoriesItem } from './CategoriesItem';
 import { Loading } from '../Loading/Loading';
 import { ShowErrorMessage } from '../ShowErrorMessage/ShowErrorMessage';
+import { NoData } from '../NoData/NoData';
 
 import './Categories.scss';
 
@@ -25,22 +26,23 @@ export const Categories = () => {
     getCategories();
   }, []);
 
-  console.log(loading, 'loading');
   return (
     <div className="categories">
-      {loading && <Loading />}
-      
-      {error && <ShowErrorMessage errorMessage={error}/>}
-      
       {categories.length > 0 && (
         <div className="categories--wrapper">
-          {categories &&
-            categories.map((category) => (
-              <CategoriesItem category={category} key={category.id} />
-            ))
-          }
+          {categories.map((category) => (
+            <CategoriesItem category={category} key={category.id} />
+          ))}
         </div>
       )}
+
+      {(categories?.length === 0 && !loading) && (
+        <NoData />
+      )}
+
+      {/* {loading && <Loading />} */}
+
+      {error && <ShowErrorMessage errorMessage={error}/>}
     </div>
   )
 }

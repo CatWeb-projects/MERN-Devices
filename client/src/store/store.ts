@@ -1,6 +1,7 @@
 import { create } from 'zustand';
+import { createJSONStorage, persist } from 'zustand/middleware';
 import axios from 'axios';
-import { CategoriesStore, SlidesStore } from './store.interface';
+import { CategoriesStore, SlidesStore, ThemeStore } from './store.interface';
 
 axios.defaults.baseURL = process.env.BASE_URL || 'http://localhost:3200';
 
@@ -23,11 +24,9 @@ export const useSlider = create<SlidesStore>((set) => ({
 
 export const useCategories = create<CategoriesStore>((set) => ({
   categories: [],
-  loading: false,
+  loading: true,
   error: null,
   getCategories: async () => {
-    set({ loading: true });
-
     try {
       const response = await axios.get('/categories');
       set({ categories: response.data })
@@ -38,4 +37,15 @@ export const useCategories = create<CategoriesStore>((set) => ({
       set({ loading: false });
     }
   }
-}))
+}));
+
+export const useTheme = create<ThemeStore>()(persist((set, get) => ({
+  theme: 'dark',
+  toggleTheme: () => {
+    set({ theme: get().theme === 'dark' ? 'light' : 'dark'})
+  }
+}),
+{
+  name: 'theme',
+  storage: createJSONStorage(() => sessionStorage),
+}));

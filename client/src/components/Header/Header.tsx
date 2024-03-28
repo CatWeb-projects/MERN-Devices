@@ -2,14 +2,14 @@ import Link from 'next/link';
 import { Button } from '@chakra-ui/react';
 import { Search } from '../Search/Search';
 import { Icon } from '../Icon/Icon';
+import { Topbar } from '../Topbar/Topbar';
 
 import './Header.scss';
-
-
 
 export const Header = () => {
   return (
     <header>
+      <Topbar />
       <div className="header">
         <div className="header--container">
           <div className="header--logo">

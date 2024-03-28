@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <main className="main">
       <div className="main--wrapper">
-        <SlickSlider />
         <ShopTitle />
+        <SlickSlider />
         <Categories />
       </div>
     </main>
