@@ -22,8 +22,6 @@ export const Topbar = () => {
     }
     document.body.setAttribute('data-theme', theme);
   }, [theme]);
-
-  console.log(theme, 'theme')
   
   return (
     <div className="topbar">
@@ -34,7 +32,7 @@ export const Topbar = () => {
       </div>
       <div className="topbar--lang">
         <a href="/" className="lang--active">ro</a>
-        <a href="/eng">eng</a>
+        <a href="/en">en</a>
         <a href="/ru">ru</a>
       </div>
     </div>
