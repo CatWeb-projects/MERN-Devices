@@ -18,14 +18,6 @@
     margin-right: 8px;
     font-size: 20px;
     transition: all 0.3s;
-
-    // @include mobile {
-    //   width: rem(30px);
-    // }
-
-    &:hover {
-      color: #ff9800;
-    }
   }
 
   &--img {

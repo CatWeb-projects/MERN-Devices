@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Button } from "@chakra-ui/react"
-
 import { useTheme } from '@/store/store';
 import { Icon } from "../Icon/Icon"
 
@@ -25,7 +24,7 @@ export const Topbar = () => {
     }
     document.body.setAttribute('data-theme', theme);
   }, [theme]);
-  console.log(pathname, 'router')
+  
   return (
     <div className="topbar">
       <div className="topbar--mode">

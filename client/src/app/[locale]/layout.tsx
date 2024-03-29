@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import {NextIntlClientProvider, useMessages} from 'next-intl';
 import CacheProvider from 'react-inlinesvg/provider';
 import NextTopLoader from 'nextjs-toploader';
 import { Providers } from './providers'
@@ -11,21 +12,26 @@ export const metadata: Metadata = {
   description: "Best devices you can find",
 };
 
-export default function RootLayout({
+export default function LocaleLayout({
   children,
+  params: {locale}
 }: Readonly<{
   children: React.ReactNode;
+  params: any
 }>) {
+  const messages = useMessages();
   return (
     <CacheProvider>
-      <html lang="en">
+      <html lang={locale}>
         <link rel="icon" type="image/x-icon" href="/images/play.png" />
         <body className="night">
-          <NextTopLoader showSpinner={false} height={4} />
-          <Header />
-          <Providers>
-            {children}
-          </Providers>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <NextTopLoader showSpinner={false} height={4} />
+            <Header />
+            <Providers>
+              {children}
+            </Providers>
+          </NextIntlClientProvider>
         </body>
       </html>
     </CacheProvider>

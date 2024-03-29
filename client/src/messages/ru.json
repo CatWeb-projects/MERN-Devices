@@ -1,8 +1,14 @@
 {
-  "Index": {
-    "title": "Привет Мир"
-  },
   "Categories": {
-    "phones": "Телефоны и Планшеты"
+    "phones": "Телефоны и Планшеты",
+    "laptops": "Ноутбуки",
+    "gadgets": "Гаджеты",
+    "apple": "Apple",
+    "audio": "Аудио",
+    "health": "Спорт и Здоровье",
+    "electric_transport": "Электрический транспорт",
+    "photo_optics_tv": "ТВ, Фото и Оптика",
+    "accessories": "Аксессуары",
+    "appliances": "Бытовая техника"
   }
 }

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { CategoriesData } from "@/store/store.interface";
 
 
@@ -9,6 +9,7 @@ interface CategoriesItemProps {
 
 export const CategoriesItem = ({ category }: CategoriesItemProps) => {
   const locale = useLocale();
+  const t = useTranslations('Categories');
   return (
     <Link
       className={`categories--card ${category.link.slice(1)}`}
@@ -31,7 +32,7 @@ export const CategoriesItem = ({ category }: CategoriesItemProps) => {
       </div>
 
       <div className="categories--title">
-        <span>{category.translate}</span>
+        <span>{t(`${category.translate}`)}</span>
       </div>
     </Link>
   )

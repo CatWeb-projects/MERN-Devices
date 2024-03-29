@@ -3,7 +3,6 @@
 import { useEffect } from 'react';
 import { useCategories } from '@/store/store';
 import { CategoriesItem } from './CategoriesItem';
-import { Loading } from '../Loading/Loading';
 import { ShowErrorMessage } from '../ShowErrorMessage/ShowErrorMessage';
 import { NoData } from '../NoData/NoData';
 

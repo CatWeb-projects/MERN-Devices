@@ -1,8 +1,14 @@
 {
-  "Index": {
-    "title": "Hello World"
-  },
   "Categories": {
-    "phones": "Phones and Tablets"
+    "phones": "Phones and Tablets",
+    "laptops": "Laptops",
+    "gadgets": "Gadgets",
+    "apple": "Apple",
+    "audio": "Audio",
+    "health": "Sports and Health",
+    "electric_transport": "Electric Transport",
+    "photo_optics_tv": "TV, Photo and Optics",
+    "accessories": "Accessories",
+    "appliances": "Appliances"
   }
 }
