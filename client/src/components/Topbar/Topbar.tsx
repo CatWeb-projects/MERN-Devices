@@ -1,13 +1,16 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Button } from "@chakra-ui/react"
+
 import { useTheme } from '@/store/store';
 import { Icon } from "../Icon/Icon"
 
 import './Topbar.scss';
 
 export const Topbar = () => {
+  const pathname = usePathname();
   const [
     theme,
     toggleTheme
@@ -22,7 +25,7 @@ export const Topbar = () => {
     }
     document.body.setAttribute('data-theme', theme);
   }, [theme]);
-  
+  console.log(pathname, 'router')
   return (
     <div className="topbar">
       <div className="topbar--mode">
@@ -31,9 +34,9 @@ export const Topbar = () => {
         </Button>
       </div>
       <div className="topbar--lang">
-        <a href="/" className="lang--active">ro</a>
-        <a href="/en">en</a>
-        <a href="/ru">ru</a>
+        <a href="/ro" className={pathname === '/ro' ? 'lang--active' : ''}>ro</a>
+        <a href="/en" className={pathname === '/en' ? 'lang--active' : ''}>en</a>
+        <a href="/ru" className={pathname === '/ru' ? 'lang--active' : ''}>ru</a>
       </div>
     </div>
   )

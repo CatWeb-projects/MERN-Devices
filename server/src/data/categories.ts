@@ -7,7 +7,7 @@ export const categoriesData = [
     name: 'Phones and Tablets',
     imgUrl: `${baseUrl}/images/smartphones_tablete.webp`,
     shadowColor: '#3fa2cd',
-    translate: 'phonesAndTablets',
+    translate: 'phones',
   },
   {
     id: 2,

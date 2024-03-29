@@ -1,15 +1,18 @@
 import Link from "next/link";
+import { useLocale } from "next-intl";
 import { CategoriesData } from "@/store/store.interface";
+
 
 interface CategoriesItemProps {
   category: CategoriesData;
 }
 
 export const CategoriesItem = ({ category }: CategoriesItemProps) => {
+  const locale = useLocale();
   return (
     <Link
       className={`categories--card ${category.link.slice(1)}`}
-      href={`/categories/${category.link}`}
+      href={`/${locale}/categories/${category.link}`}
       key={category.id}
       onMouseOver={(e) =>
         (e.currentTarget.style.color = `${category.shadowColor}`)

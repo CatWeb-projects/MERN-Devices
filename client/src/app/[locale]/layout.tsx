@@ -4,7 +4,7 @@ import NextTopLoader from 'nextjs-toploader';
 import { Providers } from './providers'
 import { Header } from "@/components";
 
-import "./globals.scss";
+import "../globals.scss";
 
 export const metadata: Metadata = {
   title: "TechnoHeart",
