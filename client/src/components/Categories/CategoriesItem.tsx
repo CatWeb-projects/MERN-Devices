@@ -1,6 +1,7 @@
-import Link from "next/link";
+
 import { useLocale, useTranslations } from "next-intl";
 import { CategoriesData } from "@/store/store.interface";
+import { Link } from "@chakra-ui/next-js";
 
 
 interface CategoriesItemProps {
@@ -13,7 +14,7 @@ export const CategoriesItem = ({ category }: CategoriesItemProps) => {
   return (
     <Link
       className={`categories--card ${category.link.slice(1)}`}
-      href={`/${locale}/categories/${category.link}`}
+      href={`/${locale}/devices/${category.link}`}
       key={category.id}
       onMouseOver={(e) =>
         (e.currentTarget.style.color = `${category.shadowColor}`)

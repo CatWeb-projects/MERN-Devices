@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@chakra-ui/react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Search } from '../Search/Search';
 import { Icon } from '../Icon/Icon';
 import { Topbar } from '../Topbar/Topbar';
@@ -10,6 +10,8 @@ import './Header.scss';
 
 export const Header = () => {
   const locale = useLocale();
+  const t = useTranslations('Header');
+
   return (
     <header>
       <Topbar />
@@ -23,26 +25,26 @@ export const Header = () => {
 
           <div className="header--menu">
             <Icon type="menu" />
-            Categories
+            {t('menu')}
           </div>
 
           <Search />
 
           <div className="header--main-menu">
             <div className="header--favorites">
-              <Link href="/favorites">
+              <Link href={`/${locale}/favorites`}>
                 <Icon type="heart" />
               </Link>
             </div>
 
             <div className="compare--devices">
-              <Link href="/compare">
+              <Link href={`/${locale}/compare`}>
                 <Icon type="compare" />
               </Link>
             </div>
 
             <div className="header--cart">
-              <Link href="/cart">
+              <Link href={`/${locale}/cart`}>
                 <Icon type="shopping-cart" />
               </Link>
            </div>
@@ -50,7 +52,7 @@ export const Header = () => {
            <div className="header--user">
               <Button size="full-width">
                 <Icon type="user" />
-                <span>Account</span>
+                <span>{t('account')}</span>
               </Button>
             </div>
           </div>

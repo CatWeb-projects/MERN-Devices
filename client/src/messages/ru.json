@@ -10,5 +10,9 @@
     "photo_optics_tv": "ТВ, Фото и Оптика",
     "accessories": "Аксессуары",
     "appliances": "Бытовая техника"
+  },
+  "Header": {
+    "menu": "Все Категории",
+    "account": "Мой Аккаунт"
   }
 }

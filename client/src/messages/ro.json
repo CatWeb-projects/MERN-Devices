@@ -10,5 +10,9 @@
     "photo_optics_tv": "TV, Foto și Optică",
     "accessories": "Accesorii",
     "appliances": "Electrocasnice"
+  },
+  "Header": {
+    "menu": "Toate Categoriile",
+    "account": "Contul Meu"
   }
 }
