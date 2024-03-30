@@ -1,0 +1,18 @@
+{
+  "Categories": {
+    "phones": "Telefoane și Tablete",
+    "laptops": "Laptop-uri",
+    "gadgets": "Gadget-uri",
+    "apple": "Apple",
+    "audio": "Audio",
+    "health": "Sport și Sănătate",
+    "electric_transport": "Transport Electric",
+    "photo_optics_tv": "TV, Foto și Optică",
+    "accessories": "Accesorii",
+    "appliances": "Electrocasnice"
+  },
+  "Header": {
+    "menu": "Toate Categoriile",
+    "account": "Contul Meu"
+  }
+}

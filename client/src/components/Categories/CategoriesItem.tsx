@@ -1,20 +1,25 @@
-import Link from "next/link";
+
+import { useLocale, useTranslations } from "next-intl";
 import { CategoriesData } from "@/store/store.interface";
+import { Link } from "@chakra-ui/next-js";
+
 
 interface CategoriesItemProps {
   category: CategoriesData;
 }
 
 export const CategoriesItem = ({ category }: CategoriesItemProps) => {
+  const locale = useLocale();
+  const t = useTranslations('Categories');
   return (
     <Link
       className={`categories--card ${category.link.slice(1)}`}
-      href={`/categories/${category.link}`}
+      href={`/${locale}/devices/${category.link}`}
       key={category.id}
       onMouseOver={(e) =>
         (e.currentTarget.style.color = `${category.shadowColor}`)
       }
-      onMouseOut={(e) => (e.currentTarget.style.color = `#fff`)}
+      onMouseOut={(e) => (e.currentTarget.style.color = ``)}
     >
 
       <div
@@ -28,7 +33,7 @@ export const CategoriesItem = ({ category }: CategoriesItemProps) => {
       </div>
 
       <div className="categories--title">
-        <span>{category.translate}</span>
+        <span>{t(`${category.translate}`)}</span>
       </div>
     </Link>
   )

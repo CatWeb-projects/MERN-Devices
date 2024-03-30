@@ -27,3 +27,8 @@ export interface CategoriesStore {
   error: string | null;
   getCategories: () => void;
 }
+
+export interface ThemeStore {
+  theme: 'dark' | 'light';
+  toggleTheme: () => void;
+}

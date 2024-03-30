@@ -6,3 +6,4 @@ export { Categories } from './Categories/Categories';
 export { ShopTitle } from './ShopTitle/ShopTitle';
 export { Loading } from './Loading/Loading';
 export { ShowErrorMessage } from './ShowErrorMessage/ShowErrorMessage';
+export { NoData } from './NoData/NoData';

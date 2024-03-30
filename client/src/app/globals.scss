@@ -20,9 +20,26 @@ html {
   overflow: hidden;
 }
 
-body {
+body[data-theme='dark'] {
+  --colors-text: var(--device-white);
+  --colors-bg: var(--device-dark);
+  --colors-ui-base: hsl(209, 23%, 22%);
+}
+
+body.night {
   background-color: var(--device-dark);
+}
+
+body[data-theme='light'] {
+  --colors-text: var(--device-dark);
+  --colors-bg: var(--device-white);
+}
+
+body {
   height: 100vh;
+  margin: 0;
+  color: var(--colors-text);
+  background-color: var(--colors-bg);
 }
 
 *,
@@ -39,17 +56,7 @@ ul {
 
 a {
   text-decoration: none;
-  color: var(--books-light-blue);
   transition: all 0.3s ease-in-out;
-
-  &.link-disabled {
-    cursor: not-allowed;
-    color: #afb6cd;
-
-    &:hover {
-      color: #afb6cd;
-    }
-  }
 }
 
 a:hover {
@@ -64,11 +71,15 @@ h4,
 h5,
 h6 {
   margin: 0;
+  color: var(--device-dark-grey);
 }
 
 h1 {
   font-size: 32px;
-  color: var(--device-dark-grey);
+}
+
+h2 {
+  font-size: 28px;
 }
 
 ::-webkit-scrollbar {

@@ -3,15 +3,31 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import Slider, { Settings } from 'react-slick';
+import { useLocale } from "next-intl";
 import { useSlider } from "@/store/store";
+import { Loading } from "../Loading/Loading";
+import { ShowErrorMessage } from "../ShowErrorMessage/ShowErrorMessage";
+import { NoData } from "../NoData/NoData";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './SlickSlider.scss';
 
 
+
 export const SlickSlider = () => {
-  const [slides, getSlides] = useSlider((state) => [state.slides, state.getSlides]);
+  const locale = useLocale();
+  const [
+    slides,
+    getSlides,
+    loading,
+    error
+  ] = useSlider((state) => [
+    state.slides,
+    state.getSlides,
+    state.loading,
+    state.error
+  ]);
 
   useEffect(() => {
     getSlides();
@@ -25,23 +41,32 @@ export const SlickSlider = () => {
     arrows: false,
     autoplay: true,
     autoplaySpeed: 5000,
-    lazyLoad: 'anticipated'
+    lazyLoad: 'ondemand'
   };
 
   return (
     <div className="slick-wrapper">
-      <Slider {...settings}>
-      {slides &&
-        slides.map((slide) => (
-          <Link href={slide.link} key={slide.id}>
-            <img
-              data-lazy={slide.imgUrl}
-              src={slide.imgUrl}
-              alt={slide.altName}
-            />
-          </Link>
-        ))}
-      </Slider>
+      {slides.length > 0 && (
+        <Slider {...settings}>
+          {slides.map((slide) => (
+            <Link href={`/${locale}/${slide.link}`} key={slide.id}>
+              <img
+                data-lazy={slide.imgUrl}
+                src={slide.imgUrl}
+                alt={slide.altName}
+              />
+            </Link>
+          ))}
+        </Slider>
+      )}
+
+      {(slides?.length === 0 && !loading) && (
+        <NoData />
+      )}
+
+      {loading && <Loading />}
+
+      {error && <ShowErrorMessage errorMessage={error}/>}
     </div>
   )
 }
