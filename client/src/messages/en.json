@@ -19,7 +19,12 @@
     "menu": "All Categories",
     "account": "My Account"
   },
-  "Devices": {
-    
+  "Footer": {
+    "shop": "Online Shop",
+    "tel": "tel.",
+    "customer_support": "Customer support",
+    "contacts": "Contacts",
+    "services": "Services",
+    "copyright": "© 2021. All rights reserved."
   }
 }

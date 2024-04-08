@@ -13,7 +13,7 @@ interface Props {
   size?: 'small' | 'medium' | 'large' | 'full-width';
 }
 
-export const Button: React.FC<Props> = ({
+export const Button = ({
   children,
   onClick,
   className = '',
@@ -22,7 +22,7 @@ export const Button: React.FC<Props> = ({
   disabled,
   size = 'medium',
   ...props
-}) => {
+}: Props) => {
   const onClickHandler = (): void => {
     if (onClick !== undefined) {
       return onClick();

@@ -9,3 +9,4 @@ export { ShowErrorMessage } from './ShowErrorMessage/ShowErrorMessage';
 export { NoData } from './NoData/NoData';
 export { Devices } from './Devices/Devices';
 export { Button } from './Button/Button';
+export { Footer } from './Footer/Footer';

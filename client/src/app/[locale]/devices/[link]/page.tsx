@@ -7,8 +7,8 @@ import { useDevices } from "@/store/store";
 
 const DevicesPage = () => {
   const pathname = usePathname();
-  const params = useParams()
-  const deviceType = pathname.split('/devices/')[1];
+  const { link } = useParams();
+  const deviceType = link.toString();
 
   const [
     devices,

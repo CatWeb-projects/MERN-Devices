@@ -18,5 +18,13 @@
   "Header": {
     "menu": "Toate Categoriile",
     "account": "Contul Meu"
+  },
+  "Footer": {
+    "shop": "Magazin Online",
+    "tel": "tel.",
+    "customer_support": "Relații clienți",
+    "contacts": "Contacte",
+    "services": "Servicii",
+    "copyright": "© 2021. Toate drepturile rezervate."
   }
 }
