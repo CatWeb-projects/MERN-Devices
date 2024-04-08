@@ -17,7 +17,6 @@ html {
   margin: 0;
   padding: 0;
   font-style: normal;
-  overflow: hidden;
 }
 
 body[data-theme='dark'] {
@@ -32,7 +31,7 @@ body.night {
 
 body[data-theme='light'] {
   --colors-text: var(--device-dark);
-  --colors-bg: var(--device-white);
+  --colors-bg: var(--device-light);
 }
 
 body {

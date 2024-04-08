@@ -1,9 +1,9 @@
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import axios from 'axios';
-import { CategoriesStore, SlidesStore, ThemeStore } from './store.interface';
+import { CategoriesStore, DevicesStore, SlidesStore, ThemeStore } from './store.interface';
 
-axios.defaults.baseURL = process.env.BASE_URL || 'http://localhost:3200';
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3200/api';
 
 export const useSlider = create<SlidesStore>((set) => ({
   slides: [],
@@ -11,7 +11,7 @@ export const useSlider = create<SlidesStore>((set) => ({
   error: null,
   getSlides: async () => {
     try {
-      const response = await axios.get('/slider');
+      const response = await axios.get('/sliders');
       set({ slides: response.data })
     } catch (error) {
       const typedError = error as Error;
@@ -47,5 +47,24 @@ export const useTheme = create<ThemeStore>()(persist((set, get) => ({
 }),
 {
   name: 'theme',
-  storage: createJSONStorage(() => sessionStorage),
+  storage: createJSONStorage(() => localStorage),
 }));
+
+export const useDevices = create<DevicesStore>((set) => ({
+  devices: [],
+  loading: true,
+  error: null,
+  getDevices: async (type: string) => {
+    try {
+      const response = await axios.get('/devices', {
+        ...(type ? { params: { type } } : {})
+      })
+      set({ devices: response.data})
+    } catch (error) {
+      const typedError = error as Error;
+      set({ error: typedError.message });
+    } finally {
+      set({ loading: false });
+    }
+  }
+}))

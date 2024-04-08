@@ -9,10 +9,22 @@
     "electric_transport": "Transport Electric",
     "photo_optics_tv": "TV, Foto și Optică",
     "accessories": "Accesorii",
-    "appliances": "Electrocasnice"
+    "appliances": "Electrocasnice",
+    "credit": "lei/lună",
+    "lei": "lei",
+    "compare": "Adaugă în comparaţie",
+    "favorites": "Adaugă în favorite"
   },
   "Header": {
     "menu": "Toate Categoriile",
     "account": "Contul Meu"
+  },
+  "Footer": {
+    "shop": "Magazin Online",
+    "tel": "tel.",
+    "customer_support": "Relații clienți",
+    "contacts": "Contacte",
+    "services": "Servicii",
+    "copyright": "© 2021. Toate drepturile rezervate."
   }
 }

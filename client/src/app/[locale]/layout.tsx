@@ -3,7 +3,7 @@ import {NextIntlClientProvider, useMessages} from 'next-intl';
 import CacheProvider from 'react-inlinesvg/provider';
 import NextTopLoader from 'nextjs-toploader';
 import { Providers } from './providers'
-import { Header } from "@/components";
+import { Footer, Header } from "@/components";
 
 import "../globals.scss";
 
@@ -31,6 +31,7 @@ export default function LocaleLayout({
             <Providers>
               {children}
             </Providers>
+            <Footer />
           </NextIntlClientProvider>
         </body>
       </html>

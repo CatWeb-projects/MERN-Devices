@@ -8,12 +8,11 @@ import { useSlider } from "@/store/store";
 import { Loading } from "../Loading/Loading";
 import { ShowErrorMessage } from "../ShowErrorMessage/ShowErrorMessage";
 import { NoData } from "../NoData/NoData";
+import { baseUrl } from "@/helpers/baseUrl";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './SlickSlider.scss';
-
-
 
 export const SlickSlider = () => {
   const locale = useLocale();
@@ -52,7 +51,7 @@ export const SlickSlider = () => {
             <Link href={`/${locale}/${slide.link}`} key={slide.id}>
               <img
                 data-lazy={slide.imgUrl}
-                src={slide.imgUrl}
+                src={`${baseUrl}/${slide.imgUrl}`}
                 alt={slide.altName}
               />
             </Link>

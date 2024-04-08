@@ -1,6 +1,6 @@
 import { baseUrl } from '../helpers/baseUrl';
 
-export const sliderData = [
+export const sliders = [
   {
     id: 1,
     imgUrl: `${baseUrl}/images/anniversary.webp`,
