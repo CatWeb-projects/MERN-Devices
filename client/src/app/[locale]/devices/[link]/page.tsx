@@ -1,10 +1,36 @@
-import { Categories } from "@/components";
+"use client";
+
+import { useEffect } from "react";
+import { useParams, usePathname } from "next/navigation";
+import { Categories, Devices } from "@/components";
+import { useDevices } from "@/store/store";
 
 const DevicesPage = () => {
+  const pathname = usePathname();
+  const params = useParams()
+  const deviceType = pathname.split('/devices/')[1];
+
+  const [
+    devices,
+    loading,
+    error,
+    getDevices
+  ] = useDevices((state) => [
+    state.devices,
+    state.loading,
+    state.error,
+    state.getDevices
+  ]);
+
+  useEffect(() => {
+    getDevices(deviceType);
+  }, [deviceType]);
+
   return (
-    <main className="devices-page">
+    <div className="devices-page">
       <Categories />
-    </main>
+      <Devices devices={devices} />
+    </div>
   );
 }
 

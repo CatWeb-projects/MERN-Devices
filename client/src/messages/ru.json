@@ -9,7 +9,11 @@
     "electric_transport": "Электрический транспорт",
     "photo_optics_tv": "ТВ, Фото и Оптика",
     "accessories": "Аксессуары",
-    "appliances": "Бытовая техника"
+    "appliances": "Бытовая техника",
+    "credit": "лей/мес",
+    "lei": "лей",
+    "compare": "Добавить в сравнение",
+    "favorites": "Добавить в избранное"
   },
   "Header": {
     "menu": "Все Категории",

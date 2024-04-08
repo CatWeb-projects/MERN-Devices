@@ -1,0 +1,185 @@
+.devices {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-top: 16px;
+  display: flex;
+
+  > a {
+    width: 25%;
+    transition: all 0.3s;
+    border-radius: 16px;
+  }
+
+  &--banner {
+    background-size: cover;
+    height: 520px;
+    text-align: center;
+    color: #ededed;
+    padding:32px 8px;
+    margin-right: 16px;
+    border-radius: 16px;
+    transition: all 0.3s ease-in;
+
+    h4 {
+      margin-bottom: 12px;
+    }
+
+    span {
+      font-size:20px;
+    }
+
+    &:hover {
+      box-shadow: 0 16px 16px -16px #00000080;
+    }
+  }
+
+  &--items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-gap: 16px;
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transform: scale(0.95);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
+
+.device {
+  &--item {
+    background-color: #101010;
+    border-radius: 16px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    > a {
+      border-radius: 16px 16px 0 0;
+      overflow: hidden;
+    }
+
+    > div {
+      padding: 8px 24px;
+      color: #939393;
+    }
+
+    &:hover {
+      box-shadow: 0 12px 8px -8px #00000080;
+
+      img {
+        transform: scale(1);
+      }
+    }
+  }
+
+  &--title {
+    padding: 8px 24px;
+    color: var(--device-white);
+    font-size: 18px;
+  }
+
+  &--price {
+    h5 {
+      margin: 8px 0;
+    }
+
+    span {
+      padding: 2px 10px;
+      display: block;
+      border-radius: 16px;
+      color: #fff;
+      background-color: #d7298f;
+      width: max-content;
+    }
+
+    span:first-child {
+      background-color: #5cba48;
+    }
+  }
+
+  &--price-wrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 100px;
+  }
+}
+
+.recommended-item {
+  grid-template-columns: repeat(3, 1fr);
+  width: 75%;
+}
+
+.options-devices-card-wrapper {
+  .options-devices {
+    display: flex;
+    flex-direction: row;
+  }
+
+  button {
+    width: auto;
+    height: 30px;
+    background-color: #101010;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    color: #a0a0a0;
+    font-size: 20px;
+
+    &:hover {
+      background-color: lighten(#101010, 20%);
+      color: #fff;
+
+      svg {
+        fill: #fff;
+      }
+    }
+  }
+
+  svg {
+    fill: #a0a0a0;
+  }
+
+  .add-to-favorites,
+  .compare-devices {
+    transition: all 0.3s ease-in-out;
+    position: relative;
+
+    &:hover {
+      .options-devices-info {
+        display: flex;
+      }
+    }
+  }
+}
+
+.options-devices-info {
+  display: none;
+  position: absolute;
+  width: max-content;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  padding: 5px 10px;
+  font-weight: 900;
+  border-radius: 16px;
+  z-index: 50;
+  color: #fff;
+}
+
+.favorites-info {
+  background-color: #673ab7;
+}
+
+.compare-info {
+  background-color: #5cba48;
+}

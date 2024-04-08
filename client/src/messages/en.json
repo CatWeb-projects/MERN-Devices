@@ -9,10 +9,17 @@
     "electric_transport": "Electric Transport",
     "photo_optics_tv": "TV, Photo and Optics",
     "accessories": "Accessories",
-    "appliances": "Appliances"
+    "appliances": "Appliances",
+    "credit": "lei/monthly",
+    "lei": "lei",
+    "compare": "Add to compare",
+    "favorites": "Add to favorites"
   },
   "Header": {
     "menu": "All Categories",
     "account": "My Account"
+  },
+  "Devices": {
+    
   }
 }

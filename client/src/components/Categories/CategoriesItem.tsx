@@ -2,6 +2,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { CategoriesData } from "@/store/store.interface";
 import { Link } from "@chakra-ui/next-js";
+import { baseUrl } from "@/helpers/baseUrl";
 
 
 interface CategoriesItemProps {
@@ -14,8 +15,7 @@ export const CategoriesItem = ({ category }: CategoriesItemProps) => {
   return (
     <Link
       className={`categories--card ${category.link.slice(1)}`}
-      href={`/${locale}/devices/${category.link}`}
-      key={category.id}
+      href={`/${locale}/devices${category.link}`}
       onMouseOver={(e) =>
         (e.currentTarget.style.color = `${category.shadowColor}`)
       }
@@ -29,7 +29,7 @@ export const CategoriesItem = ({ category }: CategoriesItemProps) => {
         }
         onMouseOut={(e) => (e.currentTarget.style.boxShadow = `none`)}
       >
-        <img src={category?.imgUrl} alt={category.name} />
+        <img src={`${baseUrl}/${category?.imgUrl}`} alt={category.name} />
       </div>
 
       <div className="categories--title">
