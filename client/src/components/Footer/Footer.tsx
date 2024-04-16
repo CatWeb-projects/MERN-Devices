@@ -36,7 +36,7 @@ export const Footer = () => {
           </Link>
         </div>
         <div className="copyright">
-          <h5>{t('copyright')}</h5>
+          <h5>{`© ${new Date().getFullYear()}. ${t('copyright')}`}</h5>
         </div>
         <div className="lower-footer--media">
           <Link href="https://www.facebook.com">

@@ -6,7 +6,6 @@ import { Categories, Devices } from "@/components";
 import { useDevices } from "@/store/store";
 
 const DevicesPage = () => {
-  const pathname = usePathname();
   const { link } = useParams();
   const deviceType = link.toString();
 
