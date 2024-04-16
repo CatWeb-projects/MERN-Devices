@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useParams, usePathname } from "next/navigation";
+import { useParams } from "next/navigation";
 import { Categories, Devices } from "@/components";
 import { useDevices } from "@/store/store";
 
