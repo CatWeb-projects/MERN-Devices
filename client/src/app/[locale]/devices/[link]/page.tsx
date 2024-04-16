@@ -1,34 +1,41 @@
-"use client";
-
-import { useEffect } from "react";
-import { useParams } from "next/navigation";
 import { Categories, Devices } from "@/components";
-import { useDevices } from "@/store/store";
+import axios from "axios";
+import { baseUrl } from "@/helpers/baseUrl";
 
-const DevicesPage = () => {
-  const { link } = useParams();
-  const deviceType = link.toString();
+const fetchDevices = async (type: string) => {
+  try {
+    const response = await axios.get(`${baseUrl}/devices`, {
+      ...(type ? { params: { type } } : {})
+    })
+    return response.data
+  } catch (error) {
+    throw new Error('No Data')
+  }
+}
 
-  const [
-    devices,
-    loading,
-    error,
-    getDevices
-  ] = useDevices((state) => [
-    state.devices,
-    state.loading,
-    state.error,
-    state.getDevices
-  ]);
+const DevicesPage = async ({ params: { link } }: { params: { link: string }}) => {
+  const data = await fetchDevices(link);
+  
+  // const [
+  //   devices,
+  //   loading,
+  //   error,
+  //   getDevices
+  // ] = useDevices((state) => [
+  //   state.devices,
+  //   state.loading,
+  //   state.error,
+  //   state.getDevices
+  // ]);
 
-  useEffect(() => {
-    getDevices(deviceType);
-  }, [deviceType]);
+  // useEffect(() => {
+  //   getDevices(deviceType);
+  // }, [deviceType]);
 
   return (
     <div className="devices-page">
       <Categories />
-      <Devices devices={devices} />
+      <Devices devices={data} />
     </div>
   );
 }

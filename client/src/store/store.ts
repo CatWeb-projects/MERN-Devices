@@ -3,7 +3,7 @@ import { createJSONStorage, persist } from 'zustand/middleware';
 import axios from 'axios';
 import { CategoriesStore, DevicesStore, SlidesStore, ThemeStore } from './store.interface';
 
-axios.defaults.baseURL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3200/api';
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:5000/api';
 
 export const useSlider = create<SlidesStore>((set) => ({
   slides: [],
