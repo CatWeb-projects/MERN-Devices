@@ -27,7 +27,7 @@ export const Categories = () => {
 
   return (
     <div className="categories">
-      {categories.length > 0 && (
+      {categories?.length > 0 && (
         <div className="categories--wrapper">
           {categories.map((category) => (
             <CategoriesItem category={category} key={category.id} />

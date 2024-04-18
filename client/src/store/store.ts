@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import axios from 'axios';
 import { CategoriesStore, DevicesStore, SlidesStore, ThemeStore } from './store.interface';
+import { fetchCategories, fetchDevices } from '@/services/api';
 
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:5000/api';
 
@@ -28,8 +29,8 @@ export const useCategories = create<CategoriesStore>((set) => ({
   error: null,
   getCategories: async () => {
     try {
-      const response = await axios.get('/categories');
-      set({ categories: response.data })
+      const response = await fetchCategories();
+      set({ categories: response })
     } catch (error) {
       const typedError = error as Error;
       set({ error: typedError.message });
@@ -56,10 +57,8 @@ export const useDevices = create<DevicesStore>((set) => ({
   error: null,
   getDevices: async (type: string) => {
     try {
-      const response = await axios.get('/devices', {
-        ...(type ? { params: { type } } : {})
-      })
-      set({ devices: response.data})
+      const response = await fetchDevices(type)
+      set({ devices: response})
     } catch (error) {
       const typedError = error as Error;
       set({ error: typedError.message });
@@ -67,4 +66,4 @@ export const useDevices = create<DevicesStore>((set) => ({
       set({ loading: false });
     }
   }
-}))
+}));

@@ -1,20 +1,8 @@
 import { Categories, Devices } from "@/components";
-import axios from "axios";
-import { baseUrl } from "@/helpers/baseUrl";
-
-const fetchDevices = async (type: string) => {
-  try {
-    const response = await axios.get(`${baseUrl}/devices`, {
-      ...(type ? { params: { type } } : {})
-    })
-    return response.data
-  } catch (error) {
-    throw new Error('No Data')
-  }
-}
+import { fetchDevices } from "@/services/api";
 
 const DevicesPage = async ({ params: { link } }: { params: { link: string }}) => {
-  const data = await fetchDevices(link);
+  const devices = await fetchDevices(link);
   
   // const [
   //   devices,
@@ -35,7 +23,7 @@ const DevicesPage = async ({ params: { link } }: { params: { link: string }}) =>
   return (
     <div className="devices-page">
       <Categories />
-      <Devices devices={data} />
+      <Devices devices={devices} />
     </div>
   );
 }
