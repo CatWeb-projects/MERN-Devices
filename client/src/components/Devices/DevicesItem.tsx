@@ -3,6 +3,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@chakra-ui/react";
 import { DevicesData } from "@/store/store.interface";
 import { Icon } from "../Icon/Icon";
+import { baseUrl } from "@/helpers/baseUrl";
 
 import './Devices.scss';
 
@@ -15,6 +16,13 @@ export const DevicesItem = ({
 }: DeviceItemProps) => {
   const locale = useLocale();
   const t = useTranslations('Categories');
+  const checkImageUrl = () => {
+    if (device.imageUrl.includes('https')) {
+      return device.imageUrl
+    } else {
+      return `${baseUrl}/${device.imageUrl}`
+    }
+  }
   return (
     <div className="device--item">
       {device && (
@@ -22,7 +30,7 @@ export const DevicesItem = ({
           <Link
             href={`/${locale}/device/${device.link}`}
           >
-            <img src={device.imageUrl} alt={device.name} />
+            <img src={checkImageUrl()} alt={device.name} />
           </Link>
           <Link href={`/${locale}/device/${device.link}`}>
             <div className="device--title">{device.name}</div>

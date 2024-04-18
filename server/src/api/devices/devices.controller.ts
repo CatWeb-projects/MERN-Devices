@@ -11,6 +11,7 @@ export class DevicesController {
   @HttpCode(200)
   @ApiResponse(addDevicesResponse)
   @ApiQuery({ name: 'type', required: false, type: String })
+  @ApiQuery({ name: 'manufacturer', required: false, type: String })
   @Get()
   getAll(@Query('type') type: string) {
     return this.devicesService.getAll(type);
