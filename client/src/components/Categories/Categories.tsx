@@ -1,29 +1,29 @@
-"use client";
-
-import { useEffect } from 'react';
-import { useCategories } from '@/store/store';
 import { CategoriesItem } from './CategoriesItem';
-import { ShowErrorMessage } from '../ShowErrorMessage/ShowErrorMessage';
 import { NoData } from '../NoData/NoData';
+import { CategoriesData } from '@/store/store.interface';
 
 import './Categories.scss';
 
-export const Categories = () => {
-  const [
-    categories,
-    getCategories,
-    loading,
-    error,
-  ] = useCategories((state) => [
-    state.categories,
-    state.getCategories,
-    state.loading,
-    state.error
-  ]);
+interface CategoriesProps {
+  categories: CategoriesData[];
+}
 
-  useEffect(() => {
-    getCategories();
-  }, []);
+export const Categories = ({ categories }: CategoriesProps) => {
+  // const [
+  //   categories,
+  //   getCategories,
+  //   loading,
+  //   error,
+  // ] = useCategories((state) => [
+  //   state.categories,
+  //   state.getCategories,
+  //   state.loading,
+  //   state.error
+  // ]);
+
+  // useEffect(() => {
+  //   getCategories();
+  // }, []);
 
   return (
     <div className="categories">
@@ -35,13 +35,13 @@ export const Categories = () => {
         </div>
       )}
 
-      {(categories?.length === 0 && !loading) && (
+      {/* {(!categories?.length) && (
         <NoData />
-      )}
+      )} */}
 
       {/* {loading && <Loading />} */}
 
-      {error && <ShowErrorMessage errorMessage={error}/>}
+      {/* {error && <ShowErrorMessage errorMessage={error}/>} */}
     </div>
   )
 }

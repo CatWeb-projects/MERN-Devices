@@ -4,6 +4,12 @@ const withNextIntl = createNextIntlPlugin();
 
 const nextConfig = {
   reactStrictMode: false,
+  images: {
+    domains: [
+      'localhost',
+      'https://darwin.md'
+    ],
+  },
 };
 
 export default withNextIntl(nextConfig);

@@ -27,6 +27,7 @@ body[data-theme='dark'] {
 
 body.night {
   background-color: var(--device-dark);
+  color: var(--device-white);
 }
 
 body[data-theme='light'] {
