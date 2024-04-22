@@ -26,6 +26,8 @@ export const Topbar = () => {
     }
     document.body.setAttribute('data-theme', theme);
   }, [theme]);
+
+  console.log(pathname, 'pathname');
   
   return (
     <div className="topbar">
@@ -35,9 +37,9 @@ export const Topbar = () => {
         </Button>
       </div>
       <div className="topbar--lang">
-        <Link href="/ro" className={pathname.includes('/ro') ? 'lang--active' : ''}>ro</Link>
-        <Link href="/en" className={pathname.includes('/en') ? 'lang--active' : ''}>en</Link>
-        <Link href="/ru" className={pathname.includes('/ru') ? 'lang--active' : ''}>ru</Link>
+        <Link href={`/ro/${pathname.slice(3)}`} className={pathname.includes('/ro') ? 'lang--active' : ''}>ro</Link>
+        <Link href={`/en/${pathname.slice(3)}`} className={pathname.includes('/en') ? 'lang--active' : ''}>en</Link>
+        <Link href={`/ru/${pathname.slice(3)}`} className={pathname.includes('/ru') ? 'lang--active' : ''}>ru</Link>
       </div>
     </div>
   )

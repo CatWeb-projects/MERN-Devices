@@ -3,6 +3,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { DevicesData } from "@/store/store.interface";
 
 import './Device.scss';
+import { PRODUCT_PROPERTY } from "@/constants/devices-specs";
 
 interface DeviceInfoProps {
   device: DevicesData;
@@ -11,11 +12,14 @@ interface DeviceInfoProps {
 export const DeviceInfo = ({ device }: DeviceInfoProps) => {
   const t = useTranslations('Devices');
   const locale = useLocale();
+  const findProperties = Object.keys(PRODUCT_PROPERTY).filter((property) => {
+    return device[property];
+  });
 
   const redirectDeviceColors = (color: string) => {
     if (device.colors.length === 1) {
       return `/${locale}/device/${device.link}`
-    } else if (device.memoryOptions === undefined) {
+    } else if (!device.memoryOptions.length) {
       return `/${locale}/device/${device.link
         .split('-')
         .slice(0, -1)
@@ -28,7 +32,6 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
     }
   }
 
-  console.log(Object.values(device), 'device values')
   return (
     <div className="device-product">
       <div className="device-product__wrapper">
@@ -42,7 +45,7 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
           </div>
 
           <div className="device-product__info-specifications">
-            {device.colors && (
+            {device.colors.length > 0 && (
               <div className="device-product__options-colors">
                 <span>{t('color')}</span>
                 <div className="device-product__options-colors-wrapper">
@@ -67,9 +70,9 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
               </div>
             )}
 
-            {device.memoryOptions && (
+            {device.memoryOptions.length > 0 && (
               <div className="device-product__options-memory">
-                <span>{t('memory')}</span>
+                <span>{t('memory_mob')}</span>
                 <div className="device-product__options-memory-wrapper">
                   {device.memoryOptions.map((memory, key) => (
                     <Link
@@ -99,13 +102,13 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
                 </div>
               </div>
             )}
-
+            
             <ul className="device-product__info-specs">
-              {device.segment && (
+              {findProperties.map((property) => (
                 <li>
-                  {t('segment')} : {device.segment}
+                  {t(`${property}`)} : {device[property]}
                 </li>
-              )}
+              ))}
             </ul>
           </div>
         </div>
