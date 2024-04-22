@@ -26,5 +26,8 @@
     "contacts": "Contacts",
     "services": "Services",
     "copyright": "All rights reserved."
+  },
+  "Devices": {
+    "color": "Color"
   }
 }

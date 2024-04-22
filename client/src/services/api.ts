@@ -18,6 +18,20 @@ export const fetchDevices = async (type: string) => {
   }
 }
 
+export const fetchDevice = async (link: string) => {
+  try {
+    const response = await axios.get(`/devices/${link}`);
+
+    if (response.status !== 200) {
+      throw new Error('Devices not fetched');
+    }
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export const fetchCategories = async () => {
   try {
     const response = await axios.get('/categories');
