@@ -23,18 +23,18 @@ export const Button = ({
   size = 'medium',
   ...props
 }: Props) => {
-  const onClickHandler = (): void => {
-    if (onClick !== undefined) {
-      return onClick();
-    }
-  };
+  // const onClickHandler = (): void => {
+  //   if (onClick !== undefined) {
+  //     return onClick();
+  //   }
+  // };
 
   return (
     <button
       className={`button button-type-${type} button-type-${size} ${
         disabled ? 'disabled' : ''
       } ${className}`}
-      onClick={onClickHandler}
+      onClick={onClick}
       {...props}
       type={generalType}
     >

@@ -1,10 +1,12 @@
 import Link from "next/link"
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@chakra-ui/react";
 import { DevicesData } from "@/store/store.interface";
 import { Icon } from "../Icon/Icon";
+import { checkImageUrl } from "@/helpers";
 
 import './Devices.scss';
+
 
 interface DeviceItemProps {
   device: DevicesData
@@ -13,17 +15,19 @@ interface DeviceItemProps {
 export const DevicesItem = ({
   device
 }: DeviceItemProps) => {
+  const locale = useLocale();
   const t = useTranslations('Categories');
+  
   return (
     <div className="device--item">
       {device && (
         <>
           <Link
-            href=""
+            href={`/${locale}/device/${device.link}`}
           >
-            <img src={device.imageUrl} alt={device.name} />
+            <img src={checkImageUrl(device.imageUrl)} alt={device.name} />
           </Link>
-          <Link href="">
+          <Link href={`/${locale}/device/${device.link}`}>
             <div className="device--title">{device.name}</div>
           </Link>
           <div className="device--price-wrapper options-devices-card-wrapper">
@@ -47,7 +51,6 @@ export const DevicesItem = ({
             <div className="options-devices">
               <div className="compare-devices">
                 <Button
-                  // type="black"
                   // onClick={() => addToCompare(product)}
                   // className={userCompareFind ? 'added-to-compare' : ''}
                 >
@@ -60,7 +63,6 @@ export const DevicesItem = ({
               <div className="add-to-favorites">
                 <Button
                   // onClick={() => addFavorites(product)}
-                  // type="black"
                   // className={userFavoritesFind ? 'added-to-favorites' : ''}
                 >
                   <Icon type="heart" />

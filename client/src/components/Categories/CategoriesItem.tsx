@@ -1,9 +1,10 @@
+'use client'
 
+import Link from "next/link";
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { CategoriesData } from "@/store/store.interface";
-import { Link } from "@chakra-ui/next-js";
 import { baseUrl } from "@/helpers/baseUrl";
-
 
 interface CategoriesItemProps {
   category: CategoriesData;
@@ -29,7 +30,13 @@ export const CategoriesItem = ({ category }: CategoriesItemProps) => {
         }
         onMouseOut={(e) => (e.currentTarget.style.boxShadow = `none`)}
       >
-        <img src={`${baseUrl}/${category?.imgUrl}`} alt={category.name} />
+        <Image
+          priority
+          src={`${baseUrl}${category?.imgUrl}`}
+          alt={category.name}
+          width={104}
+          height={104}
+         />
       </div>
 
       <div className="categories--title">

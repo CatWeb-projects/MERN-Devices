@@ -2,11 +2,13 @@
 
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { Button } from "@chakra-ui/react"
 import { useTheme } from '@/store/store';
 import { Icon } from "../Icon/Icon"
 
 import './Topbar.scss';
+
 
 export const Topbar = () => {
   const pathname = usePathname();
@@ -33,9 +35,9 @@ export const Topbar = () => {
         </Button>
       </div>
       <div className="topbar--lang">
-        <a href="/ro" className={pathname === '/ro' ? 'lang--active' : ''}>ro</a>
-        <a href="/en" className={pathname === '/en' ? 'lang--active' : ''}>en</a>
-        <a href="/ru" className={pathname === '/ru' ? 'lang--active' : ''}>ru</a>
+        <Link href={`/ro/${pathname.slice(3)}`} className={pathname.includes('/ro') ? 'lang--active' : ''}>ro</Link>
+        <Link href={`/en/${pathname.slice(3)}`} className={pathname.includes('/en') ? 'lang--active' : ''}>en</Link>
+        <Link href={`/ru/${pathname.slice(3)}`} className={pathname.includes('/ru') ? 'lang--active' : ''}>ru</Link>
       </div>
     </div>
   )

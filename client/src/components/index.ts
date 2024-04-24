@@ -8,5 +8,6 @@ export { Loading } from './Loading/Loading';
 export { ShowErrorMessage } from './ShowErrorMessage/ShowErrorMessage';
 export { NoData } from './NoData/NoData';
 export { Devices } from './Devices/Devices';
+export { DeviceInfo } from './Devices/DeviceInfo';
 export { Button } from './Button/Button';
 export { Footer } from './Footer/Footer';

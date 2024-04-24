@@ -1,35 +1,38 @@
-"use client";
-
-import { useEffect } from "react";
-import { useParams, usePathname } from "next/navigation";
+import { Metadata } from "next";
 import { Categories, Devices } from "@/components";
-import { useDevices } from "@/store/store";
+import { fetchCategories, fetchDevices } from "@/services/api";
+import { CategoriesData, DevicesData } from "@/store/store.interface";
 
-const DevicesPage = () => {
-  const pathname = usePathname();
-  const { link } = useParams();
-  const deviceType = link.toString();
+export const metadata: Metadata = {
+  title: "TechnoHeart - Devices",
+  description: "Select Category and Devices",
+};
 
-  const [
-    devices,
-    loading,
-    error,
-    getDevices
-  ] = useDevices((state) => [
-    state.devices,
-    state.loading,
-    state.error,
-    state.getDevices
-  ]);
+const DevicesPage = async ({ params: { link } }: { params: { link: string }}) => {
+  const devices: DevicesData[] = await fetchDevices(link);
+  const categories: CategoriesData[] = await fetchCategories();
+  
+  // const [
+  //   devices,
+  //   loading,
+  //   error,
+  //   getDevices
+  // ] = useDevices((state) => [
+  //   state.devices,
+  //   state.loading,
+  //   state.error,
+  //   state.getDevices
+  // ]);
 
-  useEffect(() => {
-    getDevices(deviceType);
-  }, [deviceType]);
+  // useEffect(() => {
+  //   getDevices(deviceType);
+  // }, [deviceType]);
 
   return (
     <div className="devices-page">
-      <Categories />
+      <Categories categories={categories} />
       <Devices devices={devices} />
+      {devices?.length > 4 && <Categories categories={categories} />}
     </div>
   );
 }

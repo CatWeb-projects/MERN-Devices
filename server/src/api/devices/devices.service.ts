@@ -9,10 +9,26 @@ export class DevicesService {
     @InjectModel(Devices.name)
     private devicesModel: Model<DevicesDocument>,
   ) {}
-  getAll = async (type: string = ''): Promise<Devices[]> => {
+  getAllDevices = async (type: string): Promise<Devices[]> => {
+    const manufacturer = 'Apple';
+    const checkDeviceType = () => {
+      if (type === 'apple') {
+        return { manufacturer };
+      } else if (type) {
+        return { type };
+      } else {
+        return {};
+      }
+    };
+
     const devices = await this.devicesModel
-      .find(type ? { type } : {}, { _id: 0 })
+      .find(checkDeviceType(), { _id: 0 })
       .sort('id');
     return devices;
+  };
+
+  getDevice = async (link: string) => {
+    const device = await this.devicesModel.findOne({ link });
+    return device;
   };
 }
