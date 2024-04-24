@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { DevicesData } from "@/store/store.interface";
+import { PRODUCT_PROPERTY } from "@/constants/devices-specs";
+import { checkImageUrl } from "@/helpers";
 
 import './Device.scss';
-import { PRODUCT_PROPERTY } from "@/constants/devices-specs";
 
 interface DeviceInfoProps {
   device: DevicesData;
@@ -41,7 +42,7 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
 
         <div className="device-product__info">
           <div className="device-product__info-image">
-            <img src={device.imageUrl} alt={device.name} />
+            <img src={checkImageUrl(device.imageUrl)} alt={device.name} />
           </div>
 
           <div className="device-product__info-specifications">

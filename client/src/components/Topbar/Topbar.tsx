@@ -26,8 +26,6 @@ export const Topbar = () => {
     }
     document.body.setAttribute('data-theme', theme);
   }, [theme]);
-
-  console.log(pathname, 'pathname');
   
   return (
     <div className="topbar">
