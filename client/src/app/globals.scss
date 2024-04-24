@@ -84,11 +84,10 @@ h2 {
 
 ::-webkit-scrollbar {
   width: 5px;
-  height: 5px;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--books-dark-orange);
+  background: var(--device-dark-orange);
   border-radius: 2px;
 }

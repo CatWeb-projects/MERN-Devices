@@ -100,11 +100,15 @@
     border-radius: 8px;
     color: #fff;
     width: 100%;
-    font-size: 32px;
+    font-size: 24px;
+    font-weight: 700;
+
+    > a {
+      display: block;
+    }
 
     > div,
     a {
-      display: table;
       width: 100%;
       text-align: center;
       transition: all 0.3s;
@@ -119,20 +123,19 @@
   }
 
   &__info-price {
-    background-color: #8c57a7;
+    background-color: #fbac2a;
   }
 
   &__buy {
-    display: table;
-    background-color: #fbac2a;
+    background-color: #5cba48;
 
     &:hover {
-      box-shadow: 0 0 8px 4px #fbac2a80;
+      box-shadow: 0 0 8px 4px #5cba48;
     }
   }
 
   &__info-credit {
-    background-color: #58e600;
+    background-color: #8c57a7;
   }
 
   &__credit {
@@ -155,14 +158,17 @@
   flex-direction: column;
 
   button {
+    background-color: #101010;
     display: flex;
     align-items: center;
     padding: 5px 10px;
     color: #a0a0a0;
     font-size: 20px;
     margin-top: 8px;
+    height: 34px;
 
     &:hover {
+      background-color: #a0a0a0;
       color: #fff;
 
       svg {
@@ -174,7 +180,7 @@
   svg {
     font-size: 1.5rem;
     fill: #a0a0a0;
-    margin-right: 8px;
+    margin-right: 4px;
   }
 }
 

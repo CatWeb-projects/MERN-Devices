@@ -51,7 +51,6 @@ export const DevicesItem = ({
             <div className="options-devices">
               <div className="compare-devices">
                 <Button
-                  // type="black"
                   // onClick={() => addToCompare(product)}
                   // className={userCompareFind ? 'added-to-compare' : ''}
                 >
@@ -64,7 +63,6 @@ export const DevicesItem = ({
               <div className="add-to-favorites">
                 <Button
                   // onClick={() => addFavorites(product)}
-                  // type="black"
                   // className={userFavoritesFind ? 'added-to-favorites' : ''}
                 >
                   <Icon type="heart" />

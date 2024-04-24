@@ -13,7 +13,9 @@
     "credit": "lei/monthly",
     "lei": "lei",
     "compare": "Add to compare",
-    "favorites": "Add to favorites"
+    "favorites": "Add to favorites",
+    "buy": "Buy",
+    "buy_credit": "Credit Buy"
   },
   "Header": {
     "menu": "All Categories",
@@ -86,6 +88,12 @@
     "refreshRate": "Refresh rate",
     "electricRange": "Electric Range",
     "aluminium": "Aluminium",
-    "steel": "Steel"
+    "steel": "Steel",
+    "kilogram": "kg",
+    "gram": "g",
+    "true": "Yes",
+    "false": "No",
+    "hours": "hours",
+    "days": "days"
   }
 }

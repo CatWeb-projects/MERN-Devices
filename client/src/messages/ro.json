@@ -13,7 +13,9 @@
     "credit": "lei/lună",
     "lei": "lei",
     "compare": "Adaugă în comparaţie",
-    "favorites": "Adaugă în favorite"
+    "favorites": "Adaugă în favorite",
+    "buy": "Cumpără",
+    "buy_credit": "Solicită credit"
   },
   "Header": {
     "menu": "Toate Categoriile",
@@ -86,6 +88,12 @@
     "refreshRate": "Frecvenţă",
     "electricRange": "Autonomia de parcurgere",
     "aluminium": "Aluminiu",
-    "steel": "Oțel"
+    "steel": "Oțel",
+    "kilogram": "kg",
+    "gram": "g",
+    "true": "Da",
+    "false": "Nu",
+    "hours": "ore",
+    "days": "zile"
   }
 }
