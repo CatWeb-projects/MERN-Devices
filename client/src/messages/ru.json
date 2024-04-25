@@ -88,12 +88,14 @@
     "refreshRate": "Частота",
     "electricRange": "Автономный пробег",
     "aluminium": "Алюминий",
+    "plastic": "Пластик",
     "steel": "Сталь",
     "kilogram": "кг",
     "gram": "г",
     "true": "Да",
     "false": "Нет",
     "hours": "часа",
-    "days": "дней"
+    "days": "дней",
+    "search": "Искать среди более 15 000 товаров"
   }
 }

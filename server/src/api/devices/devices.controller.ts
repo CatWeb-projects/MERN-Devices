@@ -19,8 +19,13 @@ export class DevicesController {
 
   @HttpCode(200)
   @ApiResponse(getDeviceInfoResponse)
-  @Get('/:link')
+  @Get(':link')
   getDevice(@Param('link') link: string) {
     return this.devicesService.getDevice(link);
+  }
+
+  @Get('search/:query')
+  search(@Query('query') query: string) {
+    return this.devicesService.search(query);
   }
 }

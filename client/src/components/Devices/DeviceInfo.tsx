@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
+import { Button } from "@chakra-ui/react";
 import { DevicesData } from "@/store/store.interface";
 import { PRODUCT_PROPERTY } from "@/constants/devices-specs";
 import { checkImageUrl } from "@/helpers";
-
-import './Device.scss';
 import { Icon } from "../Icon/Icon";
-import { Button } from "@chakra-ui/react";
+
+import './DeviceInfo.scss';
 
 interface DeviceInfoProps {
   device: DevicesData;
@@ -62,14 +62,11 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
       }
       return t('false')
     }
-    if (property === 'chargingTime') {
+    if (property === 'chargingTime' || property === 'workingTimeHours') {
       return `${device[property]} ${t('hours')}`;
     }
     if (property === 'workingTimeDays') {
       return `${device[property]} ${t('days')}`;
-    }
-    if (property === 'workingTimeHours') {
-      return `${device[property]} ${t('hours')}`;
     }
     if (property === 'batteryCapacity') {
       return `${device[property]} mah`;
@@ -89,26 +86,29 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
     if (property === 'wheelDiameter' || property === 'frameDiameter') {
       return `${device[property]}"`;
     }
+    if (property === 'material' || property === 'rimMaterial' || property === 'frameMaterial') {
+      return `${t(`${device[property]}`)}`;
+    }
     return device[property];
   }
 
   return (
     <div className="device-product">
-      <div className="device-product__wrapper">
-        <div className="device-product__name">
-          <h3>{device.name}</h3>
+      <div className="device-product--wrapper">
+        <div className="device-product--name">
+          <h1>{device.name}</h1>
         </div>
 
-        <div className="device-product__info">
-          <div className="device-product__info-image">
+        <div className="device-product--info">
+          <div className="device-product--info-image">
             <img src={checkImageUrl(device.imageUrl)} alt={device.name} />
           </div>
 
-          <div className="device-product__info-specifications">
+          <div className="device-product--info-specifications">
             {device.colors.length > 0 && (
-              <div className="device-product__options-colors">
+              <div className="device-product--options-colors">
                 <span>{t('color')}</span>
-                <div className="device-product__options-colors-wrapper">
+                <div className="device-product--options-colors-wrapper">
                   {device.colors.map((color, key) => (
                     <Link
                       href={redirectDeviceColors(color)}
@@ -131,9 +131,9 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
             )}
 
             {device.memoryOptions.length > 0 && (
-              <div className="device-product__options-memory">
+              <div className="device-product--options-memory">
                 <span>{t('memory_mob')}</span>
-                <div className="device-product__options-memory-wrapper">
+                <div className="device-product--options-memory-wrapper">
                   {device.memoryOptions.map((memory, key) => (
                     <Link
                       href={
@@ -163,7 +163,7 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
               </div>
             )}
             
-            <ul className="device-product__info-specs">
+            <ul className="device-product--info-specs">
               {findProperties.map((property, i) => (
                 <li key={i}>
                   {t(`${property}`)} : {checkDeviceProperties(property)}
@@ -194,27 +194,27 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
             </div>
           </div>
 
-          <div className="device-product__info-buy">
+          <div className="device-product--info-buy">
             {device.price && (
-              <div className="device-product__info-price">
+              <div className="device-product--info-price">
                 {`${device.price} ${tCategories('lei')}`}
               </div>
             )}
-            <Link href={`/${locale}/checkout`} className="device-product__buy">
+            <Link href={`/${locale}/checkout`} className="device-product--buy">
               {tCategories('buy')}
             </Link>
             {device.credit && (
-              <div className="device-product__info-credit">{`${
+              <div className="device-product--info-credit">{`${
                 device.credit
               } ${tCategories('credit')}`}</div>
             )}
             {device.cashback && (
-              <div className="device-product__info-cashback">{`Cashback ${
+              <div className="device-product--info-cashback">{`Cashback ${
                 device.cashback
               } ${tCategories('lei')}`}</div>
             )}
             {device.credit && (
-              <Link href={`/${locale}/credit`} className="device-product__credit">
+              <Link href={`/${locale}/credit`} className="device-product--credit">
                 {tCategories('buy_credit')}
               </Link>
             )}

@@ -24,7 +24,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #101010;
+    background-color: var(--device-black);
     border-radius: 50%;
     margin-bottom: 8px;
     transition: all 0.3s ease-out;

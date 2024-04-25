@@ -88,12 +88,14 @@
     "refreshRate": "Refresh rate",
     "electricRange": "Electric Range",
     "aluminium": "Aluminium",
+    "plastic": "Plastic",
     "steel": "Steel",
     "kilogram": "kg",
     "gram": "g",
     "true": "Yes",
     "false": "No",
     "hours": "hours",
-    "days": "days"
+    "days": "days",
+    "search": "Find over 50 000 products"
   }
 }

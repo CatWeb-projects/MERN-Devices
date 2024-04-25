@@ -14,7 +14,7 @@
     background-size: cover;
     height: 520px;
     text-align: center;
-    color: #ededed;
+    color: var(--device-light);
     padding:32px 8px;
     margin-right: 16px;
     border-radius: 16px;
@@ -29,7 +29,7 @@
     }
 
     &:hover {
-      box-shadow: 0 16px 16px -16px #00000080;
+      box-shadow: 0 16px 16px -16px var(--device-black);
     }
   }
 
@@ -52,12 +52,14 @@
 
 .device {
   &--item {
-    background-color: #101010;
+    background-color: var(--device-black);
     border-radius: 16px;
     transition: all 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    color: var(--device-white);
+    font-weight: 700;
 
     > a {
       border-radius: 16px 16px 0 0;
@@ -66,11 +68,10 @@
 
     > div {
       padding: 8px 24px;
-      color: #939393;
     }
 
     &:hover {
-      box-shadow: 0 12px 8px -8px #00000080;
+      box-shadow: 0 12px 8px -8px var(--device-black);
 
       img {
         transform: scale(1);
@@ -80,27 +81,25 @@
 
   &--title {
     padding: 8px 24px;
-    color: var(--device-white);
     font-size: 18px;
   }
 
   &--price {
     h5 {
       margin: 8px 0;
-      color: #fff;
     }
 
     span {
       padding: 2px 10px;
       display: block;
       border-radius: 16px;
-      color: #fff;
-      background-color: #d7298f;
+      color: var(--device-white);
+      background-color: var(--device-rose);
       width: max-content;
     }
 
     span:first-child {
-      background-color: #5cba48;
+      background-color: var(--device-light-green);
     }
   }
 
@@ -126,27 +125,23 @@
   button {
     width: auto;
     height: 30px;
-    background-color: #101010;
-    color: #fff;
+    background-color: var(--device-black);
+    color: var(--device-white);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 5px 10px;
-    color: #a0a0a0;
+    color: var(--device-medium-grey);
     font-size: 20px;
 
     &:hover {
       background-color: lighten(#101010, 20%);
-      color: #fff;
+      color: var(--device-white);
 
       svg {
-        fill: #fff;
+        fill: var(--device-white);
       }
     }
-  }
-
-  svg {
-    fill: #a0a0a0;
   }
 
   .add-to-favorites,
@@ -174,13 +169,13 @@
   font-weight: 900;
   border-radius: 16px;
   z-index: 50;
-  color: #fff;
+  color: var(--device-white);
 }
 
 .favorites-info {
-  background-color: #673ab7;
+  background-color: var(--device-dark-purple);
 }
 
 .compare-info {
-  background-color: #5cba48;
+  background-color: var(--device-light-green);
 }

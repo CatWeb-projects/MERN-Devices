@@ -8,15 +8,15 @@
     height: 48px;
     border-width: 0;
     outline: 0;
-    background: #262626;
+    background-color: var(--device-dark);
     border-radius: 8px;
     white-space: nowrap;
-    color: #fff;
+    color: var(--device-white);
     font-size: 18px;
     padding-left: 20px;
 
     &::placeholder {
-      color: #626a71;
+      color: var( --device-dark-grey);
       font-size: 16px;
     }
   }
@@ -33,10 +33,5 @@
     width: 40px;
     height: 40px;
     cursor: pointer;
-  }
-
-  svg {
-    fill: #a0a0a0;
-    font-size: 18px;
   }
 }

@@ -31,4 +31,9 @@ export class DevicesService {
     const device = await this.devicesModel.findOne({ link });
     return device;
   };
+
+  search = async (query: string) => {
+    const searchDevices = await this.devicesModel.find({ query }, { _id: 0 });
+    return searchDevices;
+  };
 }
