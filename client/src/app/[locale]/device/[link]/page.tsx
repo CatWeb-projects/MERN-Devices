@@ -21,11 +21,11 @@ export async function generateMetadata(
   const device: DevicesData = await fetchDevice(link);
  
   return {
-    title: `${device.name} | TechnoHeart`,
-    description: `Fă comandă de ${device.name} la preț avantajos cu livrare express în Chișinău și Moldova din online magazinul TechnoHeart`,
+    title: `${device?.name} | TechnoHeart`,
+    description: `Fă comandă de ${device?.name} la preț avantajos cu livrare express în Chișinău și Moldova din online magazinul TechnoHeart`,
     openGraph: {
-      images: [checkImageUrl(device.imageUrl)],
-      url: `/${baseUrl}/${locale}/device/${device.link}`
+      images: [checkImageUrl(device?.imageUrl)],
+      url: `/${baseUrl}/${locale}/device/${device?.link}`
     }
   }
 }

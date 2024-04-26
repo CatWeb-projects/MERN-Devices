@@ -36,7 +36,7 @@ export class DevicesController {
     name: 'name',
     required: false,
     type: String,
-    example: 'toothbrush',
+    example: 'iphone',
   })
   @Get('search/:name')
   search(@Param('name') name: string) {

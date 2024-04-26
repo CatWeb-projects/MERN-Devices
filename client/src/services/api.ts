@@ -2,6 +2,16 @@ import axios from "axios";
 
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5000/api';
 
+export const fetchSlides = async () => {
+  const response = await axios.get('/sliders');
+
+  if (response.status !== 200) {
+    throw new Error(`${response.data.message}`);
+  }
+
+  return response.data;
+}
+
 export const fetchDevices = async (category: string) => {
   try {
     const response = await axios.get('/devices', {
@@ -9,7 +19,7 @@ export const fetchDevices = async (category: string) => {
     });
 
     if (response.status !== 200) {
-      throw new Error('Devices not fetched');
+      throw new Error(`${response.data.message}`);
     }
 
     return response.data;
@@ -23,7 +33,7 @@ export const fetchDevice = async (link: string) => {
     const response = await axios.get(`/devices/${link}`);
 
     if (response.status !== 200) {
-      throw new Error('Device not found');
+      throw new Error(`${response.data.message}`);
     }
 
     return response.data;
@@ -37,7 +47,7 @@ export const searchDevices = async (name: string) => {
     const response = await axios.get(`/devices/search/${name}`);
 
     if (response.status !== 200) {
-      throw new Error(`${response.data.error}`);
+      throw new Error(`${response.data.message}`);
     }
 
     return response.data;
@@ -51,7 +61,7 @@ export const fetchCategories = async () => {
     const response = await axios.get('/categories');
 
     if (response.status !== 200) {
-      throw new Error('Categories not fetched');
+      throw new Error(`${response.data.message}`);
     }
 
     return response.data;

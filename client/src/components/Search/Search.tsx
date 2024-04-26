@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Button } from '@chakra-ui/react';
 import { useLocale, useTranslations } from 'next-intl';
 import { useDevices } from '@/store/store';
 import { Icon } from '../Icon/Icon';
@@ -60,9 +59,9 @@ export const Search = () => {
         onChange={onSearchChange}
       />
 
-      <Button>
+      <Link href={`/${locale}/search?q=${searchValue}`} onClick={clearSearchValue}>
         <Icon type="zoom" />
-      </Button>
+      </Link>
       
       {searchValue && searchValue?.length > 0 && (
         <div className="found-devices">

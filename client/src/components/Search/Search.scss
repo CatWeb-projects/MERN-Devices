@@ -21,7 +21,7 @@
     }
   }
 
-  button {
+  > a {
     position: absolute;
     right: 5px;
     top: 50%;
@@ -33,6 +33,10 @@
     width: 40px;
     height: 40px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
   }
 }
 

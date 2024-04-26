@@ -1,10 +1,7 @@
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
-import axios from 'axios';
 import { CategoriesStore, DevicesStore, SlidesStore, ThemeStore } from './store.interface';
-import { fetchCategories, fetchDevices, searchDevices } from '@/services/api';
-
-axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5000/api';
+import { fetchCategories, fetchDevices, fetchSlides, searchDevices } from '@/services/api';
 
 export const useSlider = create<SlidesStore>((set) => ({
   slides: [],
@@ -12,8 +9,8 @@ export const useSlider = create<SlidesStore>((set) => ({
   error: null,
   getSlides: async () => {
     try {
-      const response = await axios.get('/sliders');
-      set({ slides: response.data })
+      const response = await fetchSlides();
+      set({ slides: response })
     } catch (error) {
       const typedError = error as Error;
       set({ error: typedError.message });
@@ -70,8 +67,7 @@ export const useDevices = create<DevicesStore>((set) => ({
     }
   },
   searchDevices: async (query: string) => {
-    // set({ loadingFoundDevices: true });
-    
+    set({ loadingFoundDevices: true });
     try {
       const response = await searchDevices(query)
       set({ foundDevices: response})

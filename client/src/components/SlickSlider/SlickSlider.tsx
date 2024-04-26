@@ -45,7 +45,7 @@ export const SlickSlider = () => {
 
   return (
     <div className="slick-wrapper">
-      {slides.length > 0 && (
+      {slides?.length > 0 && (
         <Slider {...settings}>
           {slides.map((slide) => (
             <Link href={`/${locale}/${slide.link}`} key={slide.id}>
