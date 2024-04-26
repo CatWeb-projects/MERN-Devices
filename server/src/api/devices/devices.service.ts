@@ -9,13 +9,13 @@ export class DevicesService {
     @InjectModel(Devices.name)
     private devicesModel: Model<DevicesDocument>,
   ) {}
-  getAllDevices = async (type: string): Promise<Devices[]> => {
+  getAllDevices = async (category: string): Promise<Devices[]> => {
     const manufacturer = 'Apple';
     const checkDeviceType = () => {
-      if (type === 'apple') {
+      if (category === 'apple') {
         return { manufacturer };
-      } else if (type) {
-        return { type };
+      } else if (category) {
+        return { category };
       } else {
         return {};
       }
@@ -28,12 +28,15 @@ export class DevicesService {
   };
 
   getDevice = async (link: string) => {
-    const device = await this.devicesModel.findOne({ link });
+    const device = await this.devicesModel.findOne({ link }, { _id: 0 });
     return device;
   };
 
-  search = async (query: string) => {
-    const searchDevices = await this.devicesModel.find({ query }, { _id: 0 });
+  search = async (name: string) => {
+    const searchDevices = await this.devicesModel.find(
+      { name: new RegExp(name, 'i') },
+      { _id: 0 },
+    );
     return searchDevices;
   };
 }

@@ -106,9 +106,21 @@ export interface DevicesData {
   refreshRate: string;
 }
 
+export interface FoundDevices {
+  id: number;
+  name: string;
+  link: string;
+  imageUrl: string;
+  price: number;
+}
+
 export interface DevicesStore {
   devices: DevicesData[];
+  foundDevices: FoundDevices[];
   loading: boolean;
+  loadingFoundDevices: boolean;
   error: string | null;
-  getDevices: (type: string) => void;
+  errorFoundDevices: string | null;
+  getDevices: (category: string) => void;
+  searchDevices: (query: string) => void;
 }

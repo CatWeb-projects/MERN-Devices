@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { CategoriesData } from "@/store/store.interface";
-import { baseUrl } from "@/helpers/baseUrl";
+import { apiBaseUrl } from "@/helpers/baseUrl";
 
 interface CategoriesItemProps {
   category: CategoriesData;
@@ -32,7 +32,7 @@ export const CategoriesItem = ({ category }: CategoriesItemProps) => {
       >
         <Image
           priority
-          src={`${baseUrl}${category?.imgUrl}`}
+          src={`${apiBaseUrl}${category?.imgUrl}`}
           alt={category.name}
           width={104}
           height={104}

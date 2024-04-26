@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
+import { useLocale } from 'next-intl';
 import { Categories, DeviceInfo } from "@/components";
 import { fetchCategories, fetchDevice } from "@/services/api";
 import { CategoriesData, DevicesData } from "@/store/store.interface";
-import { checkImageUrl } from "@/helpers";
+import { baseUrl, checkImageUrl } from "@/helpers";
+
 
 type Props = {
   params: { link: string }
@@ -13,6 +15,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   // read route params
   const link = params.link
+  const locale = useLocale();
  
   // fetch data
   const device: DevicesData = await fetchDevice(link);
@@ -22,7 +25,7 @@ export async function generateMetadata(
     description: `Fă comandă de ${device.name} la preț avantajos cu livrare express în Chișinău și Moldova din online magazinul TechnoHeart`,
     openGraph: {
       images: [checkImageUrl(device.imageUrl)],
-      url: "https://localhost:3000/"
+      url: `/${baseUrl}/${locale}/device/${device.link}`
     }
   }
 }

@@ -35,3 +35,41 @@
     cursor: pointer;
   }
 }
+
+.found-devices {
+  position: absolute;
+  top: 48px;
+  width: 100%;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+  z-index: 100;
+  padding: 8px 16px;
+  border-radius: 0 0 8px 8px;
+  color: #fff;
+
+  > h3 {
+    text-transform: capitalize;
+    margin-bottom: 8px;
+  }
+
+  &--item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  
+    img {
+      width: auto;
+      max-width: 50px;
+      max-height: 50px;
+      background: #fff;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+  }
+
+  &--product {
+    font-size: 20px;
+    margin: 0 8px;
+  }
+}
