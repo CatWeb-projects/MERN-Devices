@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@chakra-ui/react";
 import { DevicesData } from "@/store/store.interface";
-import { PRODUCT_PROPERTY } from "@/constants/devices-specs";
+import { PRODUCT_PROPERTY } from "@/constants/devicesSpecs";
 import { checkImageUrl } from "@/helpers";
 import { Icon } from "../Icon/Icon";
 

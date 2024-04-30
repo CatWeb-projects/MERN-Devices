@@ -1,0 +1,48 @@
+.promotions {
+  max-width: 1400px;
+  margin: 0 auto;
+
+  &--wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  &--bg {
+    width: 100%;
+    height: 252px;
+    border-radius: 16px;
+    padding: 24px;
+    background-size: cover;
+    color: var(--device-white);
+
+    h4 {
+      padding-bottom: 8px;
+    }
+
+    span {
+      font-size: 20px;
+    }
+  }
+
+  &--link {
+    display: flex;
+    justify-content: center;
+
+    a {
+      background: var(--device-black);
+      color: var(--device-white);
+      border-radius: 8px;
+      padding: 16px 102px;
+      font-size: 20px;
+      font-weight: 600;
+      transition: all 0.3s;
+
+      &:hover {
+        box-shadow: 0 12px 8px -8px var(--device-black);
+      }
+    }
+  }
+}

@@ -1,6 +1,16 @@
 {
+  "General": {
+    "tv": "Discounts on TVs",
+    "tv_discounts": "Best Money Save",
+    "laptops_discounts": "Save up to 800$",
+    "laptops_discounts_title": "Discounts on Laptops",
+    "promotions_link": "All Promotions",
+    "offer_day_title": "Offer of the day",
+    "offer_day": "Every week brings you super offers on the products you want. See what we have prepared for you - the surprises are endless. Click here.",
+    "trade_in": "A unique service for replacing old devices with newer ones."
+  },
   "Categories": {
-    "phones": "Phones and Tablets",
+    "smartphones": "Phones and Tablets",
     "laptops": "Laptops",
     "gadgets": "Gadgets",
     "apple": "Apple",

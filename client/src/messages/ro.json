@@ -1,6 +1,16 @@
 {
+  "General": {
+    "tv": "Reduceri la Televizoare",
+    "tv_discounts": "Salveaza Bugetul",
+    "laptops_discounts": "Reduceri până la 14000 lei",
+    "laptops_discounts_title": "Reduceri la Laptopuri",
+    "promotions_link": "Toate Promoțiile",
+    "offer_day_title": "Oferta zilei",
+    "offer_day": "Fiecare săptămână îți aduce suuuper oferte la produsele pe care le dorești. Vezi ce ți-am pregătit – surprizele nu au sfârșit. Click aici.",
+    "trade_in": "Un serviciu unic pentru înlocuirea dispozitivelor vechi cu altele mai noi."
+  },
   "Categories": {
-    "phones": "Telefoane și Tablete",
+    "smartphones": "Telefoane și Tablete",
     "laptops": "Laptop-uri",
     "gadgets": "Gadget-uri",
     "apple": "Apple",
