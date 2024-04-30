@@ -29,7 +29,7 @@
     left: 0;
     width: 100%;
     z-index: 13;
-    color: #101010;
+    color: var(--device-black);
     background-color: rgba(221, 221, 221, 0.6);
     backdrop-filter: blur(16px);
     border-radius: 16px;
@@ -39,7 +39,7 @@
   a:last-of-type {
     bottom: 24px;
     left: 24px;
-    background-color: #101010;
+    background-color: var(--device-black);
     border-radius: 8px;
     line-height: 1;
     padding: 11px 0;
@@ -51,7 +51,7 @@
     transition: all 0.3s ease-in;
 
     &:hover {
-      box-shadow: 0 12px 8px -8px #00000080;
+      box-shadow: 0 12px 8px -8px var(--device-black);
       color: #5cba48;
     }
   }
