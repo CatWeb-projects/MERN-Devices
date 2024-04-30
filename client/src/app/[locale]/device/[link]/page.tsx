@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { useLocale } from 'next-intl';
 import { Categories, DeviceInfo } from "@/components";
 import { fetchCategories, fetchDevice } from "@/services/api";
-import { CategoriesData, DevicesData } from "@/store/store.interface";
+import { CategoriesProps, DevicesProps } from "@/store/store.interface";
 import { baseUrl, checkImageUrl } from "@/helpers";
 
 
@@ -18,7 +18,7 @@ export async function generateMetadata(
   const locale = useLocale();
  
   // fetch data
-  const device: DevicesData = await fetchDevice(link);
+  const device: DevicesProps = await fetchDevice(link);
  
   return {
     title: `${device?.name} | TechnoHeart`,
@@ -31,8 +31,8 @@ export async function generateMetadata(
 }
 
 const DeviceInfoPage = async ({ params: { link } }: { params: { link: string }}) => {
-  const categories: CategoriesData[] = await fetchCategories();
-  const device: DevicesData = await fetchDevice(link);
+  const categories: CategoriesProps[] = await fetchCategories();
+  const device: DevicesProps = await fetchDevice(link);
 
   return (
     <div className="device-info-page">

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Categories, Devices } from "@/components";
 import { fetchCategories, fetchDevices } from "@/services/api";
-import { CategoriesData, DevicesData } from "@/store/store.interface";
+import { CategoriesProps, DevicesProps } from "@/store/store.interface";
 
 export const metadata: Metadata = {
   title: "TechnoHeart - Devices",
@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 };
 
 const DevicesPage = async ({ params: { link } }: { params: { link: string }}) => {
-  const devices: DevicesData[] = await fetchDevices(link);
-  const categories: CategoriesData[] = await fetchCategories();
+  const devices: DevicesProps[] = await fetchDevices(link);
+  const categories: CategoriesProps[] = await fetchCategories();
   
   // const [
   //   devices,

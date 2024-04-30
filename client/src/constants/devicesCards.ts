@@ -15,11 +15,11 @@ export const devicesCards = [
     name: 'gadgets',
     link: '/gadgets',
     imgUrl:
-      'https://darwin.md/images/category/gadget-m-201016105215-darwin.webp'
+      '/images/gadget_new.webp'
   },
-  // {
-  //   name: 'audio',
-  //   link: '/audio',
-  //   imgUrl: '/images/audio-r.png'
-  // }
+  {
+    name: 'audio',
+    link: '/audio',
+    imgUrl: '/images/audio-r.png'
+  }
 ];

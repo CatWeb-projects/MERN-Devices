@@ -10,7 +10,7 @@ export class CategoriesService {
     private categoriesModel: Model<CategoriesDocument>,
   ) {}
 
-  getAll = async (): Promise<Categories[]> => {
+  getAllCategories = async (): Promise<Categories[]> => {
     const categories = (
       await this.categoriesModel.find({}, { _id: 0 }).exec()
     ).sort((a, b) => a.id - b.id);

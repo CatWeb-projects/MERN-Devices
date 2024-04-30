@@ -1,7 +1,7 @@
 import { Controller, Get, HttpCode } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CategoriesService } from './categories.service';
-import { addCategoriesResponse } from './api-response';
+import { getCategoriesResponse } from './api-response';
 
 @ApiTags('Categories')
 @Controller('/categories')
@@ -9,9 +9,9 @@ export class CategoriesController {
   constructor(private categoriesService: CategoriesService) {}
 
   @HttpCode(200)
-  @ApiResponse(addCategoriesResponse)
+  @ApiResponse(getCategoriesResponse)
   @Get()
-  getAll() {
-    return this.categoriesService.getAll();
+  getAllCategories() {
+    return this.categoriesService.getAllCategories();
   }
 }

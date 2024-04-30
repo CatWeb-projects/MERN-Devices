@@ -69,3 +69,16 @@ export const fetchCategories = async () => {
     console.error(error);
   }
 }
+
+export const fetchCollection = async () => {
+  try {
+    const response = await axios.get('/collection');
+
+    if (response.status !== 200) {
+      throw new Error(`${response.data.message}`);
+    }
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}

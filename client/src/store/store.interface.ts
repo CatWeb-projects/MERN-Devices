@@ -1,4 +1,4 @@
-export interface SlidesData {
+export interface SlidesProps {
   id: number,
   imgUrl: string;
   link: string;
@@ -6,13 +6,13 @@ export interface SlidesData {
 }
 
 export interface SlidesStore {
-  slides: SlidesData[];
+  slides: SlidesProps[];
   loading: boolean;
   error: string | null;
   getSlides: () => void;
 }
 
-export interface CategoriesData {
+export interface CategoriesProps {
   id: number;
   link: string;
   name: string;
@@ -22,7 +22,7 @@ export interface CategoriesData {
 }
 
 export interface CategoriesStore {
-  categories: CategoriesData[];
+  categories: CategoriesProps[];
   loading: boolean;
   error: string | null;
   getCategories: () => void;
@@ -33,7 +33,7 @@ export interface ThemeStore {
   toggleTheme: () => void;
 }
 
-export interface DevicesData {
+export interface DevicesProps {
   [key: string]: any;
   id: number;
   name: string;
@@ -115,7 +115,7 @@ export interface FoundDevices {
 }
 
 export interface DevicesStore {
-  devices: DevicesData[];
+  devices: DevicesProps[];
   foundDevices: FoundDevices[];
   loading: boolean;
   loadingFoundDevices: boolean;
@@ -123,4 +123,12 @@ export interface DevicesStore {
   errorFoundDevices: string | null;
   getDevices: (category: string) => void;
   searchDevices: (query: string) => void;
+}
+
+export interface CollectionProps {
+   id: number;
+  name: string;
+  translate: string;
+  link: string;
+  imgUrl: string;
 }
