@@ -1,6 +1,33 @@
 {
+  "General": {
+    "tv": "Reduceri la Televizoare",
+    "tv_discounts": "Salveaza Bugetul",
+    "laptops_discounts": "Reduceri până la 14000 lei",
+    "laptops_discounts_title": "Reduceri la Laptopuri",
+    "promotions_link": "Toate Promoțiile",
+    "offer_day_title": "Oferta zilei",
+    "offer_day": "Fiecare săptămână îți aduce suuuper oferte la produsele pe care le dorești. Vezi ce ți-am pregătit – surprizele nu au sfârșit. Click aici.",
+    "trade_in": "Un serviciu unic pentru înlocuirea dispozitivelor vechi cu altele mai noi.",
+    "musical_instruments": "Intrumente Muzicale",
+    "travels": "Сălătorii",
+    "children": "Copii",
+    "gaming": "Jocuri",
+    "sport": "Sport",
+    "auto": "Auto",
+    "transport": "Transport",
+    "appliances": "Elelctrocasnice",
+    "details": "Detalii",
+    "guarantee": "Primești până la 2 ani de garanție.",
+    "free": "Lucrul meșterului e gratuit, piesele sunt gratuite.",
+    "delivery": "Livrare gratuită în Chișinău în 3 ore.",
+    "time": "Timpul tău e de aur. Îți livrăm comanda oriunde în raza Chișinăului, de la 3 ore.",
+    "security": "Protejarea produsului de situații neprevăzute.",
+    "repair": "Conform Digital Trends, 50 % din toți cei care dețin un smartphone s-au pomenit cu un ecran spart. Și tu te poți trezi cu telefonul în cădere liberă sau înecat.",
+    "credit_approval": "92% din cereri de credit aprobate.",
+    "approval": "Aprobare în doar 15 minute. Obține credite de la 6 până la 60 de luni."
+  },
   "Categories": {
-    "phones": "Telefoane și Tablete",
+    "smartphones": "Telefoane și Tablete",
     "laptops": "Laptop-uri",
     "gadgets": "Gadget-uri",
     "apple": "Apple",
@@ -88,12 +115,16 @@
     "refreshRate": "Frecvenţă",
     "electricRange": "Autonomia de parcurgere",
     "aluminium": "Aluminiu",
+    "plastic": "Plastic",
     "steel": "Oțel",
     "kilogram": "kg",
     "gram": "g",
     "true": "Da",
     "false": "Nu",
     "hours": "ore",
-    "days": "zile"
+    "days": "zile",
+    "search": "Caută în peste 50 000 de produse",
+    "lei": "lei",
+    "products": "Produse"
   }
 }

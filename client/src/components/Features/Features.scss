@@ -1,0 +1,80 @@
+.features {
+  max-width: 1400px;
+  margin: 16px auto 0;
+  color: var(--device-white);
+  background-color: var(--device-black);
+  border-radius: 16px;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+
+  &--item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-right: 2px solid var(--device-dark);
+    cursor: pointer;
+
+    &:hover {
+      .support--first {
+        background-image: url('/images/check-hover.png');
+      }
+
+      .support--second {
+        background-image: url('/images/delivery-hover.png');
+      }
+
+      .support--third {
+        background-image: url('/images/security-hover.png');
+      }
+
+      .support--fourth {
+        background-image: url('/images/cash-hover.png');
+      }
+    }
+  }
+
+  &--item:last-child {
+    border: none;
+  }
+}
+
+.support {
+  height: 46px;
+  width: 46px;
+  background-size: cover;
+  transition: all 0.3s ease-in;
+}
+
+.support,
+.title,
+.info {
+  margin-bottom: 16px;
+}
+
+.title {
+  max-width: 80%;
+  font-size: 20px;
+}
+
+.info {
+  font-size: 14px;
+}
+
+.support--first {
+  background-image: url('/images/check.png');
+}
+
+.support--second {
+  background-image: url('/images/delivery.png');
+}
+
+.support--third {
+  background-image: url('/images/security.png');
+}
+
+.support--fourth {
+  background-image: url('/images/cash.png');
+}

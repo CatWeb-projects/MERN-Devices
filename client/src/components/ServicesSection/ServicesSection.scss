@@ -1,0 +1,54 @@
+.service-section {
+  max-width: 1400px;
+  margin: 16px auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-gap: 16px;
+}
+
+.service {
+  width: 100%;
+  background-color: var(--device-black);
+  border-radius: 16px;
+  padding: 24px 40px;
+  transition: all 0.3s;
+
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s;
+    height: 100%;
+
+    &:hover {
+      color: var(--device-light-green);
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 12px 8px -8px var(--device-black);
+
+    svg {
+      fill: var(--device-light-green);
+    }
+  }
+
+  svg {
+    font-size: 30px;
+  }
+
+  &--card {
+    max-width: 380px;
+
+    h3 {
+      margin-bottom: 8px;
+      color: var(--device-white);
+      font-weight: 700;
+    }
+  
+    span {
+      color: var(--device-medium-grey);
+    }
+  }
+}

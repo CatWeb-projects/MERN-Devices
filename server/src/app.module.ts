@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { join } from 'path';
 import { CategoriesModule, DevicesModule, SlidersModule } from './api';
+import { CollectionModule } from './api/collection/collection.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { CategoriesModule, DevicesModule, SlidersModule } from './api';
     CategoriesModule,
     SlidersModule,
     DevicesModule,
+    CollectionModule
   ],
   controllers: [],
   providers: [],

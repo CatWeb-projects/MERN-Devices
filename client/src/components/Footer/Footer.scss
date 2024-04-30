@@ -7,18 +7,14 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 16px;
-  border-top: 1px solid #333333;
+  border-top: 1px solid var(--device-black-grey);
 
   > div {
     display: flex;
     flex-direction: column;
-    color: #a0a0a0;
+    color: var(--device-medium-grey);
   }
-
-  a {
-    color: #a0a0a0;
-  }
-
+  
   a,
   span {
     font-size: 18px;
@@ -34,8 +30,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px 0;
-  border-top: 1px solid #333333;
-  color: #a0a0a0;
+  border-top: 1px solid var(--device-black-grey);
+  color: var(--device-medium-grey);
 
   &--logo {
     svg {
@@ -61,22 +57,17 @@
 
       &:hover {
         &:nth-child(1) svg {
-          fill: #385898;
+          fill: var(--device-blue);
         }
 
         &:nth-child(2) svg {
-          fill: #ff0000;
+          fill: var(--device-red);
         }
 
         &:nth-child(3) svg {
-          fill: #d6249f;
+          fill: var(--device-rose);
         }
       }
-    }
-
-    svg {
-      font-size: 30px;
-      fill: #a0a0a0;
     }
   }
 }

@@ -11,3 +11,8 @@ export { Devices } from './Devices/Devices';
 export { DeviceInfo } from './Devices/DeviceInfo';
 export { Button } from './Button/Button';
 export { Footer } from './Footer/Footer';
+export { Promotions } from './Promotions/Promotions';
+export { ServicesSection } from './ServicesSection/ServicesSection';
+export { RecommendedDevices } from './Devices/RecommendedDevices';
+export { Collection } from './Collection/Collection';
+export { Features } from './Features/Features';

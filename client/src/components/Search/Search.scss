@@ -8,35 +8,72 @@
     height: 48px;
     border-width: 0;
     outline: 0;
-    background: #262626;
+    background-color: var(--device-dark);
     border-radius: 8px;
     white-space: nowrap;
-    color: #fff;
+    color: var(--device-white);
     font-size: 18px;
     padding-left: 20px;
 
     &::placeholder {
-      color: #626a71;
+      color: var( --device-dark-grey);
       font-size: 16px;
     }
   }
 
-  button {
+  > a {
     position: absolute;
     right: 5px;
     top: 50%;
     transform: translate(0, -50%);
-    background: #101010;
+    background: var(--device-black);
     border-radius: 8px;
     border-width: 0;
     outline: 0;
     width: 40px;
     height: 40px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+}
+
+.found-devices {
+  position: absolute;
+  top: 48px;
+  width: 100%;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+  z-index: 100;
+  padding: 8px 16px;
+  border-radius: 0 0 8px 8px;
+  color: var(--device-white);
+
+  > h3 {
+    text-transform: capitalize;
+    margin-bottom: 8px;
   }
 
-  svg {
-    fill: #a0a0a0;
-    font-size: 18px;
+  &--item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  
+    img {
+      width: auto;
+      max-width: 50px;
+      max-height: 50px;
+      background: var(--device-white);
+      overflow: hidden;
+      border-radius: 8px;
+    }
+  }
+
+  &--product {
+    font-size: 20px;
+    margin: 0 8px;
   }
 }

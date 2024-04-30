@@ -1,7 +1,7 @@
 import { ApiResponseOptions } from '@nestjs/swagger';
 import { baseUrl } from '../../../helpers/baseUrl';
 
-export const addCategoriesResponse: ApiResponseOptions = {
+export const getCategoriesResponse: ApiResponseOptions = {
   schema: {
     example: {
       categories: [

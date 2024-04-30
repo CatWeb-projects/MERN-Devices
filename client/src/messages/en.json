@@ -1,6 +1,33 @@
 {
+  "General": {
+    "tv": "Discounts on TVs",
+    "tv_discounts": "Best Money Save",
+    "laptops_discounts": "Save up to 800$",
+    "laptops_discounts_title": "Discounts on Laptops",
+    "promotions_link": "All Promotions",
+    "offer_day_title": "Offer of the day",
+    "offer_day": "Every week brings you super offers on the products you want. See what we have prepared for you - the surprises are endless. Click here.",
+    "trade_in": "A unique service for replacing old devices with newer ones.",
+    "musical_instruments": "Musical Instruments",
+    "travels": "Travels",
+    "children": "Children",
+    "gaming": "Gaming",
+    "sport": "Sport",
+    "auto": "Auto",
+    "transport": "Transport",
+    "appliances": "Appliances",
+    "details": "Details",
+    "guarantee": "Get up to 2 years warranty.",
+    "free": "The work is free, the pieces are free.",
+    "delivery": "Free delivery in Chisinau in 3 hours.",
+    "time": "Your time is golden. We deliver your order anywhere in Chisinau, from 3 hours.",
+    "security": "Protect the product from unexpected circumstances.",
+    "repair": "According to Digital Trends, 50% of all smartphone owners found themselves with a broken screen. And you can wake up with your phone dropping or drowning.",
+    "credit_approval": "92% of approved credit applications.",
+    "approval": "Approval in just 15 minutes. Get loans from 6 to 60 months."
+  },
   "Categories": {
-    "phones": "Phones and Tablets",
+    "smartphones": "Phones and Tablets",
     "laptops": "Laptops",
     "gadgets": "Gadgets",
     "apple": "Apple",
@@ -88,12 +115,16 @@
     "refreshRate": "Refresh rate",
     "electricRange": "Electric Range",
     "aluminium": "Aluminium",
+    "plastic": "Plastic",
     "steel": "Steel",
     "kilogram": "kg",
     "gram": "g",
     "true": "Yes",
     "false": "No",
     "hours": "hours",
-    "days": "days"
+    "days": "days",
+    "search": "Find over 50 000 products",
+    "lei": "lei",
+    "products": "Products"
   }
 }

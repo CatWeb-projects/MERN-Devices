@@ -8,7 +8,7 @@ import { useSlider } from "@/store/store";
 import { Loading } from "../Loading/Loading";
 import { ShowErrorMessage } from "../ShowErrorMessage/ShowErrorMessage";
 import { NoData } from "../NoData/NoData";
-import { baseUrl } from "@/helpers/baseUrl";
+import { apiBaseUrl } from "@/helpers/baseUrl";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -45,13 +45,13 @@ export const SlickSlider = () => {
 
   return (
     <div className="slick-wrapper">
-      {slides.length > 0 && (
+      {slides?.length > 0 && (
         <Slider {...settings}>
           {slides.map((slide) => (
             <Link href={`/${locale}/${slide.link}`} key={slide.id}>
               <img
                 data-lazy={slide.imgUrl}
-                src={`${baseUrl}/${slide.imgUrl}`}
+                src={`${apiBaseUrl}/${slide.imgUrl}`}
                 alt={slide.altName}
               />
             </Link>

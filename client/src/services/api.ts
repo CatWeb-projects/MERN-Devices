@@ -1,15 +1,25 @@
 import axios from "axios";
 
-axios.defaults.baseURL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:5000/api';
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5000/api';
 
-export const fetchDevices = async (type: string) => {
+export const fetchSlides = async () => {
+  const response = await axios.get('/sliders');
+
+  if (response.status !== 200) {
+    throw new Error(`${response.data.message}`);
+  }
+
+  return response.data;
+}
+
+export const fetchDevices = async (category: string) => {
   try {
     const response = await axios.get('/devices', {
-      ...(type ? { params: { type } } : {})
+      ...(category ? { params: {category } } : {})
     });
 
     if (response.status !== 200) {
-      throw new Error('Devices not fetched');
+      throw new Error(`${response.data.message}`);
     }
 
     return response.data;
@@ -23,7 +33,21 @@ export const fetchDevice = async (link: string) => {
     const response = await axios.get(`/devices/${link}`);
 
     if (response.status !== 200) {
-      throw new Error('Devices not fetched');
+      throw new Error(`${response.data.message}`);
+    }
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export const searchDevices = async (name: string) => {
+  try {
+    const response = await axios.get(`/devices/search/${name}`);
+
+    if (response.status !== 200) {
+      throw new Error(`${response.data.message}`);
     }
 
     return response.data;
@@ -37,9 +61,22 @@ export const fetchCategories = async () => {
     const response = await axios.get('/categories');
 
     if (response.status !== 200) {
-      throw new Error('Categories not fetched');
+      throw new Error(`${response.data.message}`);
     }
 
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export const fetchCollection = async () => {
+  try {
+    const response = await axios.get('/collection');
+
+    if (response.status !== 200) {
+      throw new Error(`${response.data.message}`);
+    }
     return response.data;
   } catch (error) {
     console.error(error);

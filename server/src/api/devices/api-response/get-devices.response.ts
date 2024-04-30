@@ -1,6 +1,6 @@
 import { ApiResponseOptions } from '@nestjs/swagger';
 
-export const addDevicesResponse: ApiResponseOptions = {
+export const getDevicesResponse: ApiResponseOptions = {
   schema: {
     example: {
       devices: [
