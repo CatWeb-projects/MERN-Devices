@@ -11,7 +11,7 @@ export class SlidersController {
   @HttpCode(200)
   @ApiResponse(addSlidersResponse)
   @Get()
-  getAll() {
-    return this.slidersService.getAll();
+  getAllSliders() {
+    return this.slidersService.getAllSliders();
   }
 }
