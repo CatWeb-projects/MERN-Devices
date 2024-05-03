@@ -7,7 +7,6 @@ import { Topbar } from '../Topbar/Topbar';
 
 import './Header.scss';
 
-
 export const Header = () => {
   const locale = useLocale();
   const t = useTranslations('Header');
@@ -47,13 +46,13 @@ export const Header = () => {
               <Link href={`/${locale}/cart`}>
                 <Icon type="shopping-cart" />
               </Link>
-           </div>
+            </div>
 
-           <div className="header--user">
-              <Button size="full-width">
+            <div className="header--user">
+              <Link href={`/${locale}/login`}>
                 <Icon type="user" />
                 <span>{t('account')}</span>
-              </Button>
+              </Link>
             </div>
           </div>
         </div>

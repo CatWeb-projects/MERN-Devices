@@ -8,21 +8,7 @@ import {
   Matches,
 } from 'class-validator';
 
-export class CreateUserDto {
-  @ApiProperty({
-    example: 'Theodore',
-  })
-  @IsString()
-  @IsNotEmpty()
-  readonly first_name: string;
-
-  @ApiProperty({
-    example: 'Goldman',
-  })
-  @IsString()
-  @IsNotEmpty()
-  readonly last_name: string;
-
+export class AuthUserDto {
   @ApiProperty({
     example: 'example@gmail.com',
   })
@@ -45,19 +31,4 @@ export class CreateUserDto {
   //   minUppercase: 1
   // })
   readonly password: string;
-
-  @ApiProperty({
-    example: 'user',
-  })
-  @IsString()
-  @IsNotEmpty()
-  readonly role: string;
-
-  @IsString()
-  @IsNotEmpty()
-  readonly created_at: string;
-
-  @IsString()
-  @IsNotEmpty()
-  readonly token: string;
 }

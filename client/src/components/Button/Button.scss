@@ -1,7 +1,7 @@
 .button {
   border-radius: 4px;
-  background-color: var(--opt-orange);
-  color: var(--opt-blue);
+  background-color: var(--device-orange);
+  color: var(--device-blue);
   border: 1px solid transparent;
   outline: none;
   margin: 0 8px;
@@ -37,12 +37,12 @@
   }
 
   &-secondary {
-    border: 1px solid var(--opt-blue);
+    border: 1px solid var(--device-blue);
     background-color: transparent;
   }
 
   &-info {
-    background: var(--opt-blue);
+    background: var(--device-blue);
   }
 
   &-onboard {

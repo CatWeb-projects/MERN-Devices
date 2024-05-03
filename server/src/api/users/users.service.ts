@@ -1,9 +1,9 @@
-import { Injectable, UnprocessableEntityException } from "@nestjs/common";
+import { BadRequestException, ForbiddenException, Injectable, UnprocessableEntityException } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { JwtService } from "@nestjs/jwt";
 import { Model } from "mongoose";
 import bcrypt from 'bcrypt'
-import { CreateUserDto } from "./dto";
+import { AuthUserDto, CreateUserDto } from "./dto";
 import { Users, UsersDocument } from "./schemas/users.schema";
 
 const errorMessage = {
@@ -11,6 +11,10 @@ const errorMessage = {
   minimumLength: 'minimum length is 6 characters',
   missingPassword: 'password can not be null',
   emailUnique: 'email must be unique for user',
+  invalidCredentials: 'Invalid username or password',
+  forbidden: 'forbidden',
+  invalidEmail: 'User with this email not found',
+  invalidPassword: 'Password does not match'
 }
 
 @Injectable()
@@ -21,8 +25,19 @@ export class UsersService {
     private jwtService: JwtService
   ) {}
 
+  getAllUsers = async () => {
+    const users = await this.users.find();
+    return users;
+  }
+
+  getUserByEmail = async (email: string) => {
+    const user = await this.users.findOne({ email });
+    return user;
+  }
+
+  //Register User
   createUser = async (createUserDto: CreateUserDto) => {
-    const { first_name, last_name, email, encrypted_password, role } = createUserDto;
+    const { first_name, last_name, email, password, role } = createUserDto;
     if (email) {
       const emailUser = await this.users.findOne({ email });
 
@@ -31,7 +46,7 @@ export class UsersService {
       }
     }
 
-    const hashedPassword = await bcrypt.hash(encrypted_password, 10);
+    const hashedPassword = await bcrypt.hash(password, 10);
     const token = await this.jwtService.signAsync({ id: email }, {
       expiresIn: '1h',
       // secret: this._configService.get('JWT_SECRET'),
@@ -41,11 +56,34 @@ export class UsersService {
       first_name,
       last_name,
       email,
-      encrypted_password: hashedPassword,
+      password: hashedPassword,
       role,
       token
     });
     
+    return user;
+  }
+
+   //Login User
+   login = async (authUserDto: AuthUserDto) => {
+    const { email, password } = authUserDto;
+    const user = await this.users.findOne({ email });
+    if (!user) {
+      throw new BadRequestException(errorMessage.invalidEmail);
+    }
+
+    const checkPassMatch = await bcrypt.compare(password, user.password);
+    if (!checkPassMatch) {
+      throw new ForbiddenException(errorMessage.invalidPassword);
+    }
+
+    await this.jwtService.verify(user.token);
+    return user;
+  }
+
+  //Delete User
+  deleteUser = async (id: string) => {
+    const user = await this.users.findByIdAndDelete(id);
     return user;
   }
 }
