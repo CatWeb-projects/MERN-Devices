@@ -1,15 +1,17 @@
 .button {
-  border-radius: 4px;
+  border-radius: 8px;
   background-color: var(--device-orange);
   color: var(--device-blue);
   border: 1px solid transparent;
   outline: none;
   margin: 0 8px;
-  font-weight: 500;
+  font-weight: 700;
   white-space: nowrap;
+  cursor: pointer;
 
-  &:disabled {
+  &.disabled {
     opacity: 0.5;
+    cursor: default;
   }
 
   &:active {
@@ -62,6 +64,15 @@
   &-auto {
     width: 100%;
     padding: 8px;
+  }
+
+  &-login {
+    width: 100%;
+    padding: 15px 0;
+    margin: 0;
+    background-color: var(--device-light-orange);
+    height: 54px;
+    font-size: 18px;
   }
 }
 

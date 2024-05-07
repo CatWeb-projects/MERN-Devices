@@ -17,3 +17,4 @@ export { RecommendedDevices } from './Devices/RecommendedDevices';
 export { Collection } from './Collection/Collection';
 export { Features } from './Features/Features';
 export { LoginForm } from './LoginForm/LoginForm';
+export { Separator } from './Separator/Separator';
