@@ -52,7 +52,7 @@ header {
 
       a,
       button,
-      .locale-language {
+      .locale-language, .logged-in {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -84,8 +84,7 @@ header {
     margin-left: 38px;
   }
 
-  &--languages,
-  &--user > button {
+  &--user > a {
     background-color: var(--device-black-grey);
     border-radius: 8px;
     transition: all 0.3s;
@@ -99,6 +98,7 @@ header {
     display: flex;
     align-items: center;
     margin-right: 16px;
+    position: relative;
 
     span {
       margin-left: 8px;
@@ -112,4 +112,35 @@ header {
       }
     }
   }
+}
+
+.logged-in {
+  background-color: var(--device-blue);
+  cursor: pointer;
+  border-radius: 8px;
+
+  span {
+    color: var(--device-dark-orange);
+    font-weight: 800;
+  }
+
+  svg {
+    fill: var(--device-dark-orange);
+  }
+}
+
+.profile-menu {
+  position: absolute;
+  top: calc(100% + 11px);
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(16px);
+  background-color: rgba(32, 32, 32, .52);
+  padding: 8px 0;
+  color: var(--device-dark-orange);
+  font-weight: 700;
+  border-radius: 0 0 8px 8px;
 }

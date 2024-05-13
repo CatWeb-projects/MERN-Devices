@@ -10,7 +10,7 @@ interface Props {
   type?: 'primary' | 'invert' | 'transparent' | 'icon' | 'black';
   disabled?: boolean;
   generalType?: 'button' | 'submit';
-  size?: 'small' | 'medium' | 'large' | 'full-width';
+  size?: 'small' | 'medium' | 'large' | 'auto' | 'login';
 }
 
 export const Button = ({

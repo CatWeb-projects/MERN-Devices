@@ -10,7 +10,7 @@ export class SlidersService {
     private slidersModel: Model<SlidersDocument>,
   ) {}
 
-  getAll = async (): Promise<Sliders[]> => {
+  getAllSliders = async (): Promise<Sliders[]> => {
     const sliders = (await this.slidersModel.find({}, { _id: 0 }).exec()).sort(
       (a, b) => a.id - b.id,
     );
