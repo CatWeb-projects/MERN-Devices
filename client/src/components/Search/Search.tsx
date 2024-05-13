@@ -37,8 +37,10 @@ export const Search = () => {
 
   useEffect(() => {
     const debounce = setTimeout(() => {
-      searchDevices(searchValue);
-    }, 1000)
+      if (searchValue) {
+        searchDevices(searchValue);
+      }
+    }, 1000);
     
     return () => {
       clearInterval(debounce);

@@ -1,7 +1,8 @@
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
-import { CategoriesStore, DevicesStore, SlidesStore, ThemeStore } from './store.interface';
-import { fetchCategories, fetchDevices, fetchSlides, searchDevices } from '@/services/api';
+import { CategoriesStore, DevicesStore, SlidesStore, ThemeStore, UserStore } from './store.interface';
+import { fetchCategories, fetchDevices, fetchSlides, searchDevices, userLogin, validateSession } from '@/services/api';
+import { removeFromStorage } from '@/services/auth-token.service';
 
 export const useSlider = create<SlidesStore>((set) => ({
   slides: [],
@@ -79,3 +80,35 @@ export const useDevices = create<DevicesStore>((set) => ({
     }
   },
 }));
+
+export const useUser = create<UserStore>((set) => ({
+  profile: null,
+  loading: true,
+  error: null,
+  login: async (email: string, password: string) => {
+    try {
+      const response = await userLogin(email, password);
+      set({ profile: response });
+    } catch (error) {
+      const typedError = error as Error;
+      set({ error: typedError.message });
+    } finally {
+      set({ loading: false });
+    }
+  },
+  validateSession: async (refreshToken: string) => {
+    try {
+      const response = await validateSession(refreshToken);
+      set({ profile: { user: response } });
+    } catch (error) {
+      const typedError = error as Error;
+      set({ error: typedError.message });
+    } finally {
+      set({ loading: false });
+    }
+  },
+  userLogOut: async () => {
+    set({ profile: null });
+    removeFromStorage();
+  }
+}))

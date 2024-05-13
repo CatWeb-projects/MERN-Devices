@@ -24,9 +24,6 @@ export class Users {
 
   @Prop()
   created_at: string;
-
-  @Prop()
-  token: string;
 }
 
 export const UsersSchema = SchemaFactory.createForClass(Users);

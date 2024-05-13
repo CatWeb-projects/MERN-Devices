@@ -3,7 +3,7 @@ import { InjectModel } from "@nestjs/mongoose";
 import { JwtService } from "@nestjs/jwt";
 import { Model } from "mongoose";
 import bcrypt from 'bcrypt'
-import { AuthUserDto, CreateUserDto } from "./dto";
+import { AuthUserDto, UserDto } from "./dto";
 import { Users, UsersDocument } from "./schemas/users.schema";
 
 const errorMessage = {
@@ -36,8 +36,8 @@ export class UsersService {
   }
 
   //Register User
-  createUser = async (createUserDto: CreateUserDto) => {
-    const { first_name, last_name, email, password, role } = createUserDto;
+  createUser = async (userDto: UserDto) => {
+    const { first_name, last_name, email, password, role } = userDto;
     if (email) {
       const emailUser = await this.users.findOne({ email });
 
@@ -77,13 +77,47 @@ export class UsersService {
       throw new ForbiddenException(errorMessage.invalidPassword);
     }
 
-    await this.jwtService.verify(user.token);
-    return user;
+    const tokens = await this.issueTokens(user.id)
+    user.password = undefined;
+    return {
+			user,
+			...tokens
+		};
   }
+
+  async validateSession(tokenData: { refreshToken: string }) {
+    const token = await this.jwtService.verify(tokenData.refreshToken);
+    const user = await this.users.findOne({ _id: token.id });
+    const profileUser = {
+      email: user.email,
+      first_name: user.first_name,
+      last_name: user.last_name,
+      id: user._id,
+      role: user.role,
+      isLoggedIn: true
+    }
+
+    return profileUser;
+  }
+
 
   //Delete User
   deleteUser = async (id: string) => {
     const user = await this.users.findByIdAndDelete(id);
     return user;
   }
+
+  private issueTokens(userId: string) {
+		const data = { id: userId }
+
+		const accessToken = this.jwtService.sign(data, {
+			expiresIn: '1h'
+		})
+
+		const refreshToken = this.jwtService.sign(data, {
+			expiresIn: '7d'
+		})
+
+		return { accessToken, refreshToken }
+	}
 }

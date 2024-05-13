@@ -77,6 +77,36 @@ export const fetchCollection = async () => {
     if (response.status !== 200) {
       throw new Error(`${response.data.message}`);
     }
+    
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export const userLogin = async (email: string, password: string) => {
+  try {
+    const response = await axios.post('/users/login', {
+      email,
+      password
+    });
+    if (response.status !== 200) {
+      throw new Error(`${response.data.message}`);
+    }
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export const validateSession = async (refreshToken: string) => {
+  try {
+    const response = await axios.post('/users/session/validate', {
+      refreshToken
+    });
+    if (response.status !== 200) {
+      throw new Error(`${response.data.message}`);
+    }
     return response.data;
   } catch (error) {
     console.error(error);

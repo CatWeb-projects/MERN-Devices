@@ -126,9 +126,30 @@ export interface DevicesStore {
 }
 
 export interface CollectionProps {
-   id: number;
+  id: number;
   name: string;
   translate: string;
   link: string;
   imgUrl: string;
+}
+
+export interface UserProps {
+  user: {
+    id: string;
+    first_name: string;
+    last_name: string;
+    email: string;
+    role: string;
+  }
+  accessToken?: string;
+  refreshToken?: string;
+}
+
+export interface UserStore {
+  profile: UserProps | null;
+  loading: boolean;
+  error: string | null;
+  login: (email: string, password: string) => void;
+  validateSession: (accessToken: string) => void;
+  userLogOut: () => void;
 }

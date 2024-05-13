@@ -1,19 +1,24 @@
 'use client'
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import { useFormik } from 'formik';
+import { useUser } from '@/store/store';
 import { Button } from '../Button/Button';
 import { Icon } from '../Icon/Icon';
 import { Separator } from '../Separator/Separator';
+import { saveTokenStorage } from '@/services/auth-token.service';
 
 import './LoginForm.scss';
 
 export const LoginForm = () => {
   const [emailInputValue, setEmailInputValue] = useState<string>('');
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [profile, login] = useUser((state) => [state.profile, state.login]);
   const locale = useLocale();
+  const { push } = useRouter()
   const emailValidation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   const buttonEnabled = !emailValidation.test(emailInputValue);
   
@@ -23,9 +28,17 @@ export const LoginForm = () => {
       password: '',
     },
     onSubmit: (values: any) => {
-      alert(JSON.stringify(values, null, 2));
+      login(values.email, values.password);
     },
   });
+
+  useEffect(() => {
+    if (profile?.refreshToken) {
+      saveTokenStorage(profile.refreshToken);
+      push(`/${locale}`);
+    }
+  }, [profile?.refreshToken]);
+  
   return (
   <div className="login">
     <div className="login--description">
@@ -48,6 +61,7 @@ export const LoginForm = () => {
           onChange={formik.handleChange}
           value={formik.values.email}
           placeholder="Please enter your email"
+          autoComplete="email"
         />
       </div>
 
@@ -76,7 +90,7 @@ export const LoginForm = () => {
      
       <div className='login--form--actions'>
         <Button size="auto" className='forgot-password'>Forgot password?</Button>
-        <Button generalType="submit" disabled={buttonEnabled} size="login" className='login--btn'>Login</Button>
+        <Button generalType="submit" size="login" className='login--btn'>Login</Button>
       </div>
       <Separator />
       <div className="login--already">
