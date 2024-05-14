@@ -25,7 +25,7 @@ export class UsersController {
   @HttpCode(200)
   @ApiOkResponse(okUserResponse)
   @ApiBadRequestResponse(badUserResponse)
-  @Post('/registration')
+  @Post('/auth/registration')
   createUser(@Body() userDto: UserDto) {
     return this.users.createUser(userDto)
   }
@@ -33,7 +33,7 @@ export class UsersController {
   @HttpCode(200)
   // @ApiOkResponse(okUserResponse)
   // @ApiBadRequestResponse(badUserResponse)
-  @Post('/login')
+  @Post('/auth/login')
   login(@Body() authUserDto: AuthUserDto) {
     return this.users.login(authUserDto)
   }
@@ -41,7 +41,7 @@ export class UsersController {
   @HttpCode(200)
   // @ApiOkResponse(okUserResponse)
   // @ApiBadRequestResponse(badUserResponse)
-  @Post('/session/validate')
+  @Post('/auth/validate-user')
   validateSession(@Body() tokenData: { refreshToken: string }) {
     return this.users.validateSession(tokenData)
   }

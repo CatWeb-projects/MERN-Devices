@@ -97,7 +97,7 @@ export const LoginForm = () => {
           <span className="login--already--title">
             Don't have an account?
           </span>
-          <Link href={`/${locale}/register`}>Sign up</Link>
+          <Link href={`/${locale}/auth/register`}>Sign up</Link>
         </div>
       </form>
     </div>

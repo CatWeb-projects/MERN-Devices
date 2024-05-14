@@ -86,7 +86,7 @@ export const fetchCollection = async () => {
 
 export const userLogin = async (email: string, password: string) => {
   try {
-    const response = await axios.post('/users/login', {
+    const response = await axios.post('/users/auth/login', {
       email,
       password
     });
@@ -101,7 +101,7 @@ export const userLogin = async (email: string, password: string) => {
 
 export const validateSession = async (refreshToken: string) => {
   try {
-    const response = await axios.post('/users/session/validate', {
+    const response = await axios.post('/users/auth/validate-user', {
       refreshToken
     });
     if (response.status !== 200) {

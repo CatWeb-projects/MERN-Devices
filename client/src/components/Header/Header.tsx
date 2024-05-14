@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { useUser } from '@/store/store';
@@ -13,6 +13,7 @@ import { Button } from '../Button/Button';
 import './Header.scss';
 
 export const Header = () => {
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
   const locale = useLocale();
   const t = useTranslations('Header');
   const accessToken = getRefreshToken();
@@ -26,6 +27,10 @@ export const Header = () => {
 
   const logout = () => {
     userLogOut();
+  }
+
+  const toggleProfileMenu = () => {
+    setShowProfileMenu((i) => !i)
   }
 
   return (
@@ -67,22 +72,29 @@ export const Header = () => {
 
             {profile?.user ? (
               <div className="header--user">
-                <div className="logged-in">
+                <Button
+                  className={`logged-in ${showProfileMenu ? 'logged-in--open' : ''}`}
+                  size="auto"
+                  onClick={toggleProfileMenu}
+                >
                   <Icon type="user" />
                   <span>{`${profile.user?.first_name} ${profile.user?.last_name}`}</span>
-                </div>
-                <div className="profile-menu">
-                  <Link href={`/${locale}/profile`}>
-                    Profile
-                  </Link>
-                  <Button size='small' onClick={logout}>
-                    Logout
-                  </Button>
-                </div>
+                </Button>
+
+                {showProfileMenu && (
+                  <div className="profile-menu">
+                    <Link href={`/${locale}/profile`}>
+                      Profile
+                    </Link>
+                    <Button size='small' onClick={logout}>
+                      Logout
+                    </Button>
+                  </div>
+                )}
               </div>
             ) : (
               <div className="header--user">
-                <Link href={`/${locale}/login`}>
+                <Link href={`/${locale}/auth/login`}>
                   <Icon type="user" />
                   <span>{t('account')}</span>
                 </Link>
