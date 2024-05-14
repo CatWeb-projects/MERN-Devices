@@ -5,10 +5,23 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig = {
   reactStrictMode: false,
   images: {
-    domains: [
-      'localhost',
-      'https://darwin.md'
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'darwin.md',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "5000",
+        pathname: "/**",
+      },
     ],
+    // domains: [
+    //   'localhost',
+    // ],
   },
 };
 

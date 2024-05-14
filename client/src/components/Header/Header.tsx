@@ -8,9 +8,9 @@ import { getRefreshToken } from '@/services/auth-token.service';
 import { Search } from '../Search/Search';
 import { Icon } from '../Icon/Icon';
 import { Topbar } from '../Topbar/Topbar';
+import { Button } from '../Button/Button';
 
 import './Header.scss';
-import { Button } from '../Button/Button';
 
 export const Header = () => {
   const locale = useLocale();
@@ -23,7 +23,7 @@ export const Header = () => {
       validateSession(accessToken);
     }
   }, []);
-  
+
   const logout = () => {
     userLogOut();
   }
@@ -67,11 +67,11 @@ export const Header = () => {
 
             {profile?.user ? (
               <div className="header--user">
-               <div className="logged-in">
-                 <Icon type="user" />
+                <div className="logged-in">
+                  <Icon type="user" />
                   <span>{`${profile.user?.first_name} ${profile.user?.last_name}`}</span>
-               </div>
-               <div className="profile-menu">
+                </div>
+                <div className="profile-menu">
                   <Link href={`/${locale}/profile`}>
                     Profile
                   </Link>
@@ -79,7 +79,7 @@ export const Header = () => {
                     Logout
                   </Button>
                 </div>
-             </div>
+              </div>
             ) : (
               <div className="header--user">
                 <Link href={`/${locale}/login`}>
