@@ -1,7 +1,15 @@
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import { CategoriesStore, DevicesStore, SlidesStore, ThemeStore, UserStore } from './store.interface';
-import { fetchCategories, fetchDevices, fetchSlides, searchDevices, userLogin, validateSession } from '@/services/api';
+import { 
+  fetchCategories,
+  fetchDevices,
+  fetchSlides,
+  searchDevices,
+  userLogin,
+  userRegistration,
+  validateSession
+} from '@/services/api';
 import { removeFromStorage } from '@/services/auth-token.service';
 
 export const useSlider = create<SlidesStore>((set) => ({
@@ -85,20 +93,45 @@ export const useUser = create<UserStore>((set) => ({
   profile: null,
   loading: true,
   error: null,
-  login: async (email: string, password: string) => {
+  registration: async (auth: any) => {
     try {
-      const response = await userLogin(email, password);
-      set({ profile: response });
+      const response: any = await userRegistration(auth);
+
+      if (response.status !== 200) {
+        const message = response.response.data.message || response.response.data.error;
+        throw new Error(`${message}`);
+      }
+      
+      set({ profile: response.data });
     } catch (error) {
       const typedError = error as Error;
       set({ error: typedError.message });
-    } finally {
-      set({ loading: false });
+    }
+  },
+  login: async (email: string, password: string) => {
+    try {
+      const response: any = await userLogin(email, password);
+      
+      if (response.status !== 200) {
+        const message = response.response.data.message;
+        throw new Error(`${message}`);
+      }
+
+      set({ profile: response.data });
+    } catch (error) {
+      const typedError = error as Error;
+      set({ error: typedError.message });
     }
   },
   validateSession: async (refreshToken: string) => {
     try {
       const response = await validateSession(refreshToken);
+
+      // if (response.status !== 200) {
+      //   const message = response?.response?.data?.message;
+      //   throw new Error(`${message}`);
+      // }
+
       set({ profile: { user: response } });
     } catch (error) {
       const typedError = error as Error;

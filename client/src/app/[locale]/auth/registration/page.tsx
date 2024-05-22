@@ -1,6 +1,6 @@
 import { AuthForm } from "@/components";
 
-const LoginPage = () => {
+const RegistrationPage = () => {
   return (
     <div className="auth-page" style={{ height: '100%' }}>
       <AuthForm />
@@ -8,4 +8,4 @@ const LoginPage = () => {
   )
 }
 
-export default LoginPage;
+export default RegistrationPage;

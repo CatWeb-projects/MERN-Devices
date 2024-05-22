@@ -1,14 +1,13 @@
 import { CategoriesItem } from './CategoriesItem';
-import { NoData } from '../NoData/NoData';
-import { CategoriesData } from '@/store/store.interface';
+import { CategoriesProps } from '@/store/store.interface';
 
 import './Categories.scss';
 
-interface CategoriesProps {
-  categories: CategoriesData[];
+interface CategoriesDataProps {
+  categories: CategoriesProps[];
 }
 
-export const Categories = ({ categories }: CategoriesProps) => {
+export const Categories = ({ categories }: CategoriesDataProps) => {
   // const [
   //   categories,
   //   getCategories,

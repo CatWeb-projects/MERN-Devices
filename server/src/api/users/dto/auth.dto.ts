@@ -3,9 +3,7 @@ import {
   IsEmail,
   IsNotEmpty,
   IsString,
-  IsStrongPassword,
   Length,
-  Matches,
 } from 'class-validator';
 
 export class AuthUserDto {

@@ -3,9 +3,7 @@ import {
   IsEmail,
   IsNotEmpty,
   IsString,
-  IsStrongPassword,
   Length,
-  Matches,
 } from 'class-validator';
 
 export class UserDto {
@@ -17,7 +15,7 @@ export class UserDto {
   readonly first_name: string;
 
   @ApiProperty({
-    example: 'Goldman',
+    example: 'Lightman',
   })
   @IsString()
   @IsNotEmpty()

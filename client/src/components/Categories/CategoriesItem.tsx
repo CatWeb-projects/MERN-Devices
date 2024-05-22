@@ -3,11 +3,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { CategoriesData } from "@/store/store.interface";
+import { CategoriesProps } from "@/store/store.interface";
 import { apiBaseUrl } from "@/helpers/baseUrl";
 
 interface CategoriesItemProps {
-  category: CategoriesData;
+  category: CategoriesProps;
 }
 
 export const CategoriesItem = ({ category }: CategoriesItemProps) => {
@@ -36,7 +36,7 @@ export const CategoriesItem = ({ category }: CategoriesItemProps) => {
           alt={category.name}
           width={104}
           height={104}
-         />
+        />
       </div>
 
       <div className="categories--title">

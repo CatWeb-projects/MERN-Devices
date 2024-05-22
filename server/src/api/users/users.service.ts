@@ -14,7 +14,8 @@ const errorMessage = {
   invalidCredentials: 'Invalid username or password',
   forbidden: 'forbidden',
   invalidEmail: 'User with this email not found',
-  invalidPassword: 'Password does not match'
+  invalidPassword: 'Password does not match',
+  invalidToken: 'Invalid token'
 }
 
 @Injectable()
@@ -37,7 +38,7 @@ export class UsersService {
 
   //Register User
   createUser = async (userDto: UserDto) => {
-    const { first_name, last_name, email, password, role } = userDto;
+    const { email, password } = userDto;
     if (email) {
       const emailUser = await this.users.findOne({ email });
 
@@ -46,22 +47,21 @@ export class UsersService {
       }
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const token = await this.jwtService.signAsync({ id: email }, {
+    const hashedPassword = await bcrypt.hash(password, 5);
+    const token = await this.jwtService.signAsync({ email }, {
       expiresIn: '1h',
       // secret: this._configService.get('JWT_SECRET'),
     });
     const user = await this.users.create({
+      ...userDto,
       created_at: new Date(),
-      first_name,
-      last_name,
-      email,
       password: hashedPassword,
-      role,
-      token
     });
     
-    return user;
+    return {
+      user,
+      refreshToken: token
+    };
   }
 
    //Login User
@@ -77,7 +77,7 @@ export class UsersService {
       throw new ForbiddenException(errorMessage.invalidPassword);
     }
 
-    const tokens = await this.issueTokens(user.id)
+    const tokens = await this.issueTokens(user.id);
     user.password = undefined;
     return {
 			user,
@@ -85,9 +85,15 @@ export class UsersService {
 		};
   }
 
+  //Validate user
   async validateSession(tokenData: { refreshToken: string }) {
     const token = await this.jwtService.verify(tokenData.refreshToken);
-    const user = await this.users.findOne({ _id: token.id });
+    const user = await this.users.findOne(token.id ? { _id: token.id } : { email: token.email });
+
+    if (!user) {
+      throw new BadRequestException(errorMessage.invalidToken);
+    }
+
     const profileUser = {
       email: user.email,
       first_name: user.first_name,
