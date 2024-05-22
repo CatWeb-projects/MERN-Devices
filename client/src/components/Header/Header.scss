@@ -50,8 +50,8 @@ header {
       margin-left: 16px;
       transition: all 0.3s;
 
-      a,
-      button,
+      > a,
+      > button,
       .locale-language, .logged-in {
         display: flex;
         align-items: center;
@@ -115,9 +115,10 @@ header {
 }
 
 .logged-in {
-  background-color: var(--device-blue);
+  background-color: rgba(56, 88, 152, 0.5);
   cursor: pointer;
   border-radius: 8px;
+  margin: 0;
 
   span {
     color: var(--device-dark-orange);
@@ -127,20 +128,29 @@ header {
   svg {
     fill: var(--device-dark-orange);
   }
+
+  &--open {
+    border-radius: 8px 8px 0 0;
+  }
 }
 
 .profile-menu {
   position: absolute;
-  top: calc(100% + 11px);
+  top: 100%;
   right: 0;
   left: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   backdrop-filter: blur(16px);
-  background-color: rgba(32, 32, 32, .52);
+  background-color: rgba(56, 88, 152, 0.5);
   padding: 8px 0;
   color: var(--device-dark-orange);
   font-weight: 700;
   border-radius: 0 0 8px 8px;
+  
+  > button, a {
+    padding: 4px;
+    margin-bottom: 8px;
+  }
 }

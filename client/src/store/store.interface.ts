@@ -149,6 +149,7 @@ export interface UserStore {
   profile: UserProps | null;
   loading: boolean;
   error: string | null;
+  registration: (auth: any) => void;
   login: (email: string, password: string) => void;
   validateSession: (accessToken: string) => void;
   userLogOut: () => void;

@@ -10,7 +10,7 @@ interface Props {
   type?: 'primary' | 'invert' | 'transparent' | 'icon' | 'black';
   disabled?: boolean;
   generalType?: 'button' | 'submit';
-  size?: 'small' | 'medium' | 'large' | 'auto' | 'login';
+  size?: 'small' | 'medium' | 'large' | 'auto' | 'auth';
 }
 
 export const Button = ({
@@ -31,9 +31,8 @@ export const Button = ({
 
   return (
     <button
-      className={`button button-type-${type} button-type-${size} ${
-        disabled ? 'disabled' : ''
-      } ${className}`}
+      className={`button button-type-${type} button-type-${size} ${disabled ? 'disabled' : ''
+        } ${className}`}
       onClick={onClick}
       {...props}
       type={generalType}

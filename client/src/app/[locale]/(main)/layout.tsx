@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import {NextIntlClientProvider, useMessages} from 'next-intl';
+import { NextIntlClientProvider, useMessages } from 'next-intl';
 import CacheProvider from 'react-inlinesvg/provider';
 import NextTopLoader from 'nextjs-toploader';
 import { Providers } from './providers'
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function LocaleLayout({
   children,
-  params: {locale}
+  params: { locale }
 }: Readonly<{
   children: React.ReactNode;
   params: any
@@ -24,16 +24,16 @@ export default function LocaleLayout({
     <CacheProvider>
       <html lang={locale}>
         <link rel="icon" type="image/x-icon" href="/images/play.png" />
-        <body className="night">
-          <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <body className="night">
             <NextTopLoader showSpinner={false} height={4} />
             <Header />
             <Providers>
               {children}
             </Providers>
             <Footer />
-          </NextIntlClientProvider>
-        </body>
+          </body>
+        </NextIntlClientProvider>
       </html>
     </CacheProvider>
   );
