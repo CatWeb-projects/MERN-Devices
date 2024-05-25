@@ -7,19 +7,19 @@ import { baseUrl, checkImageUrl } from "@/helpers";
 
 
 type Props = {
-  params: { link: string }
+  params: { link: string, locale: string }
 }
- 
+
 export async function generateMetadata(
   { params }: Props,
 ): Promise<Metadata> {
   // read route params
-  const link = params.link
-  const locale = useLocale();
- 
+  const link = params.link;
+  const locale = params.locale;
+
   // fetch data
   const device: DevicesProps = await fetchDevice(link);
- 
+
   return {
     title: `${device?.name} | TechnoHeart`,
     description: `Fă comandă de ${device?.name} la preț avantajos cu livrare express în Chișinău și Moldova din online magazinul TechnoHeart`,
@@ -30,7 +30,7 @@ export async function generateMetadata(
   }
 }
 
-const DeviceInfoPage = async ({ params: { link } }: { params: { link: string }}) => {
+const DeviceInfoPage = async ({ params: { link } }: { params: { link: string } }) => {
   const categories: CategoriesProps[] = await fetchCategories();
   const device: DevicesProps = await fetchDevice(link);
 
