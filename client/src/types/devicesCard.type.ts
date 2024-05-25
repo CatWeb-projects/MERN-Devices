@@ -1,5 +1,6 @@
 export interface DevicesCardProps {
-  name: string;
-  link: string;
-  imgUrl: string;
+  [key: string]: {
+    link: string;
+    imgUrl: string;
+  }
 }

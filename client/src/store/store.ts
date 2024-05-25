@@ -64,9 +64,9 @@ export const useDevices = create<DevicesStore>((set) => ({
   loadingFoundDevices: true,
   error: null,
   errorFoundDevices: null,
-  getDevices: async (category: string) => {
+  getDevices: async (category?: string, sort?: string) => {
     try {
-      const response = await fetchDevices(category)
+      const response = await fetchDevices(category, sort);
       set({ devices: response})
     } catch (error) {
       const typedError = error as Error;

@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@chakra-ui/react";
-import { DevicesData } from "@/store/store.interface";
+import { DevicesProps } from "@/store/store.interface";
 import { Icon } from "../Icon/Icon";
 import { checkImageUrl } from "@/helpers";
 
@@ -9,7 +9,7 @@ import './Devices.scss';
 
 
 interface DeviceItemProps {
-  device: DevicesData
+  device: DevicesProps
 }
 
 export const DevicesItem = ({
@@ -17,7 +17,7 @@ export const DevicesItem = ({
 }: DeviceItemProps) => {
   const locale = useLocale();
   const t = useTranslations('Categories');
-  
+
   return (
     <div className="device--item">
       {device && (
@@ -51,8 +51,8 @@ export const DevicesItem = ({
             <div className="options-devices">
               <div className="compare-devices">
                 <Button
-                  // onClick={() => addToCompare(product)}
-                  // className={userCompareFind ? 'added-to-compare' : ''}
+                // onClick={() => addToCompare(product)}
+                // className={userCompareFind ? 'added-to-compare' : ''}
                 >
                   <Icon type="compare" />
                 </Button>
@@ -62,8 +62,8 @@ export const DevicesItem = ({
               </div>
               <div className="add-to-favorites">
                 <Button
-                  // onClick={() => addFavorites(product)}
-                  // className={userFavoritesFind ? 'added-to-favorites' : ''}
+                // onClick={() => addFavorites(product)}
+                // className={userFavoritesFind ? 'added-to-favorites' : ''}
                 >
                   <Icon type="heart" />
                 </Button>

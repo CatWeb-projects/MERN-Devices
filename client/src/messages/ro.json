@@ -24,7 +24,8 @@
     "security": "Protejarea produsului de situații neprevăzute.",
     "repair": "Conform Digital Trends, 50 % din toți cei care dețin un smartphone s-au pomenit cu un ecran spart. Și tu te poți trezi cu telefonul în cădere liberă sau înecat.",
     "credit_approval": "92% din cereri de credit aprobate.",
-    "approval": "Aprobare în doar 15 minute. Obține credite de la 6 până la 60 de luni."
+    "approval": "Aprobare în doar 15 minute. Obține credite de la 6 până la 60 de luni.",
+    "shop_title": "TechnoHeart ®️ Magazin online de Gadget-uri în Moldova"
   },
   "Categories": {
     "smartphones": "Telefoane și Tablete",
@@ -126,5 +127,19 @@
     "search": "Caută în peste 50 000 de produse",
     "lei": "lei",
     "products": "Produse"
+  },
+  "Auth": {
+    "profile": "Profil",
+    "login": "Autentificare",
+    "register": "Înregistrează-te",
+    "logout": "Delogare",
+    "create_account": "Creează cont",
+    "have_account": "Ai deja un cont?",
+    "no_account": "Nu ai un cont?",
+    "email": "Vă rugăm să introduceți adresa dvs. de email",
+    "password": "Parola",
+    "first_name": "Vă rugăm să introduceți numele dvs",
+    "last_name": "Vă rugăm să introduceți prenumele dvs",
+    "or": "sau"
   }
 }

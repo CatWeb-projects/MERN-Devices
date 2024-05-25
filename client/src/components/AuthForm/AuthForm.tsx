@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { useFormik } from 'formik';
 import { useUser } from '@/store/store';
 import { Button } from '../Button/Button';
@@ -27,6 +27,7 @@ export const AuthForm = () => {
     state.registration,
     state.error
   ]);
+  const t = useTranslations('Auth');
   const locale = useLocale();
   const { push } = useRouter();
   const pathname = usePathname()
@@ -37,9 +38,9 @@ export const AuthForm = () => {
 
   const formTitle = () => {
     if (isRegistrationPage) {
-      return 'Create Account'
+      return t('create_account');
     } else {
-      return 'Login'
+      return t('login');
     }
   }
 
@@ -73,7 +74,7 @@ export const AuthForm = () => {
       <div className="login--description">
         {/* <Logo logo={logo} hide /> */}
         <Link href={`/${locale}`}>
-          <Icon type="logo" width="48" height="48" />
+          <Icon type="logo" width="60" height="60" />
         </Link>
         <h1>{formTitle()}</h1>
       </div>
@@ -91,7 +92,7 @@ export const AuthForm = () => {
                 type="text"
                 onChange={formik.handleChange}
                 value={formik.values.first_name}
-                placeholder="Please enter your first name"
+                placeholder={t('first_name')}
                 autoComplete="off"
               />
             </div>
@@ -107,7 +108,7 @@ export const AuthForm = () => {
                 type="text"
                 onChange={formik.handleChange}
                 value={formik.values.last_name}
-                placeholder="Please enter your last name"
+                placeholder={t('last_name')}
                 autoComplete="off"
               />
             </div>
@@ -125,7 +126,7 @@ export const AuthForm = () => {
             type="email"
             onChange={formik.handleChange}
             value={formik.values.email}
-            placeholder="Please enter your email"
+            placeholder={t('email')}
             autoComplete="off"
           />
         </div>
@@ -139,7 +140,7 @@ export const AuthForm = () => {
             id="password"
             name="password"
             type={showPassword ? "text" : "password"}
-            placeholder="Password"
+            placeholder={t('password')}
             onChange={formik.handleChange}
             value={formik.values.password}
             autoComplete="off"
@@ -162,18 +163,18 @@ export const AuthForm = () => {
             <div className="error-message">{error}</div>
           )}
           <Button generalType="submit" size="auth" className='login--btn'>
-            {isLoginPage ? 'Login' : 'Register'}
+            {isLoginPage ? t('login') : t('register')}
           </Button>
         </div>
         <Separator />
         <div className="login--already">
           <span className="login--already--title">
-            {isRegistrationPage ? 'Already have an account?' : 'Don\'t have an account?'}
+            {isRegistrationPage ? t('have_account') : t('no_account')}
           </span>
           {isRegistrationPage ? (
-            <Link href={`/${locale}/auth/login`}>Login</Link>
+            <Link href={`/${locale}/auth/login`}>{t('login')}</Link>
           ) : (
-            <Link href={`/${locale}/auth/registration`}>Sign up</Link>
+            <Link href={`/${locale}/auth/registration`}>{t('register')}</Link>
           )}
         </div>
       </form>

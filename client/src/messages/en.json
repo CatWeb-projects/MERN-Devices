@@ -24,7 +24,8 @@
     "security": "Protect the product from unexpected circumstances.",
     "repair": "According to Digital Trends, 50% of all smartphone owners found themselves with a broken screen. And you can wake up with your phone dropping or drowning.",
     "credit_approval": "92% of approved credit applications.",
-    "approval": "Approval in just 15 minutes. Get loans from 6 to 60 months."
+    "approval": "Approval in just 15 minutes. Get loans from 6 to 60 months.",
+    "shop_title": "TechnoHeart ®️ Online Gadgets Store in Moldova"
   },
   "Categories": {
     "smartphones": "Phones and Tablets",
@@ -126,5 +127,19 @@
     "search": "Find over 50 000 products",
     "lei": "lei",
     "products": "Products"
+  },
+  "Auth": {
+    "profile": "Profile",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "create_account": "Create Account",
+    "have_account": "Already have an account?",
+    "no_account": "Don't have an account?",
+    "email": "Please enter your email",
+    "password": "Password",
+    "first_name": "Please enter your first name",
+    "last_name": "Please enter your last name",
+    "or": "Or"
   }
 }

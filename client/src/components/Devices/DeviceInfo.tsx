@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@chakra-ui/react";
-import { DevicesData } from "@/store/store.interface";
+import { DevicesProps } from "@/store/store.interface";
 import { PRODUCT_PROPERTY } from "@/constants/devicesSpecs";
 import { checkImageUrl } from "@/helpers";
 import { Icon } from "../Icon/Icon";
@@ -9,7 +9,7 @@ import { Icon } from "../Icon/Icon";
 import './DeviceInfo.scss';
 
 interface DeviceInfoProps {
-  device: DevicesData;
+  device: DevicesProps;
 }
 
 export const DeviceInfo = ({ device }: DeviceInfoProps) => {
@@ -140,11 +140,11 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
                         device.memoryOptions.length === 1
                           ? `/${locale}/device/${device.link}`
                           : `/${locale}/device/${device.link
-                              .split('-')
-                              .slice(0, -3)
-                              .join(
-                                '-'
-                              )}-${memory}-gb-${device.color.toLowerCase()}`
+                            .split('-')
+                            .slice(0, -3)
+                            .join(
+                              '-'
+                            )}-${memory}-gb-${device.color.toLowerCase()}`
                       }
                       key={key}
                     >
@@ -162,7 +162,7 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
                 </div>
               </div>
             )}
-            
+
             <ul className="device-product--info-specs">
               {findProperties.map((property, i) => (
                 <li key={i}>
@@ -175,8 +175,8 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
               <div className="compare-devices">
                 <Button
                   size="full-width"
-                  // onClick={() => addToCompare(deviceData)}
-                  // className={userCompareFind ? 'added-to-compare' : ''}
+                // onClick={() => addToCompare(deviceData)}
+                // className={userCompareFind ? 'added-to-compare' : ''}
                 >
                   <Icon type="compare" />
                   {tCategories('compare')}
@@ -184,8 +184,8 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
               </div>
               <div className="add-to-favorites">
                 <Button
-                  // onClick={() => addFavorites(deviceData)}
-                  // className={userFavoritesFind ? 'added-to-favorites' : ''}
+                // onClick={() => addFavorites(deviceData)}
+                // className={userFavoritesFind ? 'added-to-favorites' : ''}
                 >
                   <Icon type="heart" />
                   {tCategories('favorites')}
@@ -204,14 +204,12 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
               {tCategories('buy')}
             </Link>
             {device?.credit && (
-              <div className="device-product--info-credit">{`${
-                device.credit
-              } ${tCategories('credit')}`}</div>
+              <div className="device-product--info-credit">{`${device.credit
+                } ${tCategories('credit')}`}</div>
             )}
             {device?.cashback && (
-              <div className="device-product--info-cashback">{`Cashback ${
-                device.cashback
-              } ${tCategories('lei')}`}</div>
+              <div className="device-product--info-cashback">{`Cashback ${device.cashback
+                } ${tCategories('lei')}`}</div>
             )}
             {device?.credit && (
               <Link href={`/${locale}/credit`} className="device-product--credit">
