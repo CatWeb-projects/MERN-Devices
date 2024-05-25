@@ -1,3 +1,5 @@
+import { useTranslations } from 'next-intl';
+
 import './ShopTitle.scss';
 
 interface ShopTitleProps {
@@ -5,12 +7,13 @@ interface ShopTitleProps {
 }
 
 export const ShopTitle = ({
-  title = 'TechnoHeart ®️ Magazin online de Gadget-uri în Moldova'
+  title
 }: ShopTitleProps) => {
+  const t = useTranslations('General');
   return (
     <div className='shop-title'>
       <h1>
-        {title}
+        {title ? title : t('shop_title')}
       </h1>
     </div>
   )

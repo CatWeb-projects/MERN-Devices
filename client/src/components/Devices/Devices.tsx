@@ -1,29 +1,29 @@
-import { DevicesData } from "@/store/store.interface";
+import { DevicesProps } from "@/store/store.interface";
 import { DevicesItem } from "./DevicesItem";
 import { NoData } from "../NoData/NoData";
 
 import './Devices.scss';
 
-interface DevicesProps {
-  devices: DevicesData[]
+interface DevicesDataProps {
+  devices: DevicesProps[]
 }
 
 export const Devices = ({
   devices
-}: DevicesProps) => {
+}: DevicesDataProps) => {
   return (
     <div className="devices">
       {devices?.length > 0 && (
         <div className="devices--items">
-          {devices.sort((a, b) => b.popularity - a.popularity).map((device) => (
-              <DevicesItem key={device.id} device={device} />
-            ))}
+          {devices.map((device) => (
+            <DevicesItem key={device.id} device={device} />
+          ))}
         </div>
       )}
-    
+
       {(!devices?.length) && (
         <NoData />
       )}
-  </div>
+    </div>
   )
 }

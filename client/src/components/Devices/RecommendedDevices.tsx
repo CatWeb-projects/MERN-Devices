@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl"
-import { DevicesData } from "@/store/store.interface";
+import { DevicesProps } from "@/store/store.interface";
 import { DevicesCardProps } from "@/types/devicesCard.type";
 import { DevicesItem } from "./DevicesItem";
 
 interface Props {
   cardData: DevicesCardProps;
-  devices: DevicesData[];
+  devices: DevicesProps[];
 }
 
 export const RecommendedDevices = ({ devices, cardData }: Props) => {
@@ -35,7 +35,6 @@ export const RecommendedDevices = ({ devices, cardData }: Props) => {
       <div className="devices--items recommended-item">
         {devices &&
           devices
-            .sort((a, b) => b.popularity - a.popularity)
             .slice(0, 3)
             .map((device) => <DevicesItem key={device.id} device={device} />)}
       </div>

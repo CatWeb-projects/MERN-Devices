@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   description: "Select Category and Devices",
 };
 
-const DevicesPage = async ({ params: { link } }: { params: { link: string }}) => {
-  const devices: DevicesProps[] = await fetchDevices(link);
+const DevicesPage = async ({ params: { link } }: { params: { link: string } }) => {
+  const devices: DevicesProps[] = await fetchDevices(link, 'popularity');
   const categories: CategoriesProps[] = await fetchCategories();
-  
+
   // const [
   //   devices,
   //   loading,

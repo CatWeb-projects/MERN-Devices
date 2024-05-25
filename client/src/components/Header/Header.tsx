@@ -1,8 +1,9 @@
 'use client'
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
+import { useOutsideClick } from '@chakra-ui/react';
 import { useUser } from '@/store/store';
 import { getRefreshToken } from '@/services/auth-token.service';
 import { Search } from '../Search/Search';
@@ -14,14 +15,20 @@ import './Header.scss';
 
 export const Header = () => {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const showRef = useRef(null);
   const locale = useLocale();
   const t = useTranslations('Header');
-  const accessToken = getRefreshToken();
+  const tAuth = useTranslations('Auth');
+  const refreshToken = getRefreshToken();
+  useOutsideClick({
+    ref: showRef,
+    handler: () => setShowProfileMenu(false),
+  })
   const [profile, validateSession, userLogOut] = useUser((state) => [state.profile, state.validateSession, state.userLogOut]);
 
   useEffect(() => {
-    if (accessToken) {
-      validateSession(accessToken);
+    if (refreshToken) {
+      validateSession(refreshToken);
     }
   }, []);
 
@@ -82,12 +89,12 @@ export const Header = () => {
                 </Button>
 
                 {showProfileMenu && (
-                  <div className="profile-menu">
+                  <div className="profile-menu" ref={showRef}>
                     <Link href={`/${locale}/profile`}>
-                      Profile
+                      {tAuth('profile')}
                     </Link>
                     <Button size='small' onClick={logout}>
-                      Logout
+                      {tAuth('logout')}
                     </Button>
                   </div>
                 )}

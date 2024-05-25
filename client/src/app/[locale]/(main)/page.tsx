@@ -18,8 +18,10 @@ import "./page.scss";
 const Home = async () => {
   const categories: CategoriesProps[] = await fetchCategories();
   const collection: CollectionProps[] = await fetchCollection();
+
   const insertCardCategory = async (category: string) => {
-    const card: DevicesCardProps = devicesCards.find((devicesCard) => devicesCard?.name?.includes(category));
+    // const card: DevicesCardProps = devicesCards.find((devicesCard) => devicesCard?.name?.includes(category));
+    const card: DevicesCardProps = devicesCards[category];
     const devices: DevicesProps[] = await fetchDevices(category);
 
     return [

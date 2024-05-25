@@ -9,7 +9,7 @@ export class DevicesService {
     @InjectModel(Devices.name)
     private devicesModel: Model<DevicesDocument>,
   ) {}
-  getAllDevices = async (category: string): Promise<Devices[]> => {
+  getAllDevices = async (category: string, sort: string): Promise<Devices[]> => {
     const manufacturer = 'Apple';
     const checkDeviceType = () => {
       if (category === 'apple') {
@@ -23,7 +23,7 @@ export class DevicesService {
 
     const devices = await this.devicesModel
       .find(checkDeviceType(), { _id: 0 })
-      .sort('id');
+      .sort(sort ? { [`${sort}`]: -1 } : 'id');
     return devices;
   };
 

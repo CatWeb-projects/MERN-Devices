@@ -12,10 +12,11 @@ export const fetchSlides = async () => {
   return response.data;
 }
 
-export const fetchDevices = async (category: string) => {
+export const fetchDevices = async (category?: string, sort?: string) => {
   try {
     const response = await axios.get('/devices', {
-      ...(category ? { params: {category } } : {})
+      // ...(category ? { params: { category } } : {}),
+      params: { category, sort }
     });
 
     if (response.status !== 200) {
