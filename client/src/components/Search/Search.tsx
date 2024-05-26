@@ -41,7 +41,7 @@ export const Search = () => {
         searchDevices(searchValue);
       }
     }, 1000);
-    
+
     return () => {
       clearInterval(debounce);
     }
@@ -64,7 +64,7 @@ export const Search = () => {
       <Link href={`/${locale}/search?q=${searchValue}`} onClick={clearSearchValue}>
         <Icon type="zoom" />
       </Link>
-      
+
       {searchValue && searchValue?.length > 0 && (
         <div className="found-devices">
           <h3>{t('products')}</h3>
@@ -88,7 +88,7 @@ export const Search = () => {
 
           {loading && <Loading />}
 
-          {error && <ShowErrorMessage errorMessage={error}/>}
+          {error && <ShowErrorMessage errorMessage={error} />}
         </div>
       )}
     </div>

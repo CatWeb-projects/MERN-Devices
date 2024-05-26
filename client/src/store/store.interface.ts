@@ -154,3 +154,11 @@ export interface UserStore {
   validateSession: (accessToken: string) => void;
   userLogOut: () => void;
 }
+
+export interface AuthProps {
+  first_name: string;
+  last_name: string;
+  email: string;
+  password: string;
+  role: string;
+}

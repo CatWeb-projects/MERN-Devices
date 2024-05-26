@@ -1,18 +1,19 @@
 import axios from "axios";
+import { AuthProps, CategoriesProps, CollectionProps, DevicesProps, FoundDevices, SlidesProps, UserProps } from "@/store/store.interface";
 
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5000/api';
 
-export const fetchSlides = async () => {
+export const fetchSlides = async (): Promise<SlidesProps[]> => {
   const response = await axios.get('/sliders');
 
-  if (response.status !== 200) {
-    throw new Error(`${response.data.message}`);
-  }
+  // if (response.status !== 200) {
+  //   throw new Error(`${response.data.message}`);
+  // }
 
   return response.data;
 }
 
-export const fetchDevices = async (category?: string, sort?: string) => {
+export const fetchDevices = async (category?: string, sort?: string): Promise<DevicesProps[]> => {
   try {
     const response = await axios.get('/devices', {
       // ...(category ? { params: { category } } : {}),
@@ -29,7 +30,7 @@ export const fetchDevices = async (category?: string, sort?: string) => {
   }
 }
 
-export const fetchDevice = async (link: string) => {
+export const fetchDevice = async (link: string): Promise<DevicesProps> => {
   try {
     const response = await axios.get(`/devices/${link}`);
 
@@ -43,7 +44,7 @@ export const fetchDevice = async (link: string) => {
   }
 }
 
-export const searchDevices = async (name: string) => {
+export const searchDevices = async (name: string): Promise<FoundDevices[]> => {
   try {
     const response = await axios.get(`/devices/search/${name}`);
 
@@ -57,7 +58,7 @@ export const searchDevices = async (name: string) => {
   }
 }
 
-export const fetchCategories = async () => {
+export const fetchCategories = async (): Promise<CategoriesProps[]> => {
   try {
     const response = await axios.get('/categories');
 
@@ -71,7 +72,7 @@ export const fetchCategories = async () => {
   }
 }
 
-export const fetchCollection = async () => {
+export const fetchCollection = async (): Promise<CollectionProps[]> => {
   try {
     const response = await axios.get('/collection');
 
@@ -85,7 +86,7 @@ export const fetchCollection = async () => {
   }
 }
 
-export const userRegistration = async (auth: any) => {
+export const userRegistration = async (auth: AuthProps) => {
   try {
     const response = await axios.post('/users/auth/registration', {
       first_name: auth.first_name,

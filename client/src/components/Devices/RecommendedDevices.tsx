@@ -1,18 +1,21 @@
+'use client'
+
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl"
 import { DevicesProps } from "@/store/store.interface";
-import { DevicesCardProps } from "@/types/devicesCard.type";
 import { DevicesItem } from "./DevicesItem";
+import { devicesCards } from "@/constants/devicesCards";
 
 interface Props {
-  cardData: DevicesCardProps;
   devices: DevicesProps[];
+  category: keyof typeof devicesCards;
 }
 
-export const RecommendedDevices = ({ devices, cardData }: Props) => {
+export const RecommendedDevices = ({ devices, category }: Props) => {
   const t = useTranslations('Categories');
   const tDevices = useTranslations('Devices');
   const locale = useLocale();
+  const cardData = devicesCards[category];
 
   return (
     <div className="devices">
@@ -22,7 +25,7 @@ export const RecommendedDevices = ({ devices, cardData }: Props) => {
             className="devices--banner"
             style={{ backgroundImage: `url(${cardData.imgUrl})` }}
           >
-            {cardData.name && <h4>{t(`${cardData.name}`)}</h4>}
+            {category && <h4>{t(`${category}`)}</h4>}
             {devices && devices.length > 0 && (
               <span>
                 {devices.length}+ {tDevices('products')}

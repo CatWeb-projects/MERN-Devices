@@ -1,6 +1,4 @@
-import { DevicesCardProps } from "@/types/devicesCard.type";
-
-export const devicesCards: Record<string, DevicesCardProps> = {
+export const devicesCards = {
   smartphones: {
     link: '/smartphones',
     imgUrl:
