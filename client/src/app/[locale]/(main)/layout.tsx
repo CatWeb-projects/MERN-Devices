@@ -17,7 +17,7 @@ export default function LocaleLayout({
   params: { locale }
 }: Readonly<{
   children: React.ReactNode;
-  params: any
+  params: { locale: string }
 }>) {
   const messages = useMessages();
   return (

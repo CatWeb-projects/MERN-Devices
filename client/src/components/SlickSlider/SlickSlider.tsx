@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Slider, { Settings } from 'react-slick';
 import { useLocale } from "next-intl";
 import { useSlider } from "@/store/store";
@@ -49,10 +50,14 @@ export const SlickSlider = () => {
         <Slider {...settings}>
           {slides.map((slide) => (
             <Link href={`/${locale}/${slide.link}`} key={slide.id}>
-              <img
-                data-lazy={slide.imgUrl}
+              <Image
+                priority
                 src={`${apiBaseUrl}/${slide.imgUrl}`}
                 alt={slide.altName}
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{ width: '100%', height: 'auto' }}
               />
             </Link>
           ))}
@@ -65,7 +70,7 @@ export const SlickSlider = () => {
 
       {loading && <Loading />}
 
-      {error && <ShowErrorMessage errorMessage={error}/>}
+      {error && <ShowErrorMessage errorMessage={error} />}
     </div>
   )
 }
