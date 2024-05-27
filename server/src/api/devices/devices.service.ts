@@ -7,7 +7,7 @@ import { Devices, DevicesDocument } from './schemas/devices.schema';
 export class DevicesService {
   constructor(
     @InjectModel(Devices.name)
-    private devicesModel: Model<DevicesDocument>,
+    private devicesModel: Model<DevicesDocument>
   ) {}
   getAllDevices = async (category: string, sort: string): Promise<Devices[]> => {
     const manufacturer = 'Apple';
@@ -33,10 +33,7 @@ export class DevicesService {
   };
 
   search = async (name: string) => {
-    const searchDevices = await this.devicesModel.find(
-      { name: new RegExp(name, 'i') },
-      { _id: 0 },
-    );
+    const searchDevices = await this.devicesModel.find({ name: new RegExp(name, 'i') }, { _id: 0 });
     return searchDevices;
   };
 }

@@ -13,13 +13,11 @@ export function Icon({
   ...props
 }: IconInterface) {
   const defaultProps = {
-    className: `icon-${type} ${active ? ' active' : ''}${
-      disabled ? ' disabled' : ''
-    } ${className}`,
+    className: `icon-${type} ${active ? ' active' : ''}${disabled ? ' disabled' : ''} ${className}`,
     width: width,
     height: height,
     fill: color,
-    onClick,
+    onClick
   };
   switch (type) {
     default:

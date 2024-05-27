@@ -1,28 +1,23 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import Slider, { Settings } from 'react-slick';
-import { useLocale } from "next-intl";
-import { useSlider } from "@/store/store";
-import { Loading } from "../Loading/Loading";
-import { ShowErrorMessage } from "../ShowErrorMessage/ShowErrorMessage";
-import { NoData } from "../NoData/NoData";
-import { apiBaseUrl } from "@/helpers/baseUrl";
+import { useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import Slider, { Settings } from '@ant-design/react-slick';
+import { useLocale } from 'next-intl';
+import { useSlider } from '@/store/store';
+import { Loading } from '../Loading/Loading';
+import { ShowErrorMessage } from '../ShowErrorMessage/ShowErrorMessage';
+import { NoData } from '../NoData/NoData';
+import { apiBaseUrl } from '@/helpers/baseUrl';
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import './SlickSlider.scss';
 
 export const SlickSlider = () => {
   const locale = useLocale();
-  const [
-    slides,
-    getSlides,
-    loading,
-    error
-  ] = useSlider((state) => [
+  const [slides, getSlides, loading, error] = useSlider((state) => [
     state.slides,
     state.getSlides,
     state.loading,
@@ -64,13 +59,11 @@ export const SlickSlider = () => {
         </Slider>
       )}
 
-      {(slides?.length === 0 && !loading) && (
-        <NoData />
-      )}
+      {slides?.length === 0 && !loading && <NoData />}
 
       {loading && <Loading />}
 
       {error && <ShowErrorMessage errorMessage={error} />}
     </div>
-  )
-}
+  );
+};

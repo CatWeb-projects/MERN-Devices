@@ -3,7 +3,6 @@ import { useTranslations } from 'next-intl';
 
 import './Separator.scss';
 
-
 export const Separator = () => {
   const t = useTranslations('Auth');
   return (
@@ -13,4 +12,4 @@ export const Separator = () => {
       <div className="separator-divider" />
     </div>
   );
-}
+};

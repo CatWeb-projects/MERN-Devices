@@ -6,7 +6,7 @@ export const Loading = () => {
   return (
     <div className="loading">
       {/* <Icon type="loading" /> */}
-      <Spinner color="var(--device-dark-orange);" size='lg' />
+      <Spinner color="var(--device-dark-orange);" size="lg" />
     </div>
-  )
-}
+  );
+};

@@ -6,15 +6,11 @@ interface ShopTitleProps {
   title?: string;
 }
 
-export const ShopTitle = ({
-  title
-}: ShopTitleProps) => {
+export const ShopTitle = ({ title }: ShopTitleProps) => {
   const t = useTranslations('General');
   return (
-    <div className='shop-title'>
-      <h1>
-        {title ? title : t('shop_title')}
-      </h1>
+    <div className="shop-title">
+      <h1>{title ? title : t('shop_title')}</h1>
     </div>
-  )
-}
+  );
+};

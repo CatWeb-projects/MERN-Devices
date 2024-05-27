@@ -8,4 +8,4 @@ export const badUserResponse: ApiResponseOptions = {
       statusCode: 400
     }
   }
-}
+};

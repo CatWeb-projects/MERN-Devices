@@ -1,7 +1,7 @@
 .device-product {
   max-width: 1400px;
   margin: 16px auto 0;
-  
+
   &--info {
     margin-top: 16px;
     display: grid;
@@ -174,7 +174,8 @@
   }
 }
 
-.added-to-favorites.button, .added-to-compare.button {
+.added-to-favorites.button,
+.added-to-compare.button {
   color: var(--device-white);
 
   svg {

@@ -1,20 +1,18 @@
-import Link from "next/link"
-import { useLocale, useTranslations } from "next-intl";
-import { Button } from "@chakra-ui/react";
-import { DevicesProps } from "@/store/store.interface";
-import { Icon } from "../Icon/Icon";
-import { checkImageUrl } from "@/helpers";
+import Link from 'next/link';
+import Image from 'next/image';
+import { useLocale, useTranslations } from 'next-intl';
+import { Button } from '@chakra-ui/react';
+import { DevicesProps } from '@/store/store.interface';
+import { Icon } from '../Icon/Icon';
+import { checkImageUrl } from '@/helpers';
 
 import './Devices.scss';
 
-
 interface DeviceItemProps {
-  device: DevicesProps
+  device: DevicesProps;
 }
 
-export const DevicesItem = ({
-  device
-}: DeviceItemProps) => {
+export const DevicesItem = ({ device }: DeviceItemProps) => {
   const locale = useLocale();
   const t = useTranslations('Categories');
 
@@ -22,10 +20,16 @@ export const DevicesItem = ({
     <div className="device--item">
       {device && (
         <>
-          <Link
-            href={`/${locale}/device/${device.link}`}
-          >
-            <img src={checkImageUrl(device.imageUrl)} alt={device.name} />
+          <Link href={`/${locale}/device/${device.link}`}>
+            <Image
+              src={checkImageUrl(device?.imageUrl)}
+              alt={device?.name}
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ width: '100%', height: 'auto' }}
+              priority
+            />
           </Link>
           <Link href={`/${locale}/device/${device.link}`}>
             <div className="device--title">{device.name}</div>
@@ -56,9 +60,7 @@ export const DevicesItem = ({
                 >
                   <Icon type="compare" />
                 </Button>
-                <div className="options-devices-info compare-info">
-                  {t('compare')}
-                </div>
+                <div className="options-devices-info compare-info">{t('compare')}</div>
               </div>
               <div className="add-to-favorites">
                 <Button
@@ -67,14 +69,12 @@ export const DevicesItem = ({
                 >
                   <Icon type="heart" />
                 </Button>
-                <div className="options-devices-info favorites-info">
-                  {t('favorites')}
-                </div>
+                <div className="options-devices-info favorites-info">{t('favorites')}</div>
               </div>
             </div>
           </div>
         </>
       )}
     </div>
-  )
-}
+  );
+};

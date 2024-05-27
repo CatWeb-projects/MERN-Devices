@@ -9,15 +9,15 @@ export const addSlidersResponse: ApiResponseOptions = {
           id: 1,
           imgUrl: `${baseUrl}/images/anniversary.webp`,
           link: '/offers',
-          altName: 'offers',
+          altName: 'offers'
         },
         {
           id: 2,
           imgUrl: `${baseUrl}/images/macbook_air_14.webp`,
           link: '/macbook-air',
-          altName: 'macbook-air',
-        },
-      ],
-    },
-  },
+          altName: 'macbook-air'
+        }
+      ]
+    }
+  }
 };

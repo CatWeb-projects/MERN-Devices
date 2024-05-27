@@ -1,13 +1,13 @@
-import { Body, Controller, Delete, Get, HttpCode, Param, Post } from "@nestjs/common";
-import { ApiBadRequestResponse, ApiOkResponse, ApiTags } from "@nestjs/swagger";
-import { UsersService } from "./users.service";
-import { AuthUserDto, RevalidateUserDto, UserDto } from "./dto";
-import { badUserResponse, okAuthResponse, okUserResponse, okUsersResponse } from "./api-response";
+import { Body, Controller, Delete, Get, HttpCode, Param, Post } from '@nestjs/common';
+import { ApiBadRequestResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { UsersService } from './users.service';
+import { AuthUserDto, RevalidateUserDto, UserDto } from './dto';
+import { badUserResponse, okAuthResponse, okUserResponse, okUsersResponse } from './api-response';
 
 @ApiTags('Users')
 @Controller('/users')
 export class UsersController {
- constructor(private users: UsersService) {}
+  constructor(private users: UsersService) {}
 
   @HttpCode(200)
   @ApiOkResponse(okUsersResponse)
@@ -29,7 +29,7 @@ export class UsersController {
   @ApiBadRequestResponse(badUserResponse)
   @Post('/auth/registration')
   createUser(@Body() userDto: UserDto) {
-    return this.users.createUser(userDto)
+    return this.users.createUser(userDto);
   }
 
   @HttpCode(200)
@@ -37,7 +37,7 @@ export class UsersController {
   @ApiBadRequestResponse(badUserResponse)
   @Post('/auth/login')
   login(@Body() authUserDto: AuthUserDto) {
-    return this.users.login(authUserDto)
+    return this.users.login(authUserDto);
   }
 
   @HttpCode(200)
@@ -45,7 +45,7 @@ export class UsersController {
   @ApiBadRequestResponse(badUserResponse)
   @Post('/auth/validate-user')
   validateSession(@Body() tokenData: RevalidateUserDto) {
-    return this.users.validateSession(tokenData)
+    return this.users.validateSession(tokenData);
   }
 
   @HttpCode(200)
@@ -53,6 +53,6 @@ export class UsersController {
   @ApiBadRequestResponse(badUserResponse)
   @Delete(':id')
   deleteUser(@Param('id') id: string) {
-    return this.users.deleteUser(id)
+    return this.users.deleteUser(id);
   }
 }

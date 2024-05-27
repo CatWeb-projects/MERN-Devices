@@ -1,10 +1,10 @@
-import { Metadata } from "next";
-import { Categories, Devices } from "@/components";
-import { fetchCategories, fetchDevices } from "@/services/api";
+import { Metadata } from 'next';
+import { Categories, Devices } from '@/components';
+import { fetchCategories, fetchDevices } from '@/services/api';
 
 export const metadata: Metadata = {
-  title: "TechnoHeart - Devices",
-  description: "Select Category and Devices",
+  title: 'TechnoHeart - Devices',
+  description: 'Select Category and Devices'
 };
 
 const DevicesPage = async ({ params: { link } }: { params: { link: string } }) => {
@@ -34,6 +34,6 @@ const DevicesPage = async ({ params: { link } }: { params: { link: string } }) =
       {devices?.length > 4 && <Categories categories={categories} />}
     </div>
   );
-}
+};
 
 export default DevicesPage;

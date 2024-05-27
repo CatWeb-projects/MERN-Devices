@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import CacheProvider from 'react-inlinesvg/provider';
 import NextTopLoader from 'nextjs-toploader';
-import { Providers } from './providers'
-import { Footer, Header } from "@/components";
+import { Providers } from './providers';
+import { Footer, Header } from '@/components';
 
-import "../../globals.scss";
+import '../../globals.scss';
 
 export const metadata: Metadata = {
-  title: "TechnoHeart",
-  description: "Best devices you can find",
+  title: 'TechnoHeart',
+  description: 'Best devices you can find'
 };
 
 export default function LocaleLayout({
@@ -17,7 +17,7 @@ export default function LocaleLayout({
   params: { locale }
 }: Readonly<{
   children: React.ReactNode;
-  params: { locale: string }
+  params: { locale: string };
 }>) {
   const messages = useMessages();
   return (
@@ -28,9 +28,7 @@ export default function LocaleLayout({
           <body className="night">
             <NextTopLoader showSpinner={false} height={4} />
             <Header />
-            <Providers>
-              {children}
-            </Providers>
+            <Providers>{children}</Providers>
             <Footer />
           </body>
         </NextIntlClientProvider>

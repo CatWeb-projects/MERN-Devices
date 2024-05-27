@@ -4,7 +4,7 @@ import { HydratedDocument } from 'mongoose';
 export type UsersDocument = HydratedDocument<Users>;
 
 @Schema({
-  versionKey: false,
+  versionKey: false
 })
 export class Users {
   @Prop()

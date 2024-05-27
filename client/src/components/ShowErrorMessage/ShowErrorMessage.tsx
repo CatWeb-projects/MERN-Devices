@@ -9,5 +9,5 @@ export const ShowErrorMessage = ({ errorMessage }: ShowErrorMessageProps) => {
     <div className="error">
       <h2>{errorMessage}</h2>
     </div>
-  )
-}
+  );
+};

@@ -8,23 +8,22 @@ import { CategoriesModule, DevicesModule, SlidersModule } from './api';
 import { CollectionModule } from './api/collection/collection.module';
 import { UsersModule } from './api/users/users.module';
 
-
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: `.${process.env.NODE_ENV}.env`,
+      envFilePath: `.${process.env.NODE_ENV}.env`
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
-      serveRoot: '/api/',
+      serveRoot: '/api/'
     }),
     MongooseModule.forRoot(
-      'mongodb+srv://admin:14595@devices.oy68wq2.mongodb.net/technoheart?retryWrites=true&w=majority&appName=Devices',
+      'mongodb+srv://admin:14595@devices.oy68wq2.mongodb.net/technoheart?retryWrites=true&w=majority&appName=Devices'
     ),
     JwtModule.register({
       global: true,
       secret: process.env.JWT_SECRET,
-      signOptions: { expiresIn: '1h' },
+      signOptions: { expiresIn: '1h' }
     }),
     UsersModule,
     CategoriesModule,
@@ -33,6 +32,6 @@ import { UsersModule } from './api/users/users.module';
     CollectionModule
   ],
   controllers: [],
-  providers: [],
+  providers: []
 })
 export class AppModule {}

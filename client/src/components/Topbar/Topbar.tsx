@@ -1,24 +1,17 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
-import { Button } from "@chakra-ui/react"
+import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+import { Button } from '@chakra-ui/react';
 import { useTheme } from '@/store/store';
-import { Icon } from "../Icon/Icon"
+import { Icon } from '../Icon/Icon';
 
 import './Topbar.scss';
 
-
 export const Topbar = () => {
   const pathname = usePathname();
-  const [
-    theme,
-    toggleTheme
-  ] = useTheme((state) => [
-    state.theme,
-    state.toggleTheme
-  ])
+  const [theme, toggleTheme] = useTheme((state) => [state.theme, state.toggleTheme]);
 
   useEffect(() => {
     if (theme === 'light') {
@@ -26,7 +19,7 @@ export const Topbar = () => {
     }
     document.body.setAttribute('data-theme', theme);
   }, [theme]);
-  
+
   return (
     <div className="topbar">
       <div className="topbar--mode">
@@ -35,10 +28,25 @@ export const Topbar = () => {
         </Button>
       </div>
       <div className="topbar--lang">
-        <Link href={`/ro/${pathname.slice(3)}`} className={pathname.includes('/ro') ? 'lang--active' : ''}>ro</Link>
-        <Link href={`/en/${pathname.slice(3)}`} className={pathname.includes('/en') ? 'lang--active' : ''}>en</Link>
-        <Link href={`/ru/${pathname.slice(3)}`} className={pathname.includes('/ru') ? 'lang--active' : ''}>ru</Link>
+        <Link
+          href={`/ro/${pathname.slice(3)}`}
+          className={pathname.includes('/ro') ? 'lang--active' : ''}
+        >
+          ro
+        </Link>
+        <Link
+          href={`/en/${pathname.slice(3)}`}
+          className={pathname.includes('/en') ? 'lang--active' : ''}
+        >
+          en
+        </Link>
+        <Link
+          href={`/ru/${pathname.slice(3)}`}
+          className={pathname.includes('/ru') ? 'lang--active' : ''}
+        >
+          ru
+        </Link>
       </div>
     </div>
-  )
-}
+  );
+};

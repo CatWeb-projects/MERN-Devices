@@ -13,11 +13,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/06/redmi_note_9_pro_gray_5-200605035405-darwin.webp",
     "category": "smartphones",
     "link": "redmi-note-9-pro-64-gb-gray",
-    "colors": [
-      "gray",
-      "green",
-      "white"
-    ],
+    "colors": ["gray", "green", "white"],
     "memoryOptions": [64, 128],
     "camera": 64,
     "frontCamera": 16,
@@ -41,12 +37,7 @@
     "imageUrl": "https://darwin.md/images/product/2021/05/darwin-samsung-galaxy-a52-4-gb-128-gb-violet-0.webp",
     "category": "smartphones",
     "link": "samsung-galaxy-a52-128-gb-violet",
-    "colors": [
-      "blue",
-      "violet",
-      "white",
-      "black"
-    ],
+    "colors": ["blue", "violet", "white", "black"],
     "memoryOptions": [128, 256],
     "camera": 64,
     "frontCamera": 32,
@@ -70,10 +61,7 @@
     "imageUrl": "https://darwin.md/images/product/2023/07/darwin-xiaomi-mi-10t-pro-128-gb-blue-288860.webp",
     "category": "smartphones",
     "link": "xiaomi-mi-10t-pro-128-gb-black",
-    "colors": [
-      "black",
-      "silver"
-    ],
+    "colors": ["black", "silver"],
     "memoryOptions": [128, 256],
     "camera": 108,
     "frontCamera": 20,
@@ -97,10 +85,7 @@
     "imageUrl": "https://darwin.md/images/product/2023/07/darwin-xiaomi-mi-10t-pro-128-gb-blue-288860.webp",
     "category": "smartphones",
     "link": "xiaomi-mi-10t-pro-256-gb-black",
-    "colors": [
-      "black",
-      "silver"
-    ],
+    "colors": ["black", "silver"],
     "memoryOptions": [128, 256],
     "camera": 108,
     "frontCamera": 20,
@@ -124,10 +109,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/11/xiaomi_mi_10t_pro_silver_1-201127013323-darwin.webp",
     "category": "smartphones",
     "link": "xiaomi-mi-10t-pro-128-gb-silver",
-    "colors": [
-      "black",
-      "silver"
-    ],
+    "colors": ["black", "silver"],
     "memoryOptions": [128, 256],
     "camera": 108,
     "frontCamera": 20,
@@ -151,12 +133,7 @@
     "imageUrl": "https://darwin.md/images/product/2021/05/darwin-samsung-galaxy-a52-4-gb-128-gb-violet-0.webp",
     "category": "smartphones",
     "link": "samsung-galaxy-a52-256-gb-violet",
-    "colors": [
-      "blue",
-      "violet",
-      "white",
-      "black"
-    ],
+    "colors": ["blue", "violet", "white", "black"],
     "memoryOptions": [128, 256],
     "camera": 64,
     "frontCamera": 32,
@@ -180,12 +157,7 @@
     "imageUrl": "https://darwin.md/images/product/2021/06/darwin-samsung-galaxy-a52-4-gb-128-gb-black-072.webp",
     "category": "smartphones",
     "link": "samsung-galaxy-a52-128-gb-black",
-    "colors": [
-      "blue",
-      "violet",
-      "white",
-      "black"
-    ],
+    "colors": ["blue", "violet", "white", "black"],
     "memoryOptions": [128, 256],
     "camera": 64,
     "frontCamera": 32,
@@ -209,12 +181,7 @@
     "imageUrl": "https://darwin.md/images/product/2021/06/darwin-samsung-galaxy-a52-4-gb-128-gb-black-072.webp",
     "category": "smartphones",
     "link": "samsung-galaxy-a52-256-gb-black",
-    "colors": [
-      "blue",
-      "violet",
-      "white",
-      "black"
-    ],
+    "colors": ["blue", "violet", "white", "black"],
     "memoryOptions": [128, 256],
     "camera": 64,
     "frontCamera": 32,
@@ -238,11 +205,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/06/redmi_note_9_pro_gray_5-200605035405-darwin.webp",
     "category": "smartphones",
     "link": "redmi-note-9-pro-128-gb-gray",
-    "colors": [
-      "gray",
-      "green",
-      "white"
-    ],
+    "colors": ["gray", "green", "white"],
     "memoryOptions": [64, 128],
     "camera": 64,
     "frontCamera": 16,
@@ -266,11 +229,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/06/xiaomi_redmi_note_9_pro_green_3.webp",
     "category": "smartphones",
     "link": "redmi-note-9-pro-64-gb-green",
-    "colors": [
-      "gray",
-      "green",
-      "white"
-    ],
+    "colors": ["gray", "green", "white"],
     "memoryOptions": [64, 128],
     "camera": 64,
     "frontCamera": 16,
@@ -294,11 +253,7 @@
     "imageUrl": "https://darwin.md/images/product/2023/08/darwin-xiaomi-redmi-note-9-pro-128-gb-white-290829.webp",
     "category": "smartphones",
     "link": "redmi-note-9-pro-64-gb-white",
-    "colors": [
-      "gray",
-      "green",
-      "white"
-    ],
+    "colors": ["gray", "green", "white"],
     "memoryOptions": [64, 128],
     "camera": 64,
     "frontCamera": 16,
@@ -322,11 +277,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/06/xiaomi_redmi_note_9_pro_green_3.webp",
     "category": "smartphones",
     "link": "redmi-note-9-pro-128-gb-green",
-    "colors": [
-      "gray",
-      "green",
-      "white"
-    ],
+    "colors": ["gray", "green", "white"],
     "memoryOptions": [64, 128],
     "camera": 64,
     "frontCamera": 16,
@@ -350,11 +301,7 @@
     "imageUrl": "https://darwin.md/images/product/2023/08/darwin-xiaomi-redmi-note-9-pro-128-gb-white-290829.webp",
     "category": "smartphones",
     "link": "redmi-note-9-pro-128-gb-white",
-    "colors": [
-      "gray",
-      "green",
-      "white"
-    ],
+    "colors": ["gray", "green", "white"],
     "memoryOptions": [64, 128],
     "camera": 64,
     "frontCamera": 16,
@@ -378,12 +325,7 @@
     "imageUrl": "https://darwin.md/images/product/2021/06/darwin-samsung-galaxy-a52-4-gb-128-gb-blue-064.webp",
     "category": "smartphones",
     "link": "samsung-galaxy-a52-128-gb-blue",
-    "colors": [
-      "blue",
-      "violet",
-      "white",
-      "black"
-    ],
+    "colors": ["blue", "violet", "white", "black"],
     "memoryOptions": [128, 256],
     "camera": 64,
     "frontCamera": 32,
@@ -407,12 +349,7 @@
     "imageUrl": "https://darwin.md/images/product/2021/06/darwin-samsung-galaxy-a52-4-gb-128-gb-blue-064.webp",
     "category": "smartphones",
     "link": "samsung-galaxy-a52-256-gb-blue",
-    "colors": [
-      "blue",
-      "violet",
-      "white",
-      "black"
-    ],
+    "colors": ["blue", "violet", "white", "black"],
     "memoryOptions": [128, 256],
     "camera": 64,
     "frontCamera": 32,
@@ -436,12 +373,7 @@
     "imageUrl": "https://darwin.md/images/product/2021/06/darwin-samsung-galaxy-a52-8-gb-256-gb-white-01.webp",
     "category": "smartphones",
     "link": "samsung-galaxy-a52-128-gb-white",
-    "colors": [
-      "blue",
-      "violet",
-      "white",
-      "black"
-    ],
+    "colors": ["blue", "violet", "white", "black"],
     "memoryOptions": [128, 256],
     "camera": 64,
     "frontCamera": 32,
@@ -465,12 +397,7 @@
     "imageUrl": "https://darwin.md/images/product/2021/06/darwin-samsung-galaxy-a52-8-gb-256-gb-white-01.webp",
     "category": "smartphones",
     "link": "samsung-galaxy-a52-256-gb-white",
-    "colors": [
-      "blue",
-      "violet",
-      "white",
-      "black"
-    ],
+    "colors": ["blue", "violet", "white", "black"],
     "memoryOptions": [128, 256],
     "camera": 64,
     "frontCamera": 32,
@@ -494,10 +421,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/11/xiaomi_mi_10t_pro_silver_1-201127013323-darwin.webp",
     "category": "smartphones",
     "link": "xiaomi-mi-10t-pro-256-gb-silver",
-    "colors": [
-      "black",
-      "silver"
-    ],
+    "colors": ["black", "silver"],
     "memoryOptions": [128, 256],
     "camera": 108,
     "frontCamera": 20,
@@ -521,14 +445,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/11/apple_iphone_11_black1a.webp",
     "category": "smartphones",
     "link": "apple-iphone-11-64-gb-black",
-    "colors": [
-      "black",
-      "red",
-      "yellow",
-      "white",
-      "purple",
-      "green"
-    ],
+    "colors": ["black", "red", "yellow", "white", "purple", "green"],
     "memoryOptions": [64, 128, 256],
     "camera": 12,
     "frontCamera": 12,
@@ -552,14 +469,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/11/apple_iphone_11_red1a.webp",
     "category": "smartphones",
     "link": "apple-iphone-11-64-gb-red",
-    "colors": [
-      "black",
-      "red",
-      "yellow",
-      "white",
-      "purple",
-      "green"
-    ],
+    "colors": ["black", "red", "yellow", "white", "purple", "green"],
     "memoryOptions": [64, 128, 256],
     "camera": 12,
     "frontCamera": 12,
@@ -583,14 +493,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/11/apple_iphone_11_yellow1a.webp",
     "category": "smartphones",
     "link": "apple-iphone-11-64-gb-yellow",
-    "colors": [
-      "black",
-      "red",
-      "yellow",
-      "white",
-      "purple",
-      "green"
-    ],
+    "colors": ["black", "red", "yellow", "white", "purple", "green"],
     "memoryOptions": [64, 128, 256],
     "camera": 12,
     "frontCamera": 12,
@@ -614,14 +517,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/11/apple_iphone_11_white1a.webp",
     "category": "smartphones",
     "link": "apple-iphone-11-64-gb-white",
-    "colors": [
-      "black",
-      "red",
-      "yellow",
-      "white",
-      "purple",
-      "green"
-    ],
+    "colors": ["black", "red", "yellow", "white", "purple", "green"],
     "memoryOptions": [64, 128, 256],
     "camera": 12,
     "frontCamera": 12,
@@ -645,14 +541,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/11/apple_iphone_11_purple1.webp",
     "category": "smartphones",
     "link": "apple-iphone-11-64-gb-purple",
-    "colors": [
-      "black",
-      "red",
-      "yellow",
-      "white",
-      "purple",
-      "green"
-    ],
+    "colors": ["black", "red", "yellow", "white", "purple", "green"],
     "memoryOptions": [64, 128, 256],
     "camera": 12,
     "frontCamera": 12,
@@ -676,14 +565,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/11/apple_iphone_11_green1a.webp",
     "category": "smartphones",
     "link": "apple-iphone-11-64-gb-green",
-    "colors": [
-      "black",
-      "red",
-      "yellow",
-      "white",
-      "purple",
-      "green"
-    ],
+    "colors": ["black", "red", "yellow", "white", "purple", "green"],
     "memoryOptions": [64, 128, 256],
     "camera": 12,
     "frontCamera": 12,
@@ -707,14 +589,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/11/apple_iphone_11_black1a.webp",
     "category": "smartphones",
     "link": "apple-iphone-11-128-gb-black",
-    "colors": [
-      "black",
-      "red",
-      "yellow",
-      "white",
-      "purple",
-      "green"
-    ],
+    "colors": ["black", "red", "yellow", "white", "purple", "green"],
     "memoryOptions": [64, 128, 256],
     "camera": 12,
     "frontCamera": 12,
@@ -738,14 +613,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/11/apple_iphone_11_red1a.webp",
     "category": "smartphones",
     "link": "apple-iphone-11-128-gb-red",
-    "colors": [
-      "black",
-      "red",
-      "yellow",
-      "white",
-      "purple",
-      "green"
-    ],
+    "colors": ["black", "red", "yellow", "white", "purple", "green"],
     "memoryOptions": [64, 128, 256],
     "camera": 12,
     "frontCamera": 12,
@@ -769,14 +637,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/11/apple_iphone_11_yellow1a.webp",
     "category": "smartphones",
     "link": "apple-iphone-11-128-gb-yellow",
-    "colors": [
-      "black",
-      "red",
-      "yellow",
-      "white",
-      "purple",
-      "green"
-    ],
+    "colors": ["black", "red", "yellow", "white", "purple", "green"],
     "memoryOptions": [64, 128, 256],
     "camera": 12,
     "frontCamera": 12,
@@ -800,14 +661,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/11/apple_iphone_11_white1a.webp",
     "category": "smartphones",
     "link": "apple-iphone-11-128-gb-white",
-    "colors": [
-      "black",
-      "red",
-      "yellow",
-      "white",
-      "purple",
-      "green"
-    ],
+    "colors": ["black", "red", "yellow", "white", "purple", "green"],
     "memoryOptions": [64, 128, 256],
     "camera": 12,
     "frontCamera": 12,
@@ -831,14 +685,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/11/apple_iphone_11_purple1.webp",
     "category": "smartphones",
     "link": "apple-iphone-11-128-gb-purple",
-    "colors": [
-      "black",
-      "red",
-      "yellow",
-      "white",
-      "purple",
-      "green"
-    ],
+    "colors": ["black", "red", "yellow", "white", "purple", "green"],
     "memoryOptions": [64, 128, 256],
     "camera": 12,
     "frontCamera": 12,
@@ -862,14 +709,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/11/apple_iphone_11_green1a.webp",
     "category": "smartphones",
     "link": "apple-iphone-11-128-gb-green",
-    "colors": [
-      "black",
-      "red",
-      "yellow",
-      "white",
-      "purple",
-      "green"
-    ],
+    "colors": ["black", "red", "yellow", "white", "purple", "green"],
     "memoryOptions": [64, 128, 256],
     "camera": 12,
     "frontCamera": 12,
@@ -893,14 +733,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/11/apple_iphone_11_purple1.webp",
     "category": "smartphones",
     "link": "apple-iphone-11-256-gb-purple",
-    "colors": [
-      "black",
-      "red",
-      "yellow",
-      "white",
-      "purple",
-      "green"
-    ],
+    "colors": ["black", "red", "yellow", "white", "purple", "green"],
     "memoryOptions": [64, 128, 256],
     "camera": 12,
     "frontCamera": 12,
@@ -924,14 +757,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/11/apple_iphone_11_green1a.webp",
     "category": "smartphones",
     "link": "apple-iphone-11-256-gb-green",
-    "colors": [
-      "black",
-      "red",
-      "yellow",
-      "white",
-      "purple",
-      "green"
-    ],
+    "colors": ["black", "red", "yellow", "white", "purple", "green"],
     "memoryOptions": [64, 128, 256],
     "camera": 12,
     "frontCamera": 12,
@@ -955,14 +781,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/11/apple_iphone_11_white1a.webp",
     "category": "smartphones",
     "link": "apple-iphone-11-256-gb-white",
-    "colors": [
-      "black",
-      "red",
-      "yellow",
-      "white",
-      "purple",
-      "green"
-    ],
+    "colors": ["black", "red", "yellow", "white", "purple", "green"],
     "memoryOptions": [64, 128, 256],
     "camera": 12,
     "frontCamera": 12,
@@ -986,14 +805,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/11/apple_iphone_11_yellow1a.webp",
     "category": "smartphones",
     "link": "apple-iphone-11-256-gb-yellow",
-    "colors": [
-      "black",
-      "red",
-      "yellow",
-      "white",
-      "purple",
-      "green"
-    ],
+    "colors": ["black", "red", "yellow", "white", "purple", "green"],
     "memoryOptions": [64, 128, 256],
     "camera": 12,
     "frontCamera": 12,
@@ -1017,14 +829,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/11/apple_iphone_11_black1a.webp",
     "category": "smartphones",
     "link": "apple-iphone-11-256-gb-black",
-    "colors": [
-      "black",
-      "red",
-      "yellow",
-      "white",
-      "purple",
-      "green"
-    ],
+    "colors": ["black", "red", "yellow", "white", "purple", "green"],
     "memoryOptions": [64, 128, 256],
     "camera": 12,
     "frontCamera": 12,
@@ -1048,14 +853,7 @@
     "imageUrl": "https://darwin.md/images/product/2020/11/apple_iphone_11_red1a.webp",
     "category": "smartphones",
     "link": "apple-iphone-11-256-gb-red",
-    "colors": [
-      "black",
-      "red",
-      "yellow",
-      "white",
-      "purple",
-      "green"
-    ],
+    "colors": ["black", "red", "yellow", "white", "purple", "green"],
     "memoryOptions": [64, 128, 256],
     "camera": 12,
     "frontCamera": 12,
@@ -1081,9 +879,7 @@
     "category": "laptops",
     "segment": "Gaming",
     "link": "ideapad-gaming-3-15imh05-lenovo-black-i5",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "chipset": "Intel Core i5-10300H",
     "cores": 4,
     "chipsetFrequency": "2500 - 4500 MHz",
@@ -1111,9 +907,7 @@
     "category": "laptops",
     "segment": "Home & Office",
     "link": "macbook-pro-13-2020-myd82zpa",
-    "colors": [
-      "darkgrey"
-    ],
+    "colors": ["darkgrey"],
     "chipset": "M1",
     "cores": 8,
     "chipsetFrequency": "600 - 3200 MHz",
@@ -1140,9 +934,7 @@
     "category": "laptops",
     "segment": "Home & Office",
     "link": "laptop-lenovo-ideapad-5-15are05-gray",
-    "colors": [
-      "gray"
-    ],
+    "colors": ["gray"],
     "chipset": "Ryzen 7 4700U",
     "cores": 8,
     "chipsetFrequency": "2.00 GHz - 4.10 GHz",
@@ -1169,9 +961,7 @@
     "category": "laptops",
     "segment": "Home & Office",
     "link": "ux425ja-zenbook-asus-i7-1065g7",
-    "colors": [
-      "gray"
-    ],
+    "colors": ["gray"],
     "chipset": "Intel Core i7 i7-1065G7",
     "cores": 8,
     "chipsetFrequency": "1300 - 3900 MHz",
@@ -1198,9 +988,7 @@
     "category": "laptops",
     "segment": "Gaming",
     "link": "g712lw-rog-strix-g17-asus-144hz-black-i7-10750h",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "chipset": "Intel Core i7 i7-10750H",
     "cores": 6,
     "chipsetFrequency": "2600 - 5000 MHz",
@@ -1228,9 +1016,7 @@
     "category": "laptops",
     "segment": "Home & Office",
     "link": "lenovo-ideapad-5-pro-16-storm-gray",
-    "colors": [
-      "gray"
-    ],
+    "colors": ["gray"],
     "chipset": "Intel Core i7 i7-11370H",
     "cores": 4,
     "chipsetFrequency": "4.80 GHz",
@@ -1258,9 +1044,7 @@
     "category": "laptops",
     "segment": "Home & Office",
     "link": "yoga-slim-7-lenovo-14-gray-ryzen-5-4500u",
-    "colors": [
-      "lightgray"
-    ],
+    "colors": ["lightgray"],
     "chipset": "Ryzen 5 4500U",
     "cores": 4,
     "chipsetFrequency": "2300 - 4000 MHz",
@@ -1287,9 +1071,7 @@
     "category": "laptops",
     "segment": "Home & Office",
     "link": "apple-macbook-pro-16-inch-space-1gray",
-    "colors": [
-      "darkgray"
-    ],
+    "colors": ["darkgray"],
     "chipset": "Intel Core i7",
     "cores": 6,
     "chipsetFrequency": "2600 MHz",
@@ -1317,9 +1099,7 @@
     "category": "laptops",
     "segment": "Home & Office",
     "link": "asus-d515da-gray",
-    "colors": [
-      "gray"
-    ],
+    "colors": ["gray"],
     "chipset": "AMD Athlon Gold 3150U",
     "cores": 2,
     "chipsetFrequency": "2400 - 3300 MHz",
@@ -1346,9 +1126,7 @@
     "category": "laptops",
     "segment": "Home & Office",
     "link": "laptop-asus-x415ja-gray",
-    "colors": [
-      "gray"
-    ],
+    "colors": ["gray"],
     "chipset": "Intel Core i3-1005G1",
     "cores": 2,
     "chipsetFrequency": "1.20 - 3.40 GHz",
@@ -1375,9 +1153,7 @@
     "category": "laptops",
     "segment": "Home & Office",
     "link": "macbook-air-13-2020-apple-space-gray-mgn63rua",
-    "colors": [
-      "darkgrey"
-    ],
+    "colors": ["darkgrey"],
     "chipset": "M1",
     "cores": 8,
     "chipsetFrequency": "600 - 3200 MHz",
@@ -1406,9 +1182,7 @@
     "category": "gadgets",
     "segment": "Smart Watch",
     "link": "mi-band-5-xiaomi-black",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "resolution": "126 x 294",
     "display": "1.1\"",
     "displaycategory": "AMOLED",
@@ -1434,9 +1208,7 @@
     "category": "gadgets",
     "segment": "Smart Watch",
     "link": "mi-smart-band-6-xiaomi-black",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "resolution": "152 x 486",
     "display": "1.56\"",
     "displaycategory": "AMOLED",
@@ -1461,9 +1233,7 @@
     "imageUrl": "https://darwin.md/images/product/2021/09/consola-pentru-jocuri-sony-playstation-5-digital-edition-white-011.webp",
     "category": "gadgets",
     "link": "sony-playstation-5-white",
-    "colors": [
-      "white"
-    ],
+    "colors": ["white"],
     "chipset": "AMD Ryzen Zen 2",
     "cores": 8,
     "chipsetFrequency": "3500 MHz",
@@ -1488,11 +1258,7 @@
     "category": "gadgets",
     "segment": "Smart Watch",
     "link": "watch-se-apple-44mm-32-gb-gray",
-    "colors": [
-      "gray",
-      "silver",
-      "gold"
-    ],
+    "colors": ["gray", "silver", "gold"],
     "resolution": "324 x 394",
     "display": "1.56\"",
     "displaycategory": "Retina LTPO OLED",
@@ -1517,11 +1283,7 @@
     "category": "gadgets",
     "segment": "Smart Watch",
     "link": "watch-se-apple-44mm-32-gb-silver",
-    "colors": [
-      "gray",
-      "silver",
-      "gold"
-    ],
+    "colors": ["gray", "silver", "gold"],
     "resolution": "324 x 394",
     "display": "1.56\"",
     "displaycategory": "Retina LTPO OLED",
@@ -1546,11 +1308,7 @@
     "category": "gadgets",
     "segment": "Smart Watch",
     "link": "watch-se-apple-44mm-32-gb-gold",
-    "colors": [
-      "gray",
-      "silver",
-      "gold"
-    ],
+    "colors": ["gray", "silver", "gold"],
     "resolution": "324 x 394",
     "display": "1.56\"",
     "displaycategory": "Retina LTPO OLED",
@@ -1575,9 +1333,7 @@
     "category": "gadgets",
     "segment": "Smart Watch",
     "link": "xiaomi-smartwatch-amazfit-bip-a1608-onyx-black",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "resolution": "176 x 176 px",
     "display": "1.28\"",
     "displaycategory": "AMOLED",
@@ -1603,13 +1359,7 @@
     "category": "gadgets",
     "segment": "Smart Watch",
     "link": "xiaomi-amazfit-gts-obsidian-black",
-    "colors": [
-      "black",
-      "pink",
-      "blue",
-      "orange",
-      "gray"
-    ],
+    "colors": ["black", "pink", "blue", "orange", "gray"],
     "resolution": "348 x 442",
     "display": "1.65\"",
     "displaycategory": "AMOLED",
@@ -1635,13 +1385,7 @@
     "category": "gadgets",
     "segment": "Smart Watch",
     "link": "xiaomi-amazfit-gts-obsidian-pink",
-    "colors": [
-      "black",
-      "pink",
-      "blue",
-      "orange",
-      "gray"
-    ],
+    "colors": ["black", "pink", "blue", "orange", "gray"],
     "resolution": "348 x 442",
     "display": "1.65\"",
     "displaycategory": "AMOLED",
@@ -1667,13 +1411,7 @@
     "category": "gadgets",
     "segment": "Smart Watch",
     "link": "xiaomi-amazfit-gts-obsidian-blue",
-    "colors": [
-      "black",
-      "pink",
-      "blue",
-      "orange",
-      "gray"
-    ],
+    "colors": ["black", "pink", "blue", "orange", "gray"],
     "resolution": "348 x 442",
     "display": "1.65\"",
     "displaycategory": "AMOLED",
@@ -1699,13 +1437,7 @@
     "category": "gadgets",
     "segment": "Smart Watch",
     "link": "xiaomi-amazfit-gts-obsidian-orange",
-    "colors": [
-      "black",
-      "pink",
-      "blue",
-      "orange",
-      "gray"
-    ],
+    "colors": ["black", "pink", "blue", "orange", "gray"],
     "resolution": "348 x 442",
     "display": "1.65\"",
     "displaycategory": "AMOLED",
@@ -1731,13 +1463,7 @@
     "category": "gadgets",
     "segment": "Smart Watch",
     "link": "xiaomi-amazfit-gts-obsidian-gray",
-    "colors": [
-      "black",
-      "pink",
-      "blue",
-      "orange",
-      "gray"
-    ],
+    "colors": ["black", "pink", "blue", "orange", "gray"],
     "resolution": "348 x 442",
     "display": "1.65\"",
     "displaycategory": "AMOLED",
@@ -1763,9 +1489,7 @@
     "category": "gadgets",
     "segment": "Action Camera",
     "link": "gopro-hero-8-black",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "resolution": "3840 x 2160",
     "display": "1.65\"",
     "displaycategory": "AMOLED",
@@ -1789,16 +1513,11 @@
     "category": "gadgets",
     "segment": "Action Camera",
     "link": "gopro-hero-9-black",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "resolution": "5120 x 2880",
     "display": "2.27\"",
     "displaycategory": "LCD",
-    "interface": [
-      "USB category C",
-      "microHDMI"
-    ],
+    "interface": ["USB category C", "microHDMI"],
     "touchScreen": true,
     "batteryCapacity": 1720,
     "camera": 20,
@@ -1821,11 +1540,7 @@
     "category": "gadgets",
     "segment": "Smart Watch",
     "link": "samsung-galaxy-watch-active-2-44mm-r820-black",
-    "colors": [
-      "black",
-      "silver",
-      "pink"
-    ],
+    "colors": ["black", "silver", "pink"],
     "resolution": "360 x 360",
     "display": "1.4\"",
     "displaycategory": "AMOLED",
@@ -1849,11 +1564,7 @@
     "category": "gadgets",
     "segment": "Smart Watch",
     "link": "samsung-galaxy-watch-active-2-44mm-r820-silver",
-    "colors": [
-      "black",
-      "silver",
-      "pink"
-    ],
+    "colors": ["black", "silver", "pink"],
     "resolution": "360 x 360",
     "display": "1.4\"",
     "displaycategory": "AMOLED",
@@ -1877,11 +1588,7 @@
     "category": "gadgets",
     "segment": "Smart Watch",
     "link": "samsung-galaxy-watch-active-2-44mm-r820-pink",
-    "colors": [
-      "black",
-      "silver",
-      "pink"
-    ],
+    "colors": ["black", "silver", "pink"],
     "resolution": "360 x 360",
     "display": "1.4\"",
     "displaycategory": "AMOLED",
@@ -1905,20 +1612,14 @@
     "category": "audio",
     "segment": "Party Speakers",
     "link": "jbl-partybox-310-black",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "chargingTime": 3.5,
     "workingTimeHours": 18,
     "bluetooth": 5.1,
     "power": 240,
     "workingDistance": 10,
     "audioFrequency": "50 Hz - 20 kHz",
-    "audioFormats": [
-      "mp3",
-      "wma",
-      "wav"
-    ],
+    "audioFormats": ["mp3", "wma", "wav"],
     "usbConnectors": 1
   },
   {
@@ -1937,20 +1638,14 @@
     "category": "audio",
     "segment": "Soundbar",
     "link": "soundbar-jbl-bar-2-1-with-wireless-subwoofer-black",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "chargingTime": 3.5,
     "workingTimeHours": 18,
     "bluetooth": 5,
     "power": 300,
     "workingDistance": 10,
     "audioFrequency": "40 Hz - 20 kHz",
-    "audioFormats": [
-      "mp3",
-      "wma",
-      "wav"
-    ]
+    "audioFormats": ["mp3", "wma", "wav"]
   },
   {
     "memoryOptions": [],
@@ -1968,20 +1663,14 @@
     "category": "audio",
     "segment": "Party Speakers",
     "link": "sven-ps-750-black",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "chargingTime": 2,
     "workingTimeHours": 10,
     "bluetooth": 5,
     "power": 80,
     "workingDistance": 10,
     "audioFrequency": "45 Hz - 20 kHz",
-    "audioFormats": [
-      "mp3",
-      "wma",
-      "wav"
-    ],
+    "audioFormats": ["mp3", "wma", "wav"],
     "batteryCapacity": 8800
   },
   {
@@ -2000,18 +1689,12 @@
     "category": "audio",
     "segment": "Party Speakers",
     "link": "sven-ps-520-black",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "bluetooth": 5,
     "power": 36,
     "workingDistance": 10,
     "audioFrequency": "80 Hz - 20 kHz",
-    "audioFormats": [
-      "mp3",
-      "wma",
-      "wav"
-    ],
+    "audioFormats": ["mp3", "wma", "wav"],
     "batteryCapacity": 4000,
     "usbConnectors": 1
   },
@@ -2031,15 +1714,9 @@
     "category": "audio",
     "segment": "Gaming Headphones",
     "link": "hyperx-cloud-alpha-s-hx-hscas-blue",
-    "colors": [
-      "blue",
-      "black"
-    ],
+    "colors": ["blue", "black"],
     "audioFrequency": "13 Hz - 27000 Hz",
-    "interface": [
-      "USB",
-      "3.5 mm jack"
-    ],
+    "interface": ["USB", "3.5 mm jack"],
     "microphone": true,
     "connectioncategory": "wired",
     "wireLength": 1.8
@@ -2060,15 +1737,9 @@
     "category": "audio",
     "segment": "Gaming Headphones",
     "link": "hyperx-cloud-alpha-s-hx-hscas-black",
-    "colors": [
-      "blue",
-      "black"
-    ],
+    "colors": ["blue", "black"],
     "audioFrequency": "13 Hz - 27000 Hz",
-    "interface": [
-      "USB",
-      "3.5 mm jack"
-    ],
+    "interface": ["USB", "3.5 mm jack"],
     "microphone": true,
     "connectioncategory": "wired",
     "wireLength": 1.8
@@ -2089,13 +1760,9 @@
     "category": "audio",
     "segment": "Microphone",
     "link": "razer-seiren-mini-black-rz19",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "audioFrequency": "20 Hz - 20 kHz",
-    "interface": [
-      "USB"
-    ],
+    "interface": ["USB"],
     "sensitivity": 110
   },
   {
@@ -2114,14 +1781,9 @@
     "category": "audio",
     "segment": "Microphone",
     "link": "hyperx-quadcast-s-black",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "audioFrequency": "20 Hz - 20 kHz",
-    "interface": [
-      "USB category-C",
-      "RGB"
-    ],
+    "interface": ["USB category-C", "RGB"],
     "sensitivity": 36,
     "impendance": 32,
     "connectioncategory": "wired",
@@ -2143,13 +1805,9 @@
     "category": "audio",
     "segment": "Microphone",
     "link": "hyperx-quadcast-black",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "audioFrequency": "20 Hz - 20 kHz",
-    "interface": [
-      "miniUSB"
-    ],
+    "interface": ["miniUSB"],
     "sensitivity": 36,
     "impendance": 32,
     "connectioncategory": "wired",
@@ -2171,13 +1829,9 @@
     "category": "audio",
     "segment": "Microphone",
     "link": "gaming-razer-seiren-x-black",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "audioFrequency": "20 Hz - 20 kHz",
-    "interface": [
-      "USB"
-    ],
+    "interface": ["USB"],
     "sensitivity": 110
   },
   {
@@ -2196,14 +1850,9 @@
     "category": "audio",
     "segment": "Gaming Headphones",
     "link": "hyperx-cloud-alpha-hsca-black-red",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "audioFrequency": "13 Hz - 27000 Hz",
-    "interface": [
-      "USB",
-      "3.5 mm jack"
-    ],
+    "interface": ["USB", "3.5 mm jack"],
     "microphone": true,
     "connectioncategory": "wired",
     "wireLength": 1.8
@@ -2224,15 +1873,9 @@
     "category": "audio",
     "segment": "Gaming Headphones",
     "link": "gaming-razer-kraken-tournament-edition-green",
-    "colors": [
-      "green",
-      "black"
-    ],
+    "colors": ["green", "black"],
     "audioFrequency": "12 Hz - 28000 Hz",
-    "interface": [
-      "USB",
-      "3.5 mm jack"
-    ],
+    "interface": ["USB", "3.5 mm jack"],
     "microphone": true,
     "connectioncategory": "wired",
     "wireLength": 1.3
@@ -2253,15 +1896,9 @@
     "category": "audio",
     "segment": "Gaming Headphones",
     "link": "gaming-razer-kraken-tournament-edition-black",
-    "colors": [
-      "green",
-      "black"
-    ],
+    "colors": ["green", "black"],
     "audioFrequency": "12 Hz - 28000 Hz",
-    "interface": [
-      "USB",
-      "3.5 mm jack"
-    ],
+    "interface": ["USB", "3.5 mm jack"],
     "microphone": true,
     "connectioncategory": "wired",
     "wireLength": 1.3
@@ -2282,9 +1919,7 @@
     "category": "sport-and-health",
     "segment": "Nanometer",
     "link": "greentest-eco-6-black",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "resolution": "320 x 240",
     "displaycategory": "TFT",
     "touchScreen": true,
@@ -2307,9 +1942,7 @@
     "category": "sport-and-health",
     "segment": "Blood pressure measurement",
     "link": "xiaomi-ihealth-2-smart-blood-pressure-monitor",
-    "colors": [
-      "white"
-    ],
+    "colors": ["white"],
     "resolution": "320 x 320",
     "displaycategory": "TFT",
     "touchScreen": true,
@@ -2332,9 +1965,7 @@
     "category": "sport-and-health",
     "segment": "Glucometer",
     "link": "ihealth-align-white",
-    "colors": [
-      "white"
-    ]
+    "colors": ["white"]
   },
   {
     "memoryOptions": [],
@@ -2374,9 +2005,7 @@
     "category": "sport-and-health",
     "segment": "Walking Machine",
     "link": "xiaomi-walking-machine-r1-pro-silver-gray",
-    "colors": [
-      "gray"
-    ],
+    "colors": ["gray"],
     "power": 918,
     "material": "metal",
     "supportedWeight": 110,
@@ -2398,9 +2027,7 @@
     "category": "sport-and-health",
     "segment": "Toothbrush",
     "link": "xiaomi-oclean-f1-light-blue",
-    "colors": [
-      "lightblue"
-    ],
+    "colors": ["lightblue"],
     "chargingTime": 2,
     "workingTimeHours": 2
   },
@@ -2420,9 +2047,7 @@
     "category": "sport-and-health",
     "segment": "Infrared Thermometer",
     "link": "infrared-non-contact-berrcom-jxb-178-white",
-    "colors": [
-      "white"
-    ],
+    "colors": ["white"],
     "batterycategory": "2 x AA",
     "errorRange": "±0.3 °C",
     "measurementLevel": "32 - 43 °C"
@@ -2442,9 +2067,7 @@
     "category": "sport-and-health",
     "segment": "Hairdryer",
     "link": "rowenta-cv5912f0-black",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "power": 2300,
     "wireLength": 1.8,
     "coldAir": true,
@@ -2488,9 +2111,7 @@
     "category": "sport-and-health",
     "segment": "Hairdryer",
     "link": "hair-dryer-polaris-phd1464t-black",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "power": 1400,
     "wireLength": 1.7,
     "coldAir": true,
@@ -2513,9 +2134,7 @@
     "category": "sport-and-health",
     "segment": "Weighing",
     "link": "gorenje-ot150lbw-white",
-    "colors": [
-      "white"
-    ],
+    "colors": ["white"],
     "supportedWeight": 150,
     "batterycategory": "2х AAA",
     "errorRange": "100g",
@@ -2536,9 +2155,7 @@
     "category": "personal-transport",
     "segment": "Mountain Bike",
     "link": "forward-flash-26-17-white",
-    "colors": [
-      "white"
-    ],
+    "colors": ["white"],
     "releaseDate": 2021,
     "wheelDiameter": 26,
     "speedsNumber": 21,
@@ -2562,9 +2179,7 @@
     "category": "personal-transport",
     "segment": "Mountain Bike",
     "link": "forward-hardi-26-17-gray",
-    "colors": [
-      "gray"
-    ],
+    "colors": ["gray"],
     "releaseDate": 2021,
     "wheelDiameter": 26,
     "speedsNumber": 21,
@@ -2588,9 +2203,7 @@
     "category": "personal-transport",
     "segment": "Mountain Bike",
     "link": "forward-sporting-27.5-19-green",
-    "colors": [
-      "green"
-    ],
+    "colors": ["green"],
     "releaseDate": 2021,
     "wheelDiameter": 27.5,
     "speedsNumber": 21,
@@ -2615,9 +2228,7 @@
     "category": "personal-transport",
     "segment": "Kick Scooter",
     "link": "xiaomi-mijia-pro-2-black",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "supportedWeight": 100,
     "wheelDiameter": 8.5,
     "maxSpeed": 25,
@@ -2643,10 +2254,7 @@
     "category": "personal-transport",
     "segment": "Scooter",
     "link": "aima-tiger-x6-1800w-motor-60v-28ah-gray",
-    "colors": [
-      "gray",
-      "black"
-    ],
+    "colors": ["gray", "black"],
     "releaseDate": 2021,
     "supportedWeight": 180,
     "wheelDiameter": 12,
@@ -2671,10 +2279,7 @@
     "category": "personal-transport",
     "segment": "Scooter",
     "link": "aima-tiger-x6-1800w-motor-60v-28ah-black",
-    "colors": [
-      "gray",
-      "black"
-    ],
+    "colors": ["gray", "black"],
     "releaseDate": 2021,
     "supportedWeight": 180,
     "wheelDiameter": 12,
@@ -2699,9 +2304,7 @@
     "category": "personal-transport",
     "segment": "Scooter",
     "link": "aima-power-eagle",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "releaseDate": 2021,
     "supportedWeight": 115,
     "wheelDiameter": 14,
@@ -2726,9 +2329,7 @@
     "category": "personal-transport",
     "segment": "Scooter",
     "link": "aima-tiger-s5-1200w-motor-72v-20ah-red",
-    "colors": [
-      "red"
-    ],
+    "colors": ["red"],
     "releaseDate": 2021,
     "supportedWeight": 180,
     "wheelDiameter": 12,
@@ -2755,9 +2356,7 @@
     "category": "tv-photo-optics",
     "segment": "Smart Box",
     "link": "xiaomi-mi-tv-box-s-black",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "chipset": "Amlogic S905X",
     "cores": 4,
     "memoryOptions": [8],
@@ -2835,27 +2434,18 @@
     "category": "tv-photo-optics",
     "segment": "Camera",
     "link": "nikon-d5600-black",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "resolution": "6000 x 4000",
     "display": "3.2\"",
     "displaycategory": "TFT",
-    "interface": [
-      "USB category C",
-      "HDMI"
-    ],
+    "interface": ["USB category C", "HDMI"],
     "touchScreen": true,
     "batteryCapacity": 1230,
     "camera": 24.2,
     "microphone": true,
     "usbConnectors": 1,
     "hdmi": 1,
-    "memoryCard": [
-      "SD",
-      "SDHC",
-      "SDXC"
-    ],
+    "memoryCard": ["SD", "SDHC", "SDXC"],
     "diaphragm": "f/3.5 - f/5.6",
     "focalDistance": "18 - 55 mm",
     "dimensions": "124 x 97 x 70 mm"
@@ -2900,27 +2490,18 @@
     "category": "tv-photo-optics",
     "segment": "Camera",
     "link": "canon-4000d-black",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "resolution": "5184 x 3456",
     "display": "2.7\"",
     "displaycategory": "TFT",
-    "interface": [
-      "USB category C",
-      "HDMI"
-    ],
+    "interface": ["USB category C", "HDMI"],
     "touchScreen": true,
     "batteryCapacity": 860,
     "camera": 18,
     "microphone": true,
     "usbConnectors": 1,
     "hdmi": 1,
-    "memoryCard": [
-      "SD",
-      "SDHC",
-      "SDXC"
-    ],
+    "memoryCard": ["SD", "SDHC", "SDXC"],
     "diaphragm": "f/3.5 - f/5.6",
     "focalDistance": "18 - 55 mm"
   },
@@ -2940,27 +2521,18 @@
     "category": "tv-photo-optics",
     "segment": "Camera",
     "link": "nikon-d3500-black",
-    "colors": [
-      "black"
-    ],
+    "colors": ["black"],
     "resolution": "6000 x 4000",
     "display": "3.2\"",
     "displaycategory": "TFT",
-    "interface": [
-      "USB category C",
-      "HDMI"
-    ],
+    "interface": ["USB category C", "HDMI"],
     "touchScreen": true,
     "batteryCapacity": 1230,
     "camera": 24.78,
     "microphone": true,
     "usbConnectors": 1,
     "hdmi": 1,
-    "memoryCard": [
-      "SD",
-      "SDHC",
-      "SDXC"
-    ],
+    "memoryCard": ["SD", "SDHC", "SDXC"],
     "diaphragm": "f/3.5 - f/5.6",
     "focalDistance": "18 - 55 mm",
     "dimensions": "134 x 100.5 x 67.5 mm",

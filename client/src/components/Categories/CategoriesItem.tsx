@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
-import Link from "next/link";
-import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
-import { CategoriesProps } from "@/store/store.interface";
-import { apiBaseUrl } from "@/helpers/baseUrl";
+import Link from 'next/link';
+import Image from 'next/image';
+import { useLocale, useTranslations } from 'next-intl';
+import { CategoriesProps } from '@/store/store.interface';
+import { apiBaseUrl } from '@/helpers/baseUrl';
 
 interface CategoriesItemProps {
   category: CategoriesProps;
@@ -17,12 +17,9 @@ export const CategoriesItem = ({ category }: CategoriesItemProps) => {
     <Link
       className={`categories--card ${category.link.slice(1)}`}
       href={`/${locale}/devices${category.link}`}
-      onMouseOver={(e) =>
-        (e.currentTarget.style.color = `${category.shadowColor}`)
-      }
-      onMouseOut={(e) => (e.currentTarget.style.color = ``)}
+      onMouseOver={(e) => (e.currentTarget.style.color = `${category.shadowColor}`)}
+      onMouseOut={(e) => (e.currentTarget.style.color = '')}
     >
-
       <div
         className="categories--img"
         onMouseOver={(e) =>
@@ -43,5 +40,5 @@ export const CategoriesItem = ({ category }: CategoriesItemProps) => {
         <span>{t(`${category.translate}`)}</span>
       </div>
     </Link>
-  )
-}
+  );
+};

@@ -1,16 +1,13 @@
-import type { Metadata } from 'next'
-import { Categories, DeviceInfo } from "@/components";
-import { fetchCategories, fetchDevice } from "@/services/api";
-import { baseUrl, checkImageUrl } from "@/helpers";
-
+import type { Metadata } from 'next';
+import { Categories, DeviceInfo } from '@/components';
+import { fetchCategories, fetchDevice } from '@/services/api';
+import { baseUrl, checkImageUrl } from '@/helpers';
 
 type Props = {
-  params: { link: string, locale: string }
-}
+  params: { link: string; locale: string };
+};
 
-export async function generateMetadata(
-  { params }: Props,
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // read route params
   const link = params.link;
   const locale = params.locale;
@@ -25,7 +22,7 @@ export async function generateMetadata(
       images: [checkImageUrl(device?.imageUrl)],
       url: `/${baseUrl}/${locale}/device/${device?.link}`
     }
-  }
+  };
 }
 
 const DeviceInfoPage = async ({ params: { link } }: { params: { link: string } }) => {
@@ -37,7 +34,7 @@ const DeviceInfoPage = async ({ params: { link } }: { params: { link: string } }
       <Categories categories={categories} />
       <DeviceInfo device={device} />
     </div>
-  )
-}
+  );
+};
 
 export default DeviceInfoPage;

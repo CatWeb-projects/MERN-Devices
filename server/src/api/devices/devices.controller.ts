@@ -14,13 +14,13 @@ export class DevicesController {
     name: 'category',
     required: false,
     type: String,
-    example: 'smartphones',
+    example: 'smartphones'
   })
   @ApiQuery({
     name: 'sort',
     required: false,
     type: String,
-    example: 'popularity',
+    example: 'popularity'
   })
   // @ApiQuery({ name: 'manufacturer', required: false, type: String })
   @Get()
@@ -42,7 +42,7 @@ export class DevicesController {
     name: 'name',
     required: false,
     type: String,
-    example: 'iphone',
+    example: 'iphone'
   })
   @Get('search/:name')
   search(@Param('name') name: string) {

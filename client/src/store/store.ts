@@ -1,7 +1,13 @@
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
-import { CategoriesStore, DevicesStore, SlidesStore, ThemeStore, UserStore } from './store.interface';
-import { 
+import {
+  CategoriesStore,
+  DevicesStore,
+  SlidesStore,
+  ThemeStore,
+  UserStore
+} from './store.interface';
+import {
   fetchCategories,
   fetchDevices,
   fetchSlides,
@@ -19,7 +25,7 @@ export const useSlider = create<SlidesStore>((set) => ({
   getSlides: async () => {
     try {
       const response = await fetchSlides();
-      set({ slides: response })
+      set({ slides: response });
     } catch (error) {
       const typedError = error as Error;
       set({ error: typedError.message });
@@ -36,7 +42,7 @@ export const useCategories = create<CategoriesStore>((set) => ({
   getCategories: async () => {
     try {
       const response = await fetchCategories();
-      set({ categories: response })
+      set({ categories: response });
     } catch (error) {
       const typedError = error as Error;
       set({ error: typedError.message });
@@ -46,16 +52,20 @@ export const useCategories = create<CategoriesStore>((set) => ({
   }
 }));
 
-export const useTheme = create<ThemeStore>()(persist((set, get) => ({
-  theme: 'dark',
-  toggleTheme: () => {
-    set({ theme: get().theme === 'dark' ? 'light' : 'dark'})
-  }
-}),
-{
-  name: 'theme',
-  storage: createJSONStorage(() => localStorage),
-}));
+export const useTheme = create<ThemeStore>()(
+  persist(
+    (set, get) => ({
+      theme: 'dark',
+      toggleTheme: () => {
+        set({ theme: get().theme === 'dark' ? 'light' : 'dark' });
+      }
+    }),
+    {
+      name: 'theme',
+      storage: createJSONStorage(() => localStorage)
+    }
+  )
+);
 
 export const useDevices = create<DevicesStore>((set) => ({
   devices: [],
@@ -67,7 +77,7 @@ export const useDevices = create<DevicesStore>((set) => ({
   getDevices: async (category?: string, sort?: string) => {
     try {
       const response = await fetchDevices(category, sort);
-      set({ devices: response})
+      set({ devices: response });
     } catch (error) {
       const typedError = error as Error;
       set({ error: typedError.message });
@@ -78,15 +88,15 @@ export const useDevices = create<DevicesStore>((set) => ({
   searchDevices: async (query: string) => {
     set({ loadingFoundDevices: true });
     try {
-      const response = await searchDevices(query)
-      set({ foundDevices: response})
-    } catch(error) {
+      const response = await searchDevices(query);
+      set({ foundDevices: response });
+    } catch (error) {
       const typedError = error as Error;
       set({ errorFoundDevices: typedError.message });
     } finally {
       set({ loadingFoundDevices: false });
     }
-  },
+  }
 }));
 
 export const useUser = create<UserStore>((set) => ({
@@ -101,7 +111,7 @@ export const useUser = create<UserStore>((set) => ({
         const message = response.response.data.message || response.response.data.error;
         throw new Error(`${message}`);
       }
-      
+
       set({ profile: response.data });
     } catch (error) {
       const typedError = error as Error;
@@ -111,7 +121,7 @@ export const useUser = create<UserStore>((set) => ({
   login: async (email: string, password: string) => {
     try {
       const response: any = await userLogin(email, password);
-      
+
       if (response.status !== 200) {
         const message = response.response.data.message;
         throw new Error(`${message}`);
@@ -144,4 +154,4 @@ export const useUser = create<UserStore>((set) => ({
     set({ profile: null });
     removeFromStorage();
   }
-}))
+}));

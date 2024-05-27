@@ -18,8 +18,8 @@ export const collectionResponse: ApiResponseOptions = {
           link: '/travels',
           imgUrl:
             'https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTB8fHxlbnwwfHx8&w=1000&q=80'
-        },
-      ],
-    },
-  },
+        }
+      ]
+    }
+  }
 };

@@ -1,7 +1,8 @@
-"use client";
+'use client';
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { useDevices } from '@/store/store';
 import { Icon } from '../Icon/Icon';
@@ -15,17 +16,12 @@ export const Search = () => {
   const [searchValue, setSearchValue] = useState<string>('');
   const t = useTranslations('Devices');
   const locale = useLocale();
-  const [
-    foundDevices,
-    searchDevices,
-    loading,
-    error
-  ] = useDevices((state) => [
+  const [foundDevices, searchDevices, loading, error] = useDevices((state) => [
     state.foundDevices,
     state.searchDevices,
     state.loadingFoundDevices,
     state.errorFoundDevices
-  ])
+  ]);
 
   const onSearchChange = (e: { target: { value: string } }) => {
     setSearchValue(e.target.value.toLowerCase());
@@ -44,7 +40,7 @@ export const Search = () => {
 
     return () => {
       clearInterval(debounce);
-    }
+    };
   }, [searchValue]);
 
   return (
@@ -69,22 +65,31 @@ export const Search = () => {
         <div className="found-devices">
           <h3>{t('products')}</h3>
 
-          {foundDevices?.length > 0 && foundDevices.filter((_, key) => key < 10).map((device, key) => (
-            <Link
-              href={`/${locale}/device/${device.link}`}
-              onClick={clearSearchValue}
-              className="found-devices--item"
-              key={key}
-            >
-              <img src={checkImageUrl(device.imageUrl)} alt={device.name} />
-              <div className="found-devices--product">
-                <div>{device.name}</div>
-                <div>
-                  {device.price} {t('lei')}
-                </div>
-              </div>
-            </Link>
-          ))}
+          {foundDevices?.length > 0 &&
+            foundDevices
+              .filter((_, key) => key < 10)
+              .map((device, key) => (
+                <Link
+                  href={`/${locale}/device/${device.link}`}
+                  onClick={clearSearchValue}
+                  className="found-devices--item"
+                  key={key}
+                >
+                  <Image
+                    src={checkImageUrl(device?.imageUrl)}
+                    alt={device?.name}
+                    width={50}
+                    height={50}
+                    loading="lazy"
+                  />
+                  <div className="found-devices--product">
+                    <div>{device.name}</div>
+                    <div>
+                      {device.price} {t('lei')}
+                    </div>
+                  </div>
+                </Link>
+              ))}
 
           {loading && <Loading />}
 
@@ -92,5 +97,5 @@ export const Search = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
