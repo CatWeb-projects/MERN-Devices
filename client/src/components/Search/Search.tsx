@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from "next/image";
 import { useLocale, useTranslations } from 'next-intl';
 import { useDevices } from '@/store/store';
 import { Icon } from '../Icon/Icon';
@@ -76,7 +77,13 @@ export const Search = () => {
               className="found-devices--item"
               key={key}
             >
-              <img src={checkImageUrl(device.imageUrl)} alt={device.name} />
+              <Image
+                src={checkImageUrl(device?.imageUrl)}
+                alt={device?.name}
+                width={50}
+                height={50}
+                loading="lazy"
+              />
               <div className="found-devices--product">
                 <div>{device.name}</div>
                 <div>

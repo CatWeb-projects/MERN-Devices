@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Slider, { Settings } from 'react-slick';
+import Slider, { Settings } from '@ant-design/react-slick';
 import { useLocale } from "next-intl";
 import { useSlider } from "@/store/store";
 import { Loading } from "../Loading/Loading";

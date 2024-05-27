@@ -1,4 +1,5 @@
-import Link from "next/link"
+import Link from "next/link";
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@chakra-ui/react";
 import { DevicesProps } from "@/store/store.interface";
@@ -16,7 +17,7 @@ export const DevicesItem = ({
   device
 }: DeviceItemProps) => {
   const locale = useLocale();
-  const t = useTranslations('Categories');
+  const t = useTranslations('Categories')
 
   return (
     <div className="device--item">
@@ -25,7 +26,15 @@ export const DevicesItem = ({
           <Link
             href={`/${locale}/device/${device.link}`}
           >
-            <img src={checkImageUrl(device.imageUrl)} alt={device.name} />
+            <Image
+              src={checkImageUrl(device?.imageUrl)}
+              alt={device?.name}
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ width: '100%', height: 'auto' }}
+              priority
+            />
           </Link>
           <Link href={`/${locale}/device/${device.link}`}>
             <div className="device--title">{device.name}</div>

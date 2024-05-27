@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@chakra-ui/react";
 import { DevicesProps } from "@/store/store.interface";
@@ -101,7 +102,15 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
 
         <div className="device-product--info">
           <div className="device-product--info-image">
-            <img src={checkImageUrl(device?.imageUrl)} alt={device?.name} />
+            <Image
+              src={checkImageUrl(device?.imageUrl)}
+              alt={device?.name}
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ width: '100%', height: 'auto' }}
+              priority
+            />
           </div>
 
           <div className="device-product--info-specifications">

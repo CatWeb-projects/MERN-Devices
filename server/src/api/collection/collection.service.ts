@@ -12,7 +12,7 @@ export class CollectionService {
 ) {}
 
   getAllCollection = async () => {
-    const collection = this.collectionModel.find({}, { _id: 0 })
+    const collection = this.collectionModel.find({}, { _id: 0 }).sort('id');
     return collection;
   }
 }
