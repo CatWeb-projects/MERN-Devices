@@ -1,0 +1,51 @@
+.upload {
+  margin: 0 20px 32px;
+  max-width: 300px;
+
+  h6 {
+    color: #fff;
+  }
+
+  h5 {
+    color: #92d5bd;
+    margin-top: 18px;
+  }
+
+  &-wrapper {
+    margin-top: 12px;
+    width: 100%;
+    height: 300px;
+    background-color: #201d4e;
+    border-radius: 12px;
+    padding: 12px;
+  }
+
+  &-content {
+    background: linear-gradient(to right bottom, #3e3896, #272460);
+    height: 215px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-image {
+    height: 215px;
+    border-radius: 12px;
+    overflow: hidden;
+
+    img {
+      height: inherit;
+      width: 100%;
+      object-fit: fill;
+    }
+  }
+}
+
+.hidden {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}

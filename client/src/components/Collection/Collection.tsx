@@ -17,7 +17,7 @@ export const Collection = ({ collection }: Props) => {
   return (
     <div className="collection">
       {collection &&
-        collection.map((item: any) => (
+        collection.map((item) => (
           <div key={item.id} className="collection--card">
             <Image
               src={checkImageUrl(item.imgUrl)}
