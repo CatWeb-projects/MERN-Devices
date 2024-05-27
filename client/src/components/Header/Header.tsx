@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
@@ -22,9 +22,13 @@ export const Header = () => {
   const refreshToken = getRefreshToken();
   useOutsideClick({
     ref: showRef,
-    handler: () => setShowProfileMenu(false),
-  })
-  const [profile, validateSession, userLogOut] = useUser((state) => [state.profile, state.validateSession, state.userLogOut]);
+    handler: () => setShowProfileMenu(false)
+  });
+  const [profile, validateSession, userLogOut] = useUser((state) => [
+    state.profile,
+    state.validateSession,
+    state.userLogOut
+  ]);
 
   useEffect(() => {
     if (refreshToken) {
@@ -34,11 +38,11 @@ export const Header = () => {
 
   const logout = () => {
     userLogOut();
-  }
+  };
 
   const toggleProfileMenu = () => {
-    setShowProfileMenu((i) => !i)
-  }
+    setShowProfileMenu((i) => !i);
+  };
 
   return (
     <header>
@@ -90,10 +94,8 @@ export const Header = () => {
 
                 {showProfileMenu && (
                   <div className="profile-menu" ref={showRef}>
-                    <Link href={`/${locale}/profile`}>
-                      {tAuth('profile')}
-                    </Link>
-                    <Button size='small' onClick={logout}>
+                    <Link href={`/${locale}/profile`}>{tAuth('profile')}</Link>
+                    <Button size="small" onClick={logout}>
                       {tAuth('logout')}
                     </Button>
                   </div>
@@ -111,5 +113,5 @@ export const Header = () => {
         </div>
       </div>
     </header>
-  )
-}
+  );
+};

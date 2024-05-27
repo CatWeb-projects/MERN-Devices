@@ -1,8 +1,8 @@
 .categories {
   max-width: 1400px;
   margin: 16px auto;
-  
-   &--wrapper {
+
+  &--wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fill, 140px);
     grid-template-rows: 1fr;

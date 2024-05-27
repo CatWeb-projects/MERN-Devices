@@ -1,16 +1,14 @@
-import { DevicesProps } from "@/store/store.interface";
-import { DevicesItem } from "./DevicesItem";
-import { NoData } from "../NoData/NoData";
+import { DevicesProps } from '@/store/store.interface';
+import { DevicesItem } from './DevicesItem';
+import { NoData } from '../NoData/NoData';
 
 import './Devices.scss';
 
 interface DevicesDataProps {
-  devices: DevicesProps[]
+  devices: DevicesProps[];
 }
 
-export const Devices = ({
-  devices
-}: DevicesDataProps) => {
+export const Devices = ({ devices }: DevicesDataProps) => {
   return (
     <div className="devices">
       {devices?.length > 0 && (
@@ -21,9 +19,7 @@ export const Devices = ({
         </div>
       )}
 
-      {(!devices?.length) && (
-        <NoData />
-      )}
+      {!devices?.length && <NoData />}
     </div>
-  )
-}
+  );
+};

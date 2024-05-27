@@ -7,7 +7,7 @@ export const categoriesData = [
     name: 'Phones and Tablets',
     imgUrl: `${baseUrl}/images/smartphones_tablete.webp`,
     shadowColor: '#3fa2cd',
-    translate: 'phones',
+    translate: 'phones'
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const categoriesData = [
     name: 'Laptops',
     imgUrl: `${baseUrl}/images/laptop_pc.webp`,
     shadowColor: '#58e600',
-    translate: 'laptops',
+    translate: 'laptops'
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ export const categoriesData = [
     name: 'Gadgets',
     imgUrl: `${baseUrl}/images/gadgets.png`,
     shadowColor: '#e85b10',
-    translate: 'gadgets',
+    translate: 'gadgets'
   },
   {
     id: 4,
@@ -31,7 +31,7 @@ export const categoriesData = [
     name: 'Apple',
     imgUrl: `${baseUrl}/images/apple.webp`,
     shadowColor: '#e53b26',
-    translate: 'apple',
+    translate: 'apple'
   },
   {
     id: 5,
@@ -39,7 +39,7 @@ export const categoriesData = [
     name: 'Audio',
     imgUrl: `${baseUrl}/images/audio.png`,
     shadowColor: '#d93c8d',
-    translate: 'audio',
+    translate: 'audio'
   },
   {
     id: 6,
@@ -47,7 +47,7 @@ export const categoriesData = [
     name: 'Sport And Health',
     imgUrl: `${baseUrl}/images/sport_sanatatea.png`,
     shadowColor: '#8c57a7',
-    translate: 'health',
+    translate: 'health'
   },
   {
     id: 7,
@@ -55,7 +55,7 @@ export const categoriesData = [
     name: 'Electric Transport',
     imgUrl: `${baseUrl}/images/transport_eco.png`,
     shadowColor: '#32e5e5',
-    translate: 'electric_transport',
+    translate: 'electric_transport'
   },
   {
     id: 8,
@@ -63,7 +63,7 @@ export const categoriesData = [
     name: 'TV, Photo and Optics',
     imgUrl: `${baseUrl}/images/tv_optica.png`,
     shadowColor: '#2146c1',
-    translate: 'photo_optics_tv',
+    translate: 'photo_optics_tv'
   },
   {
     id: 9,
@@ -71,7 +71,7 @@ export const categoriesData = [
     name: 'Accessories',
     imgUrl: `${baseUrl}/images/accesorii.png`,
     shadowColor: '#844d97',
-    translate: 'accessories',
+    translate: 'accessories'
   },
   {
     id: 10,
@@ -79,6 +79,6 @@ export const categoriesData = [
     name: 'Appliances',
     imgUrl: `${baseUrl}/images/electrocasnice.png`,
     shadowColor: '#36bcbe',
-    translate: 'appliances',
-  },
+    translate: 'appliances'
+  }
 ];

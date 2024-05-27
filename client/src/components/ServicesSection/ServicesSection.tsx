@@ -1,13 +1,13 @@
-import Link from "next/link";
-import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
-import { Icon } from "../Icon/Icon";
+import Link from 'next/link';
+import Image from 'next/image';
+import { useLocale, useTranslations } from 'next-intl';
+import { Icon } from '../Icon/Icon';
 
 import './ServicesSection.scss';
 
 export const ServicesSection = () => {
- const t = useTranslations('General');
- const locale = useLocale();
+  const t = useTranslations('General');
+  const locale = useLocale();
 
   return (
     <div className="service-section">

@@ -31,8 +31,9 @@ export const Button = ({
 
   return (
     <button
-      className={`button button-type-${type} button-type-${size} ${disabled ? 'disabled' : ''
-        } ${className}`}
+      className={`button button-type-${type} button-type-${size} ${
+        disabled ? 'disabled' : ''
+      } ${className}`}
       onClick={onClick}
       {...props}
       type={generalType}

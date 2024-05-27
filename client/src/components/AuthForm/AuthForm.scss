@@ -32,7 +32,7 @@
       display: block;
       border: none;
       outline: none;
-      background: hsla(0, 0%, 100%, .2);
+      background: hsla(0, 0%, 100%, 0.2);
       padding: 15px 25px 15px 15px;
       color: #fff;
       font-size: 16px;
@@ -63,7 +63,7 @@
       }
     }
   }
-  
+
   &--input-wrapper {
     position: relative;
     display: flex;
@@ -74,7 +74,7 @@
     overflow: hidden;
 
     > span {
-      background: hsla(0, 0%, 100%, .2);
+      background: hsla(0, 0%, 100%, 0.2);
       height: 100%;
       padding: 6px 12px;
       line-height: 0;
@@ -84,7 +84,7 @@
   }
 
   .password-see-btn {
-    background: hsla(0, 0%, 100%, .2);
+    background: hsla(0, 0%, 100%, 0.2);
     height: 100%;
     padding: 6px 12px;
     outline: none;
@@ -131,6 +131,6 @@
   margin-bottom: 25px;
   font-size: 14px;
   border: 1px solid red;
-  background: rgba(255, 0, 0, .1);
+  background: rgba(255, 0, 0, 0.1);
   border-radius: 10px;
 }

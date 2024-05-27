@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
-import Link from "next/link";
-import { useLocale, useTranslations } from "next-intl"
-import { DevicesProps } from "@/store/store.interface";
-import { DevicesItem } from "./DevicesItem";
-import { devicesCards } from "@/constants/devicesCards";
+import Link from 'next/link';
+import { useLocale, useTranslations } from 'next-intl';
+import { DevicesProps } from '@/store/store.interface';
+import { DevicesItem } from './DevicesItem';
+import { devicesCards } from '@/constants/devicesCards';
 
 interface Props {
   devices: DevicesProps[];
@@ -21,10 +21,7 @@ export const RecommendedDevices = ({ devices, category }: Props) => {
     <div className="devices">
       {cardData && (
         <Link href={`/${locale}/devices${cardData.link}`}>
-          <div
-            className="devices--banner"
-            style={{ backgroundImage: `url(${cardData.imgUrl})` }}
-          >
+          <div className="devices--banner" style={{ backgroundImage: `url(${cardData.imgUrl})` }}>
             {category && <h4>{t(`${category}`)}</h4>}
             {devices && devices.length > 0 && (
               <span>
@@ -37,9 +34,7 @@ export const RecommendedDevices = ({ devices, category }: Props) => {
 
       <div className="devices--items recommended-item">
         {devices &&
-          devices
-            .slice(0, 3)
-            .map((device) => <DevicesItem key={device.id} device={device} />)}
+          devices.slice(0, 3).map((device) => <DevicesItem key={device.id} device={device} />)}
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -16,12 +16,7 @@ import './AuthForm.scss';
 export const AuthForm = () => {
   const [emailInputValue, setEmailInputValue] = useState<string>('');
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [
-    profile,
-    login,
-    registration,
-    error
-  ] = useUser((state) => [
+  const [profile, login, registration, error] = useUser((state) => [
     state.profile,
     state.login,
     state.registration,
@@ -30,7 +25,7 @@ export const AuthForm = () => {
   const t = useTranslations('Auth');
   const locale = useLocale();
   const { push } = useRouter();
-  const pathname = usePathname()
+  const pathname = usePathname();
   const isRegistrationPage = pathname?.includes('registration');
   const isLoginPage = pathname?.includes('login');
   const emailValidation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -42,7 +37,7 @@ export const AuthForm = () => {
     } else {
       return t('login');
     }
-  }
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -55,11 +50,11 @@ export const AuthForm = () => {
     onSubmit: (values: any) => {
       console.log(values, 'form values');
       if (isRegistrationPage) {
-        registration(values)
+        registration(values);
       } else {
         login(values.email, values.password);
       }
-    },
+    }
   });
 
   useEffect(() => {
@@ -78,7 +73,7 @@ export const AuthForm = () => {
         </Link>
         <h1>{formTitle()}</h1>
       </div>
-      <form className='login--form' onSubmit={formik.handleSubmit}>
+      <form className="login--form" onSubmit={formik.handleSubmit}>
         {isRegistrationPage && (
           <>
             <div className="login--input-wrapper">
@@ -139,7 +134,7 @@ export const AuthForm = () => {
           <input
             id="password"
             name="password"
-            type={showPassword ? "text" : "password"}
+            type={showPassword ? 'text' : 'password'}
             placeholder={t('password')}
             onChange={formik.handleChange}
             value={formik.values.password}
@@ -155,14 +150,14 @@ export const AuthForm = () => {
           </button>
         </div>
 
-        <div className='login--form--actions'>
+        <div className="login--form--actions">
           {isLoginPage && (
-            <Button size="auto" className='forgot-password'>Forgot password?</Button>
+            <Button size="auto" className="forgot-password">
+              Forgot password?
+            </Button>
           )}
-          {error && (
-            <div className="error-message">{error}</div>
-          )}
-          <Button generalType="submit" size="auth" className='login--btn'>
+          {error && <div className="error-message">{error}</div>}
+          <Button generalType="submit" size="auth" className="login--btn">
             {isLoginPage ? t('login') : t('register')}
           </Button>
         </div>

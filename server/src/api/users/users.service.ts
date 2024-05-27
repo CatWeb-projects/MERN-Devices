@@ -1,10 +1,15 @@
-import { BadRequestException, ForbiddenException, Injectable, UnprocessableEntityException } from "@nestjs/common";
-import { InjectModel } from "@nestjs/mongoose";
-import { JwtService } from "@nestjs/jwt";
-import { Model } from "mongoose";
-import bcrypt from 'bcrypt'
-import { AuthUserDto, UserDto } from "./dto";
-import { Users, UsersDocument } from "./schemas/users.schema";
+import {
+  BadRequestException,
+  ForbiddenException,
+  Injectable,
+  UnprocessableEntityException
+} from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { JwtService } from '@nestjs/jwt';
+import { Model } from 'mongoose';
+import bcrypt from 'bcrypt';
+import { AuthUserDto, UserDto } from './dto';
+import { Users, UsersDocument } from './schemas/users.schema';
 
 const errorMessage = {
   userExists: 'user already exist, please login',
@@ -16,7 +21,7 @@ const errorMessage = {
   invalidEmail: 'User with this email not found',
   invalidPassword: 'Password does not match',
   invalidToken: 'Invalid token'
-}
+};
 
 @Injectable()
 export class UsersService {
@@ -29,12 +34,12 @@ export class UsersService {
   getAllUsers = async () => {
     const users = await this.users.find();
     return users;
-  }
+  };
 
   getUserByEmail = async (email: string) => {
     const user = await this.users.findOne({ email });
     return user;
-  }
+  };
 
   //Register User
   createUser = async (userDto: UserDto) => {
@@ -48,24 +53,27 @@ export class UsersService {
     }
 
     const hashedPassword = await bcrypt.hash(password, 5);
-    const token = await this.jwtService.signAsync({ email }, {
-      expiresIn: '1h',
-      // secret: this._configService.get('JWT_SECRET'),
-    });
+    const token = await this.jwtService.signAsync(
+      { email },
+      {
+        expiresIn: '1h'
+        // secret: this._configService.get('JWT_SECRET'),
+      }
+    );
     const user = await this.users.create({
       ...userDto,
       created_at: new Date(),
-      password: hashedPassword,
+      password: hashedPassword
     });
-    
+
     return {
       user,
       refreshToken: token
     };
-  }
+  };
 
-   //Login User
-   login = async (authUserDto: AuthUserDto) => {
+  //Login User
+  login = async (authUserDto: AuthUserDto) => {
     const { email, password } = authUserDto;
     const user = await this.users.findOne({ email });
     if (!user) {
@@ -80,10 +88,10 @@ export class UsersService {
     const tokens = await this.issueTokens(user.id);
     user.password = undefined;
     return {
-			user,
-			...tokens
-		};
-  }
+      user,
+      ...tokens
+    };
+  };
 
   //Validate user
   async validateSession(tokenData: { refreshToken: string }) {
@@ -101,29 +109,28 @@ export class UsersService {
       id: user._id,
       role: user.role,
       isLoggedIn: true
-    }
+    };
 
     return profileUser;
   }
-
 
   //Delete User
   deleteUser = async (id: string) => {
     const user = await this.users.findByIdAndDelete(id);
     return user;
-  }
+  };
 
   private issueTokens(userId: string) {
-		const data = { id: userId }
+    const data = { id: userId };
 
-		const accessToken = this.jwtService.sign(data, {
-			expiresIn: '1h'
-		})
+    const accessToken = this.jwtService.sign(data, {
+      expiresIn: '1h'
+    });
 
-		const refreshToken = this.jwtService.sign(data, {
-			expiresIn: '7d'
-		})
+    const refreshToken = this.jwtService.sign(data, {
+      expiresIn: '7d'
+    });
 
-		return { accessToken, refreshToken }
-	}
+    return { accessToken, refreshToken };
+  }
 }

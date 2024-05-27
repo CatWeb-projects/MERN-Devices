@@ -5,7 +5,6 @@ import { useLocale } from 'next-intl';
 
 import './not-found.scss';
 
-
 const NotFound = () => {
   const locale = useLocale();
   return (
@@ -14,7 +13,7 @@ const NotFound = () => {
       <p>Could not find requested resource</p>
       <Link href={`/${locale}`}>Return Home</Link>
     </div>
-  )
-}
+  );
+};
 
 export default NotFound;

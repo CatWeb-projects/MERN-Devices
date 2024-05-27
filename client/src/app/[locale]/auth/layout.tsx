@@ -2,18 +2,18 @@ import { NextIntlClientProvider, useMessages } from 'next-intl';
 import { Poppins } from 'next/font/google';
 
 const poppins = Poppins({
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ['400', '500', '600', '700', '800', '900'],
   subsets: ['latin']
 });
 
-import "../../globals.scss";
+import '../../globals.scss';
 
 export default function RegistrationLayout({
   children,
   params: { locale }
 }: {
-  children: React.ReactNode,
-  params: { locale: string }
+  children: React.ReactNode;
+  params: { locale: string };
 }) {
   const messages = useMessages();
   return (
@@ -23,5 +23,5 @@ export default function RegistrationLayout({
         <body className={poppins.className}>{children}</body>
       </NextIntlClientProvider>
     </html>
-  )
+  );
 }

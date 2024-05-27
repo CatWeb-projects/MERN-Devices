@@ -27,7 +27,7 @@ export const getDevicesResponse: ApiResponseOptions = {
           processor: 'Octa Core',
           resolution: '1080 x 2400',
           hardDrive: 64,
-          memory: 6,
+          memory: 6
         },
         {
           id: 2,
@@ -52,9 +52,9 @@ export const getDevicesResponse: ApiResponseOptions = {
           processor: 'Octa Core',
           resolution: '1080 x 2400',
           hardDrive: 128,
-          memory: 4,
-        },
-      ],
-    },
-  },
+          memory: 4
+        }
+      ]
+    }
+  }
 };

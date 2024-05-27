@@ -11,7 +11,7 @@ export const getCategoriesResponse: ApiResponseOptions = {
           name: 'Phones and Tablets',
           imgUrl: `${baseUrl}/images/smartphones_tablete.webp`,
           shadowColor: '#3fa2cd',
-          translate: 'phones',
+          translate: 'phones'
         },
         {
           id: '2',
@@ -19,9 +19,9 @@ export const getCategoriesResponse: ApiResponseOptions = {
           name: 'Laptops',
           imageUrl: `${baseUrl}/images/laptop_pc.webp`,
           shadowColor: '#58e600',
-          translate: 'laptops',
-        },
-      ],
-    },
-  },
+          translate: 'laptops'
+        }
+      ]
+    }
+  }
 };

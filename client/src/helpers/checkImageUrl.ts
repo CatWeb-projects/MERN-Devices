@@ -1,9 +1,9 @@
-import { apiBaseUrl } from "./baseUrl"
+import { apiBaseUrl } from './baseUrl';
 
 export const checkImageUrl = (url: string) => {
   if (url?.includes('https')) {
-    return url
+    return url;
   } else {
-    return `${apiBaseUrl}${url}`
+    return `${apiBaseUrl}${url}`;
   }
-}
+};

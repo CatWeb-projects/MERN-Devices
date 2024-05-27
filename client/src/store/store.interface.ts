@@ -1,5 +1,5 @@
 export interface SlidesProps {
-  id: number,
+  id: number;
   imgUrl: string;
   link: string;
   altName: string;
@@ -140,7 +140,7 @@ export interface UserProps {
     last_name: string;
     email: string;
     role: string;
-  }
+  };
   accessToken?: string;
   refreshToken?: string;
 }

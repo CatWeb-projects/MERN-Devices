@@ -1,11 +1,11 @@
-import Link from "next/link";
-import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
-import { Button } from "@chakra-ui/react";
-import { DevicesProps } from "@/store/store.interface";
-import { PRODUCT_PROPERTY } from "@/constants/devicesSpecs";
-import { checkImageUrl } from "@/helpers";
-import { Icon } from "../Icon/Icon";
+import Link from 'next/link';
+import Image from 'next/image';
+import { useLocale, useTranslations } from 'next-intl';
+import { Button } from '@chakra-ui/react';
+import { DevicesProps } from '@/store/store.interface';
+import { PRODUCT_PROPERTY } from '@/constants/devicesSpecs';
+import { checkImageUrl } from '@/helpers';
+import { Icon } from '../Icon/Icon';
 
 import './DeviceInfo.scss';
 
@@ -23,19 +23,16 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
 
   const redirectDeviceColors = (color: string) => {
     if (device.colors.length === 1) {
-      return `/${locale}/device/${device.link}`
+      return `/${locale}/device/${device.link}`;
     } else if (!device.memoryOptions.length) {
-      return `/${locale}/device/${device.link
-        .split('-')
-        .slice(0, -1)
-        .join('-')}-${color}`
+      return `/${locale}/device/${device.link.split('-').slice(0, -1).join('-')}-${color}`;
     } else {
       return `/${locale}/device/${device.link
         .split('-')
         .slice(0, -3)
-        .join('-')}-${device.hardDrive}-gb-${color}`
+        .join('-')}-${device.hardDrive}-gb-${color}`;
     }
-  }
+  };
 
   const checkDeviceProperties = (property: string) => {
     if (property === 'camera' || property === 'frontCamera') {
@@ -59,9 +56,9 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
     }
     if (property === 'touchScreen' || property === 'microphone' || property === 'coldAir') {
       if (device[property]) {
-        return t('true')
+        return t('true');
       }
-      return t('false')
+      return t('false');
     }
     if (property === 'chargingTime' || property === 'workingTimeHours') {
       return `${device[property]} ${t('hours')}`;
@@ -72,7 +69,7 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
     if (property === 'batteryCapacity') {
       return `${device[property]} mah`;
     }
-    if (property === 'audioFormats' || (property === 'interface' || property === 'memoryCard')) {
+    if (property === 'audioFormats' || property === 'interface' || property === 'memoryCard') {
       return device[property]?.join(', ');
     }
     if (property === 'maxSpeed' || property === 'electricRange') {
@@ -91,7 +88,7 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
       return `${t(`${device[property]}`)}`;
     }
     return device[property];
-  }
+  };
 
   return (
     <div className="device-product">
@@ -119,10 +116,7 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
                 <span>{t('color')}</span>
                 <div className="device-product--options-colors-wrapper">
                   {device.colors.map((color, key) => (
-                    <Link
-                      href={redirectDeviceColors(color)}
-                      key={key}
-                    >
+                    <Link href={redirectDeviceColors(color)} key={key}>
                       <div
                         className={
                           device.color.toLowerCase().match(color)
@@ -149,11 +143,9 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
                         device.memoryOptions.length === 1
                           ? `/${locale}/device/${device.link}`
                           : `/${locale}/device/${device.link
-                            .split('-')
-                            .slice(0, -3)
-                            .join(
-                              '-'
-                            )}-${memory}-gb-${device.color.toLowerCase()}`
+                              .split('-')
+                              .slice(0, -3)
+                              .join('-')}-${memory}-gb-${device.color.toLowerCase()}`
                       }
                       key={key}
                     >
@@ -184,8 +176,8 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
               <div className="compare-devices">
                 <Button
                   size="full-width"
-                // onClick={() => addToCompare(deviceData)}
-                // className={userCompareFind ? 'added-to-compare' : ''}
+                  // onClick={() => addToCompare(deviceData)}
+                  // className={userCompareFind ? 'added-to-compare' : ''}
                 >
                   <Icon type="compare" />
                   {tCategories('compare')}
@@ -213,12 +205,14 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
               {tCategories('buy')}
             </Link>
             {device?.credit && (
-              <div className="device-product--info-credit">{`${device.credit
-                } ${tCategories('credit')}`}</div>
+              <div className="device-product--info-credit">{`${
+                device.credit
+              } ${tCategories('credit')}`}</div>
             )}
             {device?.cashback && (
-              <div className="device-product--info-cashback">{`Cashback ${device.cashback
-                } ${tCategories('lei')}`}</div>
+              <div className="device-product--info-cashback">{`Cashback ${
+                device.cashback
+              } ${tCategories('lei')}`}</div>
             )}
             {device?.credit && (
               <Link href={`/${locale}/credit`} className="device-product--credit">
@@ -229,5 +223,5 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

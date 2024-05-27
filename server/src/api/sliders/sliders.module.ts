@@ -7,8 +7,6 @@ import { Sliders, SlidersSchema } from './schemas/sliders.schema';
 @Module({
   controllers: [SlidersController],
   providers: [SlidersService],
-  imports: [
-    MongooseModule.forFeature([{ name: Sliders.name, schema: SlidersSchema }]),
-  ],
+  imports: [MongooseModule.forFeature([{ name: Sliders.name, schema: SlidersSchema }])]
 })
 export class SlidersModule {}

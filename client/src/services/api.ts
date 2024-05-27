@@ -1,5 +1,12 @@
-import axios from "axios";
-import { AuthProps, CategoriesProps, CollectionProps, DevicesProps, FoundDevices, SlidesProps, UserProps } from "@/store/store.interface";
+import axios from 'axios';
+import {
+  AuthProps,
+  CategoriesProps,
+  CollectionProps,
+  DevicesProps,
+  FoundDevices,
+  SlidesProps
+} from '@/store/store.interface';
 
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5000/api';
 
@@ -11,7 +18,7 @@ export const fetchSlides = async (): Promise<SlidesProps[]> => {
   // }
 
   return response.data;
-}
+};
 
 export const fetchDevices = async (category?: string, sort?: string): Promise<DevicesProps[]> => {
   try {
@@ -28,7 +35,7 @@ export const fetchDevices = async (category?: string, sort?: string): Promise<De
   } catch (error) {
     console.error(error);
   }
-}
+};
 
 export const fetchDevice = async (link: string): Promise<DevicesProps> => {
   try {
@@ -42,7 +49,7 @@ export const fetchDevice = async (link: string): Promise<DevicesProps> => {
   } catch (error) {
     console.error(error);
   }
-}
+};
 
 export const searchDevices = async (name: string): Promise<FoundDevices[]> => {
   try {
@@ -56,7 +63,7 @@ export const searchDevices = async (name: string): Promise<FoundDevices[]> => {
   } catch (error) {
     console.error(error);
   }
-}
+};
 
 export const fetchCategories = async (): Promise<CategoriesProps[]> => {
   try {
@@ -70,7 +77,7 @@ export const fetchCategories = async (): Promise<CategoriesProps[]> => {
   } catch (error) {
     console.error(error);
   }
-}
+};
 
 export const fetchCollection = async (): Promise<CollectionProps[]> => {
   try {
@@ -79,12 +86,12 @@ export const fetchCollection = async (): Promise<CollectionProps[]> => {
     if (response.status !== 200) {
       throw new Error(`${response.data.message}`);
     }
-    
+
     return response.data;
   } catch (error) {
     console.error(error);
   }
-}
+};
 
 export const userRegistration = async (auth: AuthProps) => {
   try {
@@ -98,9 +105,9 @@ export const userRegistration = async (auth: AuthProps) => {
     return response;
   } catch (error) {
     console.error(error);
-    return error
+    return error;
   }
-}
+};
 
 export const userLogin = async (email: string, password: string) => {
   try {
@@ -113,7 +120,7 @@ export const userLogin = async (email: string, password: string) => {
     console.error(error);
     return error;
   }
-}
+};
 
 export const validateSession = async (refreshToken: string) => {
   try {
@@ -123,6 +130,6 @@ export const validateSession = async (refreshToken: string) => {
     return response.data;
   } catch (error) {
     console.error(error);
-    return error
+    return error;
   }
-}
+};

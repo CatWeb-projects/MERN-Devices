@@ -3,11 +3,11 @@ import createMiddleware from 'next-intl/middleware';
 
 // import { DASHBOARD_PAGES } from './config/pages-url.config'
 // import { EnumTokens } from './services/auth-token.service';
- 
+
 export default createMiddleware({
   // A list of all locales that are supported
   locales: ['ro', 'en', 'ru'],
- 
+
   // Used when no locale matches
   defaultLocale: 'ro'
 });
@@ -35,7 +35,7 @@ export default createMiddleware({
 
 // 	return NextResponse.next()
 // }
- 
+
 export const config = {
   // Match only internationalized pathnames
   matcher: ['/', '/(ro|en|ru)/:path*', '/((?!_next|_vercel|.*\\..*).*)']

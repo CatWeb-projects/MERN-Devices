@@ -52,7 +52,8 @@ header {
 
       > a,
       > button,
-      .locale-language, .logged-in {
+      .locale-language,
+      .logged-in {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -148,8 +149,9 @@ header {
   color: var(--device-dark-orange);
   font-weight: 700;
   border-radius: 0 0 8px 8px;
-  
-  > button, a {
+
+  > button,
+  a {
     padding: 4px;
     margin-bottom: 8px;
   }

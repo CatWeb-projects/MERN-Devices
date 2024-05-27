@@ -42,5 +42,5 @@ export const Categories = ({ categories }: CategoriesDataProps) => {
 
       {/* {error && <ShowErrorMessage errorMessage={error}/>} */}
     </div>
-  )
-}
+  );
+};

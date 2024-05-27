@@ -1,12 +1,13 @@
-import { useLocale, useTranslations } from "next-intl";
-import Link from "next/link";
-import Image from "next/image";
-import { checkImageUrl } from "@/helpers";
+import { useLocale, useTranslations } from 'next-intl';
+import Link from 'next/link';
+import Image from 'next/image';
+import { checkImageUrl } from '@/helpers';
+import { CollectionProps } from '@/store/store.interface';
 
 import './Collection.scss';
 
 interface Props {
-  collection: any;
+  collection: CollectionProps[];
 }
 
 export const Collection = ({ collection }: Props) => {

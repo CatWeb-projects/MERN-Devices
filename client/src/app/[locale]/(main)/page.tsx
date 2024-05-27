@@ -7,10 +7,10 @@ import {
   ServicesSection,
   ShopTitle,
   SlickSlider
-} from "@/components";
-import { fetchCategories, fetchCollection, fetchDevices } from "@/services/api";
+} from '@/components';
+import { fetchCategories, fetchCollection, fetchDevices } from '@/services/api';
 
-import "./page.scss";
+import './page.scss';
 
 const Home = async () => {
   const categories = await fetchCategories();
@@ -28,16 +28,11 @@ const Home = async () => {
   // const audio = await insertCardCategory('audio');
 
   //second variant
-  const [
-    smartphones,
-    laptops,
-    gadgets,
-    audio
-  ] = await Promise.all([
+  const [smartphones, laptops, gadgets, audio] = await Promise.all([
     fetchDevices('smartphones'),
     fetchDevices('laptops'),
     fetchDevices('gadgets'),
-    fetchDevices('audio'),
+    fetchDevices('audio')
   ]);
 
   return (
@@ -57,6 +52,6 @@ const Home = async () => {
       </div>
     </main>
   );
-}
+};
 
 export default Home;
