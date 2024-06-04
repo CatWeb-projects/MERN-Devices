@@ -29,10 +29,10 @@ const Home = async () => {
 
   //second variant
   const [smartphones, laptops, gadgets, audio] = await Promise.all([
-    fetchDevices('smartphones'),
-    fetchDevices('laptops'),
-    fetchDevices('gadgets'),
-    fetchDevices('audio')
+    fetchDevices('smartphones', 'popularity', 3),
+    fetchDevices('laptops', 'popularity', 3),
+    fetchDevices('gadgets', 'popularity', 3),
+    fetchDevices('audio', 'popularity', 3)
   ]);
 
   return (

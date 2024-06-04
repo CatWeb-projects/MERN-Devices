@@ -20,11 +20,16 @@ export const fetchSlides = async (): Promise<SlidesProps[]> => {
   return response.data;
 };
 
-export const fetchDevices = async (category?: string, sort?: string): Promise<DevicesProps[]> => {
+export const fetchDevices = async (
+  category?: string,
+  sort?: string,
+  limit?: number,
+  skip?: number
+): Promise<DevicesProps[]> => {
   try {
     const response = await axios.get('/devices', {
       // ...(category ? { params: { category } } : {}),
-      params: { category, sort }
+      params: { category, sort, limit, skip }
     });
 
     if (response.status !== 200) {

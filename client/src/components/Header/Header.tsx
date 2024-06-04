@@ -2,9 +2,10 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { useOutsideClick } from '@chakra-ui/react';
-import { useUser } from '@/store/store';
+import { useCategories, useUser } from '@/store/store';
 import { getRefreshToken } from '@/services/auth-token.service';
 import { Search } from '../Search/Search';
 import { Icon } from '../Icon/Icon';
@@ -12,23 +13,40 @@ import { Topbar } from '../Topbar/Topbar';
 import { Button } from '../Button/Button';
 
 import './Header.scss';
+import { apiBaseUrl } from '@/helpers';
+import { quickLinks } from '@/constants/quickLinks';
 
 export const Header = () => {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+  const [showQuickLinks, setShowQuickLinks] = useState('');
   const showRef = useRef(null);
   const locale = useLocale();
   const t = useTranslations('Header');
   const tAuth = useTranslations('Auth');
+  const tCategories = useTranslations('Categories');
   const refreshToken = getRefreshToken();
   useOutsideClick({
     ref: showRef,
     handler: () => setShowProfileMenu(false)
   });
+
   const [profile, validateSession, userLogOut] = useUser((state) => [
     state.profile,
     state.validateSession,
     state.userLogOut
   ]);
+
+  const [categories, getCategories, loading, error] = useCategories((state) => [
+    state.categories,
+    state.getCategories,
+    state.loading,
+    state.error
+  ]);
+
+  useEffect(() => {
+    getCategories();
+  }, []);
 
   useEffect(() => {
     if (refreshToken) {
@@ -44,20 +62,101 @@ export const Header = () => {
     setShowProfileMenu((i) => !i);
   };
 
+  const checkQuickLinksRedirect = (submenu: any, category: string) => {
+    if (submenu.getInfo) {
+      return `/${locale}/device/${submenu.properties}`;
+    } else if (submenu?.properties && !submenu.categoryLink) {
+      return `/${locale}/devices/${category}/${submenu.properties}`;
+    } else if (submenu?.properties) {
+      return `/${locale}/devices/${submenu.categoryLink}/${submenu.properties}`;
+    } else if (submenu?.categoryLink) {
+      return `/${locale}/devices/${submenu.categoryLink}`;
+    } else if (typeof submenu === 'string') {
+      return `/${locale}/devices/${submenu.toLowerCase().split(' ').join('-')}`;
+    } else {
+      return `/${locale}/devices/${category}`;
+    }
+  };
+
   return (
     <header>
       <Topbar />
       <div className="header">
-        <div className="header--container">
+        <div
+          className="header--container"
+          style={showMenu ? { borderRadius: '16px 16px 0 0' } : {}}
+        >
           <div className="header--logo">
             <Link href={`/${locale}`}>
               <Icon type="logo" />
             </Link>
           </div>
 
-          <div className="header--menu">
+          <div
+            className="header--menu"
+            onMouseOver={() => setShowMenu(true)}
+            onMouseOut={() => setShowMenu(false)}
+          >
             <Icon type="menu" />
             {t('menu')}
+
+            <div className="menu" style={!showMenu ? { display: 'none' } : {}}>
+              <div className="menu--categories">
+                {categories &&
+                  categories.map((category) => (
+                    <div
+                      className="menu--category"
+                      onMouseOver={() => setShowQuickLinks(`${category.link.slice(1)}`)}
+                      key={category.id}
+                    >
+                      <Link
+                        onClick={() => setShowMenu(false)}
+                        href={`/${locale}/devices${category.link}`}
+                      >
+                        <Image
+                          priority
+                          src={`${apiBaseUrl}${category?.imgUrl}`}
+                          alt={category.name}
+                          width={40}
+                          height={40}
+                        />
+                        <span className="menu--category--title">
+                          {tCategories(`${category.translate}`)}
+                        </span>
+                      </Link>
+                    </div>
+                  ))}
+              </div>
+
+              <div className="menu--quicklinks">
+                {quickLinks.map((quickLink) => (
+                  <div
+                    className="quicklinks"
+                    style={showQuickLinks === quickLink.name ? { display: 'flex' } : {}}
+                    key={quickLink.name}
+                  >
+                    <div className="quicklinks--wrapper">
+                      {quickLink?.subCategories?.map((subCategory) => (
+                        <div className="quicklinks--properties" key={subCategory.quickLinksName}>
+                          <div className="quicklinks--properties--title">
+                            {subCategory.quickLinksName}
+                          </div>
+                          {subCategory?.links?.map((submenu: any, key) => (
+                            <Link
+                              href={checkQuickLinksRedirect(submenu, quickLink.name)}
+                              onClick={() => setShowMenu(false)}
+                              key={key}
+                            >
+                              {submenu?.title ? submenu.title : submenu}
+                            </Link>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           <Search />
