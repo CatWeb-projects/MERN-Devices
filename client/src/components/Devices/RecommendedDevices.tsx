@@ -33,8 +33,7 @@ export const RecommendedDevices = ({ devices, category }: Props) => {
       )}
 
       <div className="devices--items recommended-item">
-        {devices &&
-          devices.slice(0, 3).map((device) => <DevicesItem key={device.id} device={device} />)}
+        {devices && devices.map((device) => <DevicesItem key={device.id} device={device} />)}
       </div>
     </div>
   );
