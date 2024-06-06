@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { Categories, Devices } from '@/components';
+import { Categories, Devices, Pagination } from '@/components';
 import { fetchCategories, fetchDevices } from '@/services/api';
 
 export const metadata: Metadata = {
@@ -31,6 +31,7 @@ const DevicesPage = async ({ params: { link } }: { params: { link: string } }) =
     <div className="devices-page">
       <Categories categories={categories} />
       <Devices devices={devices} />
+      <Pagination totalPages={7} />
       {devices?.length > 4 && <Categories categories={categories} />}
     </div>
   );

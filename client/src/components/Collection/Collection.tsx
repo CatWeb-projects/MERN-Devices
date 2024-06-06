@@ -28,10 +28,10 @@ export const Collection = ({ collection }: Props) => {
               style={{ width: '100%', height: '100%' }}
               loading="lazy"
             />
-            <Link href={`/${locale}${item.link}`}>
+            <Link href={`/${locale}/devices${item.link}`}>
               <h3>{t(`${item.translate}`)}</h3>
             </Link>
-            <Link href={`/${locale}${item.link}`}>{t('details')}</Link>
+            <Link href={`/${locale}/devices${item.link}`}>{t('details')}</Link>
           </div>
         ))}
     </div>
