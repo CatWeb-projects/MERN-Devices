@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import {
+  AuthProps,
   CategoriesStore,
   DevicesStore,
   SlidesStore,
@@ -68,15 +69,15 @@ export const useTheme = create<ThemeStore>()(
 );
 
 export const useDevices = create<DevicesStore>((set) => ({
-  devices: [],
+  devices: null,
   foundDevices: [],
   loading: true,
   loadingFoundDevices: true,
   error: null,
   errorFoundDevices: null,
-  getDevices: async (category?: string, sort?: string, limit?: number, skip?: number) => {
+  getDevices: async (category?: string, sort?: string, limit?: number, page?: number) => {
     try {
-      const response = await fetchDevices(category, sort, limit, skip);
+      const response = await fetchDevices(category, sort, limit, page);
       set({ devices: response });
     } catch (error) {
       const typedError = error as Error;
@@ -103,7 +104,7 @@ export const useUser = create<UserStore>((set) => ({
   profile: null,
   loading: true,
   error: null,
-  registration: async (auth: any) => {
+  registration: async (auth: AuthProps) => {
     try {
       const response: any = await userRegistration(auth);
 

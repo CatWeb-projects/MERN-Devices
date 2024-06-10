@@ -26,22 +26,22 @@ export class DevicesController {
     name: 'limit',
     required: false,
     type: Number,
-    example: '3'
+    example: '8'
   })
   @ApiQuery({
-    name: 'skip',
+    name: 'page',
     required: false,
     type: Number,
-    example: '10'
+    example: '1'
   })
   @Get()
   getAllDevices(
     @Query('category') category: string,
     @Query('sort') sort: string,
     @Query('limit') limit: number,
-    @Query('skip') skip: number
+    @Query('page') page: number
   ) {
-    return this.devicesService.getAllDevices(category, sort, limit, skip);
+    return this.devicesService.getAllDevices(category, sort, limit, page);
   }
 
   @HttpCode(200)

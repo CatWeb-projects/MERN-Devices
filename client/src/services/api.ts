@@ -3,6 +3,7 @@ import {
   AuthProps,
   CategoriesProps,
   CollectionProps,
+  DevicesDataProps,
   DevicesProps,
   FoundDevices,
   SlidesProps
@@ -24,12 +25,12 @@ export const fetchDevices = async (
   category?: string,
   sort?: string,
   limit?: number,
-  skip?: number
-): Promise<DevicesProps[]> => {
+  page?: number
+): Promise<DevicesDataProps> => {
   try {
     const response = await axios.get('/devices', {
       // ...(category ? { params: { category } } : {}),
-      params: { category, sort, limit, skip }
+      params: { category, sort, limit, page }
     });
 
     if (response.status !== 200) {

@@ -2,12 +2,11 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 16px;
 
   > a {
     margin: 0 4px;
-    color: var(--device-white);
-    border: 1px solid var(--device-white);
+    color: var(--device-dark-orange);
+    border: 1px solid var(--device-dark-orange);
     min-width: 35px;
     height: 30px;
     padding: 0 5px;
@@ -20,7 +19,6 @@
 
     &:hover {
       background: var(--device-blue);
-      color: var(--white);
       border: 1px solid var(--device-blue);
       transition: all 0.2s ease-in-out;
     }
@@ -37,7 +35,6 @@
 
 .active {
   background-color: var(--device-blue);
-  color: var(--device-white);
   border: 1px solid var(--device-blue) !important;
   pointer-events: none;
 }
