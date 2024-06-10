@@ -4,6 +4,23 @@ import { HydratedDocument } from 'mongoose';
 export type DevicesDocument = HydratedDocument<Devices>;
 
 @Schema()
+export class DevicesPagination {
+  @Prop()
+  limit: number;
+
+  @Prop()
+  page: number;
+
+  @Prop()
+  totalCount: number;
+
+  @Prop()
+  totalPages: number;
+
+  @Prop()
+  data: Devices[];
+}
+
 export class Devices {
   @Prop()
   id: number;

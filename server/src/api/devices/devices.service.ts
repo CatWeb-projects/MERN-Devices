@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Devices, DevicesDocument } from './schemas/devices.schema';
+import { Devices, DevicesDocument, DevicesPagination } from './schemas/devices.schema';
+import { getPageNumber, getTotalPages } from '../../utils/utils';
 
 @Injectable()
 export class DevicesService {
@@ -12,9 +13,9 @@ export class DevicesService {
   getAllDevices = async (
     category: string,
     sort: string,
-    limit: number,
-    skip: number
-  ): Promise<Devices[]> => {
+    limit: number = 8,
+    page: number
+  ): Promise<DevicesPagination> => {
     const manufacturer = 'Apple';
     const checkDeviceType = () => {
       if (category === 'apple') {
@@ -26,12 +27,21 @@ export class DevicesService {
       }
     };
 
+    const devicesBeforeLimit = await this.devicesModel.find(checkDeviceType(), { _id: 0 });
+
     const devices = await this.devicesModel
       .find(checkDeviceType(), { _id: 0 })
       .sort(sort ? { [`${sort}`]: -1 } : 'id')
-      .limit(limit)
-      .skip(skip);
-    return devices;
+      .skip((page - 1) * limit)
+      .limit(limit);
+
+    return {
+      limit: Number(limit),
+      page: getPageNumber(page),
+      totalCount: devicesBeforeLimit.length,
+      totalPages: getTotalPages(devicesBeforeLimit.length, limit),
+      data: devices
+    };
   };
 
   getDevice = async (link: string) => {

@@ -106,6 +106,14 @@ export interface DevicesProps {
   refreshRate: string;
 }
 
+export interface DevicesDataProps {
+  limit: number;
+  page: number;
+  totalCount: number;
+  totalPages: number;
+  data: DevicesProps[];
+}
+
 export interface FoundDevices {
   id: number;
   name: string;
@@ -115,7 +123,7 @@ export interface FoundDevices {
 }
 
 export interface DevicesStore {
-  devices: DevicesProps[];
+  devices: DevicesDataProps;
   foundDevices: FoundDevices[];
   loading: boolean;
   loadingFoundDevices: boolean;

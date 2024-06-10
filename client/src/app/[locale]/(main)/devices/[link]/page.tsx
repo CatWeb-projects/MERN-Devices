@@ -7,8 +7,14 @@ export const metadata: Metadata = {
   description: 'Select Category and Devices'
 };
 
-const DevicesPage = async ({ params: { link } }: { params: { link: string } }) => {
-  const devices = await fetchDevices(link, 'popularity');
+const DevicesPage = async ({
+  params: { link },
+  searchParams: { page }
+}: {
+  params: { link: string };
+  searchParams: { page: number };
+}) => {
+  const devices = await fetchDevices(link, 'popularity', 8, page);
   const categories = await fetchCategories();
 
   // const [
@@ -31,7 +37,7 @@ const DevicesPage = async ({ params: { link } }: { params: { link: string } }) =
     <div className="devices-page">
       <Categories categories={categories} />
       <Devices devices={devices} />
-      {devices?.length > 4 && <Categories categories={categories} />}
+      {/* {devices?.data?.length > 4 && <Categories categories={categories} />} */}
     </div>
   );
 };
