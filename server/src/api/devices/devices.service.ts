@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Devices, DevicesDocument } from './schemas/devices.schema';
+import { Devices, DevicesDocument, DevicesPagination } from './schemas/devices.schema';
 import { getPageNumber, getTotalPages } from '../../utils/utils';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class DevicesService {
     sort: string,
     limit: number = 8,
     page: number
-  ): Promise<any> => {
+  ): Promise<DevicesPagination> => {
     const manufacturer = 'Apple';
     const checkDeviceType = () => {
       if (category === 'apple') {

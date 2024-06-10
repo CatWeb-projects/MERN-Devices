@@ -3,6 +3,10 @@ import { ApiResponseOptions } from '@nestjs/swagger';
 export const getDevicesResponse: ApiResponseOptions = {
   schema: {
     example: {
+      limit: 8,
+      page: 1,
+      totalCount: 36,
+      totalPages: 5,
       devices: [
         {
           id: 1,
