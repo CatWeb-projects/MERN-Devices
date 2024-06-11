@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -18,12 +18,15 @@ export const Search = () => {
   const t = useTranslations('Devices');
   const locale = useLocale();
   const router = useRouter();
+
   const [devices, getDevices, loading, error] = useDevices((state) => [
     state.devices,
     state.getDevices,
     state.loading,
     state.error
   ]);
+
+  const devicesSearchData = useMemo(() => devices?.data, [devices?.data]);
 
   const onSearchChange = (e: { target: { value: string } }) => {
     setSearchValue(e.target.value.toLowerCase());
@@ -58,11 +61,7 @@ export const Search = () => {
     <div className="search">
       <input
         type="text"
-        // style={
-        //   searchValue && searchDevices?.length > 0
-        //     ? { borderRadius: '8px 8px 0 0' }
-        //     : {}
-        // }
+        style={searchValue && devicesSearchData?.length > 0 ? { borderRadius: '8px 8px 0 0' } : {}}
         placeholder={t('search')}
         value={searchValue}
         onChange={onSearchChange}
@@ -76,8 +75,8 @@ export const Search = () => {
         <div className="found-devices">
           <h3>{t('products')}</h3>
 
-          {devices?.data?.length > 0 &&
-            devices.data.map((device, key) => (
+          {devicesSearchData?.length > 0 &&
+            devicesSearchData.map((device, key) => (
               <Link
                 href={`/${locale}/device/${device.link}`}
                 onClick={clearSearchValue}

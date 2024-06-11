@@ -1,10 +1,10 @@
 import { Metadata } from 'next';
-import { Categories, Devices } from '@/components';
-import { fetchCategories, fetchDevices } from '@/services/api';
+import { Devices } from '@/components';
+import { fetchDevices } from '@/services/api';
 
 export const metadata: Metadata = {
-  title: 'TechnoHeart - Devices',
-  description: 'Select Category and Devices'
+  title: 'TechnoHeart - Search for Devices',
+  description: 'Search for Devices'
 };
 
 const DevicesPage = async ({
