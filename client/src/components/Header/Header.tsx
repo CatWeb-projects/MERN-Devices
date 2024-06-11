@@ -78,6 +78,14 @@ export const Header = () => {
     }
   };
 
+  const checkUserForFavorites = () => {
+    if (profile?.user) {
+      return `/${locale}/favorites`;
+    } else {
+      return `/${locale}/auth/login`;
+    }
+  };
+
   return (
     <header>
       <Topbar />
@@ -163,7 +171,7 @@ export const Header = () => {
 
           <div className="header--main-menu">
             <div className="header--favorites">
-              <Link href={`/${locale}/favorites`}>
+              <Link href={checkUserForFavorites()}>
                 <Icon type="heart" />
               </Link>
             </div>

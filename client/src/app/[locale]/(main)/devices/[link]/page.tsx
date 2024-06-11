@@ -14,7 +14,7 @@ const DevicesPage = async ({
   params: { link: string };
   searchParams: { page: number };
 }) => {
-  const devices = await fetchDevices(link, 'popularity', 8, page);
+  const devices = await fetchDevices('', link, 'popularity', 8, page);
   const categories = await fetchCategories();
 
   // const [

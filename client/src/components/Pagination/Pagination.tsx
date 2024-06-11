@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import './Pagination.scss';
 
 interface IPagination {
@@ -11,8 +11,11 @@ interface IPagination {
 }
 export const Pagination = ({ totalPages, currentPage, maxVisiblePages = 3 }: IPagination) => {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const q = searchParams.get('q');
 
   const getQuery = (page: number) => ({
+    q,
     page
   });
   const renderPageLink = (pageNumber: number) => (

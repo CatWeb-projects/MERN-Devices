@@ -36,12 +36,13 @@ export class DevicesController {
   })
   @Get()
   getAllDevices(
+    @Query('q') q: string,
     @Query('category') category: string,
     @Query('sort') sort: string,
     @Query('limit') limit: number,
     @Query('page') page: number
   ) {
-    return this.devicesService.getAllDevices(category, sort, limit, page);
+    return this.devicesService.getAllDevices(q, category, sort, limit, page);
   }
 
   @HttpCode(200)

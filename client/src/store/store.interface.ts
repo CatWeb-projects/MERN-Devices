@@ -129,8 +129,8 @@ export interface DevicesStore {
   loadingFoundDevices: boolean;
   error: string | null;
   errorFoundDevices: string | null;
-  getDevices: (category: string) => void;
-  searchDevices: (query: string) => void;
+  getDevices: (q?: string, category?: string, sort?: string, limit?: number, page?: number) => void;
+  // searchDevices: (query: string) => void;
 }
 
 export interface CollectionProps {
