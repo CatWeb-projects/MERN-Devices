@@ -22,6 +22,7 @@ export const fetchSlides = async (): Promise<SlidesProps[]> => {
 };
 
 export const fetchDevices = async (
+  q?: string,
   category?: string,
   sort?: string,
   limit?: number,
@@ -30,7 +31,7 @@ export const fetchDevices = async (
   try {
     const response = await axios.get('/devices', {
       // ...(category ? { params: { category } } : {}),
-      params: { category, sort, limit, page }
+      params: { q, category, sort, limit, page }
     });
 
     if (response.status !== 200) {

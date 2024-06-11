@@ -1,0 +1,26 @@
+import { Metadata } from 'next';
+import { Categories, Devices } from '@/components';
+import { fetchCategories, fetchDevices } from '@/services/api';
+
+export const metadata: Metadata = {
+  title: 'TechnoHeart - Devices',
+  description: 'Select Category and Devices'
+};
+
+const DevicesPage = async ({
+  params: { link },
+  searchParams: { page, q }
+}: {
+  params: { link: string };
+  searchParams: { page: number; q: string };
+}) => {
+  const devices = await fetchDevices(q, link, 'popularity', 8, page);
+
+  return (
+    <div className="devices-page">
+      <Devices devices={devices} />
+    </div>
+  );
+};
+
+export default DevicesPage;

@@ -11,6 +11,7 @@ export class DevicesService {
     private devicesModel: Model<DevicesDocument>
   ) {}
   getAllDevices = async (
+    q: string,
     category: string,
     sort: string,
     limit: number = 8,
@@ -18,7 +19,9 @@ export class DevicesService {
   ): Promise<DevicesPagination> => {
     const manufacturer = 'Apple';
     const checkDeviceType = () => {
-      if (category === 'apple') {
+      if (q) {
+        return { name: new RegExp(q, 'i') };
+      } else if (category === 'apple') {
         return { manufacturer };
       } else if (category) {
         return { category };
