@@ -6,7 +6,8 @@ import {
   DevicesStore,
   SlidesStore,
   ThemeStore,
-  UserStore
+  UserStore,
+  ValidateUserPromiseProps
 } from './store.interface';
 import {
   fetchCategories,
@@ -142,14 +143,14 @@ export const useUser = create<UserStore>((set) => ({
   },
   validateSession: async (refreshToken: string) => {
     try {
-      const response = await validateSession(refreshToken);
+      const response: ValidateUserPromiseProps = await validateSession(refreshToken);
+      console.log(response, 'response');
+      if (response.status !== 200) {
+        const message = response?.response?.data?.message;
+        throw new Error(`${message}`);
+      }
 
-      // if (response.status !== 200) {
-      //   const message = response?.response?.data?.message;
-      //   throw new Error(`${message}`);
-      // }
-
-      set({ profile: { user: response } });
+      set({ profile: { user: response.data } });
     } catch (error) {
       const typedError = error as Error;
       set({ error: typedError.message });

@@ -49,7 +49,7 @@ export const Search = () => {
         clearSearchValue();
       }
     };
-    document.addEventListener('keydown', listener, { passive: true });
+    document.addEventListener('keydown', listener);
 
     return () => {
       clearInterval(debounce);

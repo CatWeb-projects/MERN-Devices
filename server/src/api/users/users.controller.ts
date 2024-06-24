@@ -1,7 +1,8 @@
-import { Body, Controller, Delete, Get, HttpCode, Param, Post } from '@nestjs/common';
-import { ApiBadRequestResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { Body, Controller, Delete, Get, HttpCode, Param, Post, UseGuards } from '@nestjs/common';
+import { ApiBadRequestResponse, ApiBearerAuth, ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
 import { UsersService } from './users.service';
-import { AuthUserDto, RevalidateUserDto, UserDto } from './dto';
+import { AddToFavoritesDto, AuthUserDto, RevalidateUserDto, UserDto } from './dto';
 import { badUserResponse, okAuthResponse, okUserResponse, okUsersResponse } from './api-response';
 
 @ApiTags('Users')
@@ -54,5 +55,15 @@ export class UsersController {
   @Delete(':id')
   deleteUser(@Param('id') id: string) {
     return this.users.deleteUser(id);
+  }
+
+  // @UseGuards(AuthGuard())
+  @ApiBearerAuth('access-token')
+  @HttpCode(200)
+  // @ApiOkResponse(okAuthResponse)
+  // @ApiBadRequestResponse(badUserResponse)
+  @Post('/favorites')
+  addToFavorites(@Body() id: AddToFavoritesDto) {
+    return this.users.addToFavorites(id);
   }
 }

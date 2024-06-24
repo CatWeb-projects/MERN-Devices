@@ -1,7 +1,13 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
+import { Devices } from '../../devices/schemas/devices.schema';
 
 export type UsersDocument = HydratedDocument<Users>;
+
+class Favorites {
+  @Prop()
+  data: Devices[];
+}
 
 @Schema({
   versionKey: false
@@ -24,6 +30,9 @@ export class Users {
 
   @Prop()
   created_at: string;
+
+  @Prop()
+  favorites: Favorites;
 }
 
 export const UsersSchema = SchemaFactory.createForClass(Users);

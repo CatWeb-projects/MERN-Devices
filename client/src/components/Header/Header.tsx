@@ -4,17 +4,17 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
-import { useOutsideClick } from '@chakra-ui/react';
+import { useOutsideClick, useToast } from '@chakra-ui/react';
 import { useCategories, useUser } from '@/store/store';
-import { getRefreshToken } from '@/services/auth-token.service';
+import { getRefreshToken, removeFromStorage } from '@/services/auth-token.service';
 import { Search } from '../Search/Search';
 import { Icon } from '../Icon/Icon';
 import { Topbar } from '../Topbar/Topbar';
 import { Button } from '../Button/Button';
-
-import './Header.scss';
 import { apiBaseUrl } from '@/helpers';
 import { quickLinks } from '@/constants/quickLinks';
+
+import './Header.scss';
 
 export const Header = () => {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
@@ -30,11 +30,13 @@ export const Header = () => {
     ref: showRef,
     handler: () => setShowProfileMenu(false)
   });
+  const toast = useToast();
 
-  const [profile, validateSession, userLogOut] = useUser((state) => [
+  const [profile, validateSession, userLogOut, profileError] = useUser((state) => [
     state.profile,
     state.validateSession,
-    state.userLogOut
+    state.userLogOut,
+    state.error
   ]);
 
   const [categories, getCategories, loading, error] = useCategories((state) => [
@@ -85,6 +87,20 @@ export const Header = () => {
       return `/${locale}/auth/login`;
     }
   };
+
+  useEffect(() => {
+    if (profileError) {
+      toast({
+        title: `${profileError}`,
+        // description: "We've created your account for you.",
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+        position: 'top-right'
+      });
+      removeFromStorage();
+    }
+  }, [profileError]);
 
   return (
     <header>

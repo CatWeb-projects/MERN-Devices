@@ -7,6 +7,7 @@ import { Devices, DevicesSchema } from './schemas/devices.schema';
 @Module({
   controllers: [DevicesController],
   providers: [DevicesService],
-  imports: [MongooseModule.forFeature([{ name: Devices.name, schema: DevicesSchema }])]
+  imports: [MongooseModule.forFeature([{ name: Devices.name, schema: DevicesSchema }])],
+  exports: [DevicesService, MongooseModule]
 })
 export class DevicesModule {}

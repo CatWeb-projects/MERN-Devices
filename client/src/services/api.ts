@@ -134,7 +134,7 @@ export const validateSession = async (refreshToken: string) => {
     const response = await axios.post('/users/auth/validate-user', {
       refreshToken
     });
-    return response.data;
+    return response;
   } catch (error) {
     console.error(error);
     return error;
