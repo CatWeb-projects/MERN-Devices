@@ -156,14 +156,15 @@ export interface ValidateUserProps {
     last_name: string;
     email: string;
     role: string;
+    favorites?: DevicesDataProps;
   };
   accessToken?: string;
   refreshToken?: string;
-  favorites?: DevicesProps[];
 }
 
 export interface UserStore {
   profile: ValidateUserProps | null;
+  userFavorites?: DevicesDataProps | null;
   loading: boolean;
   error: string | null;
   registration: (auth: AuthProps) => void;

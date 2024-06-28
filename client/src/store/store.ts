@@ -109,6 +109,7 @@ export const useDevices = create<DevicesStore>((set) => ({
 
 export const useUser = create<UserStore>((set) => ({
   profile: null,
+  userFavorites: null,
   loading: true,
   error: null,
   registration: async (auth: AuthProps) => {
@@ -150,7 +151,7 @@ export const useUser = create<UserStore>((set) => ({
         throw new Error(`${message}`);
       }
 
-      set({ profile: { user: response.data } });
+      set({ profile: { user: response.data }, userFavorites: response.data.favorites });
     } catch (error) {
       const typedError = error as Error;
       set({ error: typedError.message });

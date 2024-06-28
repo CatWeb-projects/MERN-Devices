@@ -11,6 +11,7 @@ import bcrypt from 'bcrypt';
 import { AddToFavoritesDto, AuthUserDto, UserDto } from './dto';
 import { Users, UsersDocument } from './schemas/users.schema';
 import { Devices, DevicesDocument } from '../devices/schemas/devices.schema';
+import { getPageNumber, getTotalPages } from '../../utils/utils';
 
 const errorMessage = {
   userExists: 'user already exist, please login',
@@ -129,16 +130,15 @@ export class UsersService {
     const userId = '6652075d7ed348825f77dd9e';
     const user = await this.users.findOne({ _id: userId });
     const device = await this.devicesModel.findOne(id);
+    const userFavorites = user?.favorites?.data;
 
     const checkAddToFavorites = () => {
-      if (user?.favorites?.data) {
-        if (user.favorites.data.find((favorite) => favorite.id === device.id)) {
-          const filteredFavorites = user.favorites.data.filter(
-            (favorite) => favorite.id !== device.id
-          );
+      if (userFavorites) {
+        if (userFavorites.find((favorite) => favorite.id === device?.id)) {
+          const filteredFavorites = userFavorites.filter((favorite) => favorite.id !== device.id);
           return filteredFavorites;
         } else {
-          return [...user?.favorites?.data, device];
+          return [...userFavorites, device];
         }
       }
     };
@@ -148,9 +148,9 @@ export class UsersService {
       {
         favorites: {
           limit: 8,
-          page: 1,
-          totalCount: 1,
-          totalPages: 1,
+          page: getPageNumber(1),
+          totalCount: userFavorites?.length,
+          totalPages: getTotalPages(userFavorites?.length, 8),
           data: checkAddToFavorites()
         }
       }

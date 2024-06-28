@@ -7,12 +7,14 @@ import { Pagination } from '../Pagination/Pagination';
 import { DevicesDataProps } from '@/store/store.interface';
 
 import './Devices.scss';
+import { Loading } from '../Loading/Loading';
 
 interface ComponentDevicesDataProps {
   devices: DevicesDataProps;
+  loading?: boolean;
 }
 
-export const Devices = ({ devices }: ComponentDevicesDataProps) => {
+export const Devices = ({ devices, loading }: ComponentDevicesDataProps) => {
   const devicesData = useMemo(() => devices?.data, [devices?.data]);
 
   return (
@@ -28,7 +30,9 @@ export const Devices = ({ devices }: ComponentDevicesDataProps) => {
         </div>
       )}
 
-      {!devicesData?.length && <NoData />}
+      {!devicesData?.length && !loading && <NoData />}
+
+      {loading && <Loading />}
     </div>
   );
 };
