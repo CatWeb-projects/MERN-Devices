@@ -217,7 +217,9 @@ export const Header = () => {
 
                 {showProfileMenu && (
                   <div className="profile-menu" ref={showRef}>
-                    <Link href={`/${locale}/profile`}>{tAuth('profile')}</Link>
+                    <Link onClick={() => setShowProfileMenu(false)} href={`/${locale}/profile`}>
+                      {tAuth('profile')}
+                    </Link>
                     <Button size="small" onClick={logout}>
                       {tAuth('logout')}
                     </Button>

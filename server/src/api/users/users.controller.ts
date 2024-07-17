@@ -57,8 +57,8 @@ export class UsersController {
     return this.users.deleteUser(id);
   }
 
-  // @UseGuards(AuthGuard())
-  @ApiBearerAuth('access-token')
+  @UseGuards(AuthGuard('jwt'))
+  @ApiBearerAuth()
   @HttpCode(200)
   // @ApiOkResponse(okAuthResponse)
   // @ApiBadRequestResponse(badUserResponse)
