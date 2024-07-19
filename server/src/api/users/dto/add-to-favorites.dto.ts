@@ -6,5 +6,5 @@ export class AddToFavoritesDto {
     example: 5
   })
   @IsNotEmpty()
-  readonly id: number;
+  readonly deviceId: number;
 }

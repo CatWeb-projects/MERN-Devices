@@ -171,6 +171,7 @@ export interface UserStore {
   login: (email: string, password: string) => void;
   validateSession: (accessToken: string) => void;
   userLogOut: () => void;
+  addToFavorites: (id: number) => void;
 }
 
 export interface AuthProps {

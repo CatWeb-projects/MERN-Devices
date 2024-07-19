@@ -1,9 +1,21 @@
-import { Body, Controller, Delete, Get, HttpCode, Param, Post, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpCode,
+  Param,
+  Post,
+  UsePipes,
+  ValidationPipe
+} from '@nestjs/common';
 import { ApiBadRequestResponse, ApiBearerAuth, ApiOkResponse, ApiTags } from '@nestjs/swagger';
-import { AuthGuard } from '@nestjs/passport';
 import { UsersService } from './users.service';
 import { AddToFavoritesDto, AuthUserDto, RevalidateUserDto, UserDto } from './dto';
 import { badUserResponse, okAuthResponse, okUserResponse, okUsersResponse } from './api-response';
+import { Auth } from './decorators/auth.decorator';
+import { CurrentUser } from './decorators/user.decorator';
+import { Types } from 'mongoose';
 
 @ApiTags('Users')
 @Controller('/users')
@@ -25,6 +37,7 @@ export class UsersController {
     return this.users.getUserByEmail(email);
   }
 
+  @UsePipes(new ValidationPipe())
   @HttpCode(200)
   @ApiOkResponse(okUserResponse)
   @ApiBadRequestResponse(badUserResponse)
@@ -33,6 +46,7 @@ export class UsersController {
     return this.users.createUser(userDto);
   }
 
+  @UsePipes(new ValidationPipe())
   @HttpCode(200)
   @ApiOkResponse(okAuthResponse)
   @ApiBadRequestResponse(badUserResponse)
@@ -57,13 +71,13 @@ export class UsersController {
     return this.users.deleteUser(id);
   }
 
-  @UseGuards(AuthGuard('jwt'))
-  @ApiBearerAuth()
+  // @Auth()
+  // @ApiBearerAuth()
   @HttpCode(200)
   // @ApiOkResponse(okAuthResponse)
   // @ApiBadRequestResponse(badUserResponse)
   @Post('/favorites')
-  addToFavorites(@Body() id: AddToFavoritesDto) {
-    return this.users.addToFavorites(id);
+  addToFavorites(@Body() deviceId: AddToFavoritesDto, @CurrentUser('id') userId: Types.ObjectId) {
+    return this.users.addToFavorites(deviceId, userId);
   }
 }

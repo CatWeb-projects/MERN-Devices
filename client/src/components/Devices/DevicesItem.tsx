@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { Button } from '@chakra-ui/react';
+import { useUser } from '@/store/store';
 import { DevicesProps } from '@/store/store.interface';
 import { Icon } from '../Icon/Icon';
 import { checkImageUrl } from '@/helpers';
@@ -15,6 +16,11 @@ interface DeviceItemProps {
 export const DevicesItem = ({ device }: DeviceItemProps) => {
   const locale = useLocale();
   const t = useTranslations('Categories');
+  const [addToFavorites, loading, error] = useUser((state) => [
+    state.addToFavorites,
+    state.loading,
+    state.error
+  ]);
 
   return (
     <div className="device--item">
@@ -64,8 +70,8 @@ export const DevicesItem = ({ device }: DeviceItemProps) => {
               </div>
               <div className="add-to-favorites">
                 <Button
-                // onClick={() => addFavorites(product)}
-                // className={userFavoritesFind ? 'added-to-favorites' : ''}
+                  onClick={() => addToFavorites(device.id)}
+                  // className={userFavoritesFind ? 'added-to-favorites' : ''}
                 >
                   <Icon type="heart" />
                 </Button>

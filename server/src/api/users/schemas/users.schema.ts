@@ -14,6 +14,9 @@ class Favorites {
 })
 export class Users {
   @Prop()
+  id: string;
+
+  @Prop()
   first_name: string;
 
   @Prop()

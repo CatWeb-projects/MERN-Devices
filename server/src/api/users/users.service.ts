@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { JwtService } from '@nestjs/jwt';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import bcrypt from 'bcrypt';
 import { AddToFavoritesDto, AuthUserDto, UserDto } from './dto';
 import { Users, UsersDocument } from './schemas/users.schema';
@@ -38,6 +38,11 @@ export class UsersService {
   getAllUsers = async () => {
     const users = await this.users.find();
     return users;
+  };
+
+  getById = async (id: string) => {
+    const user = await this.users.findOne({ _id: id });
+    return user;
   };
 
   getUserByEmail = async (email: string) => {
@@ -80,6 +85,7 @@ export class UsersService {
   login = async (authUserDto: AuthUserDto) => {
     const { email, password } = authUserDto;
     const user = await this.users.findOne({ email });
+
     if (!user) {
       throw new BadRequestException(errorMessage.invalidEmail);
     }
@@ -89,7 +95,7 @@ export class UsersService {
       throw new ForbiddenException(errorMessage.invalidPassword);
     }
 
-    const tokens = await this.issueTokens(user.id);
+    const tokens = await this.issueTokens(user._id);
     user.password = undefined;
     return {
       user,
@@ -100,6 +106,7 @@ export class UsersService {
   //Validate user
   async validateSession(tokenData: { refreshToken: string }) {
     const token = await this.jwtService.verify(tokenData.refreshToken);
+    console.log(token, 'token');
     const user = await this.users.findOne(token.id ? { _id: token.id } : { email: token.email });
 
     if (!user && !token) {
@@ -126,10 +133,9 @@ export class UsersService {
   };
 
   //Add to favorites
-  addToFavorites = async (id: AddToFavoritesDto) => {
-    const userId = '6652075d7ed348825f77dd9e';
+  addToFavorites = async (deviceId: AddToFavoritesDto, userId: Types.ObjectId) => {
     const user = await this.users.findOne({ _id: userId });
-    const device = await this.devicesModel.findOne(id);
+    const device = await this.devicesModel.findOne({ id: deviceId });
     const userFavorites = user?.favorites?.data;
 
     const checkAddToFavorites = () => {
@@ -158,7 +164,7 @@ export class UsersService {
     return device;
   };
 
-  private issueTokens(userId: string) {
+  private issueTokens(userId: Types.ObjectId) {
     const data = { id: userId };
 
     const accessToken = this.jwtService.sign(data, {

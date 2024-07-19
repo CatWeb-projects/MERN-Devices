@@ -10,6 +10,7 @@ import {
   ValidateUserPromiseProps
 } from './store.interface';
 import {
+  addToFavorites,
   fetchCategories,
   fetchDevices,
   fetchSlides,
@@ -162,5 +163,17 @@ export const useUser = create<UserStore>((set) => ({
   userLogOut: async () => {
     set({ profile: null });
     removeFromStorage();
+  },
+  addToFavorites: async (id: number) => {
+    try {
+      const response = await addToFavorites(id);
+      if (response.status !== 200) {
+        const message = response?.response?.data?.message;
+        throw new Error(`${message}`);
+      }
+    } catch (error) {
+      const typedError = error as Error;
+      set({ error: typedError.message });
+    }
   }
 }));
