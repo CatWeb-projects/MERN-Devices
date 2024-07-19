@@ -106,7 +106,6 @@ export class UsersService {
   //Validate user
   async validateSession(tokenData: { refreshToken: string }) {
     const token = await this.jwtService.verify(tokenData.refreshToken);
-    console.log(token, 'token');
     const user = await this.users.findOne(token.id ? { _id: token.id } : { email: token.email });
 
     if (!user && !token) {
@@ -133,7 +132,7 @@ export class UsersService {
   };
 
   //Add to favorites
-  addToFavorites = async (deviceId: AddToFavoritesDto, userId: Types.ObjectId) => {
+  addToFavorites = async (deviceId: AddToFavoritesDto, userId: string) => {
     const user = await this.users.findOne({ _id: userId });
     const device = await this.devicesModel.findOne({ id: deviceId });
     const userFavorites = user?.favorites?.data;
@@ -163,6 +162,20 @@ export class UsersService {
     );
     return device;
   };
+
+  // addRefreshTokenToResponse = (res: any, refreshToken: string) => {
+  //   const expiresIn = new Date();
+  //   expiresIn.setDate(expiresIn.getDate() + 1);
+
+  //   res.cookie('refreshToken', refreshToken, {
+  //     httpOnly: true,
+  //     domain: 'localhost',
+  //     expires: expiresIn,
+  //     secure: true,
+  //     // lax if production
+  //     sameSite: 'none'
+  //   });
+  // };
 
   private issueTokens(userId: Types.ObjectId) {
     const data = { id: userId };

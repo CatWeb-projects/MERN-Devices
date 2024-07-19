@@ -6,6 +6,7 @@ import {
   HttpCode,
   Param,
   Post,
+  Res,
   UsePipes,
   ValidationPipe
 } from '@nestjs/common';
@@ -15,7 +16,6 @@ import { AddToFavoritesDto, AuthUserDto, RevalidateUserDto, UserDto } from './dt
 import { badUserResponse, okAuthResponse, okUserResponse, okUsersResponse } from './api-response';
 import { Auth } from './decorators/auth.decorator';
 import { CurrentUser } from './decorators/user.decorator';
-import { Types } from 'mongoose';
 
 @ApiTags('Users')
 @Controller('/users')
@@ -71,13 +71,14 @@ export class UsersController {
     return this.users.deleteUser(id);
   }
 
-  // @Auth()
-  // @ApiBearerAuth()
+  @Auth()
+  @ApiBearerAuth()
   @HttpCode(200)
   // @ApiOkResponse(okAuthResponse)
   // @ApiBadRequestResponse(badUserResponse)
   @Post('/favorites')
-  addToFavorites(@Body() deviceId: AddToFavoritesDto, @CurrentUser('id') userId: Types.ObjectId) {
+  addToFavorites(@Body('id') deviceId: AddToFavoritesDto, @CurrentUser('id') userId: string) {
+    console.log(deviceId, userId);
     return this.users.addToFavorites(deviceId, userId);
   }
 }

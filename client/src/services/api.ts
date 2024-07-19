@@ -149,13 +149,7 @@ export const validateSession = async (refreshToken: string) => {
 
 export const addToFavorites = async (id: number) => {
   try {
-    const response = await axios.post(
-      '/users/favorites',
-      {
-        id
-      },
-      config
-    );
+    const response = await axios.post('/users/favorites', { id }, config);
     return response;
   } catch (error) {
     console.error(error);
