@@ -8,8 +8,14 @@ import {
   FoundDevices,
   SlidesProps
 } from '@/store/store.interface';
+import { getRefreshToken } from './auth-token.service';
 
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5000/api';
+const refreshToken = getRefreshToken();
+const config = {
+  headers: { Authorization: `Bearer ${refreshToken}` },
+  withCredentials: true
+};
 
 export const fetchSlides = async (): Promise<SlidesProps[]> => {
   const response = await axios.get('/sliders');
@@ -134,7 +140,17 @@ export const validateSession = async (refreshToken: string) => {
     const response = await axios.post('/users/auth/validate-user', {
       refreshToken
     });
-    return response.data;
+    return response;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
+
+export const addToFavorites = async (id: number) => {
+  try {
+    const response = await axios.post('/users/favorites', { id }, config);
+    return response;
   } catch (error) {
     console.error(error);
     return error;

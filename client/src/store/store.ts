@@ -6,9 +6,11 @@ import {
   DevicesStore,
   SlidesStore,
   ThemeStore,
-  UserStore
+  UserStore,
+  ValidateUserPromiseProps
 } from './store.interface';
 import {
+  addToFavorites,
   fetchCategories,
   fetchDevices,
   fetchSlides,
@@ -108,6 +110,7 @@ export const useDevices = create<DevicesStore>((set) => ({
 
 export const useUser = create<UserStore>((set) => ({
   profile: null,
+  userFavorites: null,
   loading: true,
   error: null,
   registration: async (auth: AuthProps) => {
@@ -142,14 +145,13 @@ export const useUser = create<UserStore>((set) => ({
   },
   validateSession: async (refreshToken: string) => {
     try {
-      const response = await validateSession(refreshToken);
+      const response: ValidateUserPromiseProps = await validateSession(refreshToken);
+      if (response.status !== 200) {
+        const message = response?.response?.data?.message;
+        throw new Error(`${message}`);
+      }
 
-      // if (response.status !== 200) {
-      //   const message = response?.response?.data?.message;
-      //   throw new Error(`${message}`);
-      // }
-
-      set({ profile: { user: response } });
+      set({ profile: { user: response.data }, userFavorites: response.data.favorites });
     } catch (error) {
       const typedError = error as Error;
       set({ error: typedError.message });
@@ -160,5 +162,18 @@ export const useUser = create<UserStore>((set) => ({
   userLogOut: async () => {
     set({ profile: null });
     removeFromStorage();
+  },
+  addToFavorites: async (id: number) => {
+    try {
+      const response: ValidateUserPromiseProps = await addToFavorites(id);
+      if (response.status !== 200) {
+        const message = response?.response?.data?.message;
+        throw new Error(`${message}`);
+      }
+      set({ userFavorites: response.data.favorites });
+    } catch (error) {
+      const typedError = error as Error;
+      set({ error: typedError.message });
+    }
   }
 }));

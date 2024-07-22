@@ -11,6 +11,12 @@ export class DevicesController {
   @HttpCode(200)
   @ApiResponse(getDevicesResponse)
   @ApiQuery({
+    name: 'q',
+    required: false,
+    type: String,
+    example: 'watch'
+  })
+  @ApiQuery({
     name: 'category',
     required: false,
     type: String,

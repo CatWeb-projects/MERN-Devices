@@ -21,6 +21,7 @@ export class DevicesPagination {
   data: Devices[];
 }
 
+@Schema()
 export class Devices {
   @Prop()
   id: number;

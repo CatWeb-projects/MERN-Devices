@@ -26,7 +26,7 @@ export const RecommendedDevices = ({ devices, category }: Props) => {
         <Link href={`/${locale}/devices${cardData.link}`}>
           <div className="devices--banner" style={{ backgroundImage: `url(${cardData.imgUrl})` }}>
             {category && <h4>{t(`${category}`)}</h4>}
-            {devicesData?.length > 0 && (
+            {!!devicesData?.length && (
               <span>
                 {devicesData?.length}+ {tDevices('products')}
               </span>
@@ -36,7 +36,7 @@ export const RecommendedDevices = ({ devices, category }: Props) => {
       )}
 
       <div className="devices--items recommended-item">
-        {devicesData.length > 0 &&
+        {!!devicesData?.length &&
           devicesData.map((device) => <DevicesItem key={device.id} device={device} />)}
       </div>
     </div>

@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
@@ -6,6 +8,7 @@ import { DevicesProps } from '@/store/store.interface';
 import { PRODUCT_PROPERTY } from '@/constants/devicesSpecs';
 import { checkImageUrl } from '@/helpers';
 import { Icon } from '../Icon/Icon';
+import { useUser } from '@/store/store';
 
 import './DeviceInfo.scss';
 
@@ -17,6 +20,13 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
   const t = useTranslations('Devices');
   const tCategories = useTranslations('Categories');
   const locale = useLocale();
+  const [userFavorites, addToFavorites, loading, error] = useUser((state) => [
+    state.userFavorites,
+    state.addToFavorites,
+    state.loading,
+    state.error
+  ]);
+  const activeAddToFavorites = userFavorites?.data?.find((favorite) => favorite.id === device.id);
   const findProperties = Object.keys(PRODUCT_PROPERTY).filter((property) => {
     return device?.[property];
   });
@@ -185,8 +195,8 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
               </div>
               <div className="add-to-favorites">
                 <Button
-                // onClick={() => addFavorites(deviceData)}
-                // className={userFavoritesFind ? 'added-to-favorites' : ''}
+                  onClick={() => addToFavorites(device.id)}
+                  id={activeAddToFavorites ? 'added-to-favorites' : ''}
                 >
                   <Icon type="heart" />
                   {tCategories('favorites')}

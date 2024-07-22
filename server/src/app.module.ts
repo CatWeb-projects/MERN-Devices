@@ -20,11 +20,11 @@ import { UsersModule } from './api/users/users.module';
     MongooseModule.forRoot(
       'mongodb+srv://admin:14595@devices.oy68wq2.mongodb.net/technoheart?retryWrites=true&w=majority&appName=Devices'
     ),
-    JwtModule.register({
-      global: true,
-      secret: process.env.JWT_SECRET,
-      signOptions: { expiresIn: '1h' }
-    }),
+    // JwtModule.register({
+    //   global: true,
+    //   secret: process.env.JWT_SECRET,
+    //   signOptions: { expiresIn: '1h' }
+    // }),
     UsersModule,
     CategoriesModule,
     SlidersModule,

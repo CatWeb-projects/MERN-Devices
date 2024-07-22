@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding-top: 16px;
   display: flex;
+  justify-content: center;
 
   > a {
     width: 25%;
@@ -184,4 +185,22 @@
 
 .compare-info {
   background-color: var(--device-light-green);
+}
+
+#added-to-favorites {
+  background-color: #673ab7;
+  color: #fff;
+
+  svg {
+    fill: #fff;
+  }
+}
+
+#added-to-compare {
+  background-color: #5cba48;
+  color: #fff;
+
+  svg {
+    fill: #fff;
+  }
 }

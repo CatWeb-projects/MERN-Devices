@@ -142,25 +142,37 @@ export interface CollectionProps {
 }
 
 export interface UserProps {
+  id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  role: string;
+  favorites: DevicesDataProps;
+}
+
+export interface ValidateUserProps {
   user: {
     id: string;
     first_name: string;
     last_name: string;
     email: string;
     role: string;
+    favorites?: DevicesDataProps;
   };
   accessToken?: string;
   refreshToken?: string;
 }
 
 export interface UserStore {
-  profile: UserProps | null;
+  profile: ValidateUserProps | null;
+  userFavorites?: DevicesDataProps | null;
   loading: boolean;
   error: string | null;
   registration: (auth: AuthProps) => void;
   login: (email: string, password: string) => void;
   validateSession: (accessToken: string) => void;
   userLogOut: () => void;
+  addToFavorites: (id: number) => void;
 }
 
 export interface AuthProps {
@@ -169,4 +181,14 @@ export interface AuthProps {
   email: string;
   password: string;
   role: string;
+}
+
+export interface ValidateUserPromiseProps {
+  data?: UserProps;
+  status?: number;
+  response?: {
+    data: {
+      message: string;
+    };
+  };
 }

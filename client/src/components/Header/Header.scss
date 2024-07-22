@@ -149,6 +149,7 @@ header {
   color: var(--device-dark-orange);
   font-weight: 700;
   border-radius: 0 0 8px 8px;
+  z-index: 1000;
 
   > button,
   a {

@@ -14,7 +14,6 @@ import { saveTokenStorage } from '@/services/auth-token.service';
 import './AuthForm.scss';
 
 export const AuthForm = () => {
-  const [emailInputValue, setEmailInputValue] = useState<string>('');
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [profile, login, registration, error] = useUser((state) => [
     state.profile,
@@ -29,7 +28,6 @@ export const AuthForm = () => {
   const isRegistrationPage = pathname?.includes('registration');
   const isLoginPage = pathname?.includes('login');
   const emailValidation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  const buttonEnabled = !emailValidation.test(emailInputValue);
 
   const formTitle = () => {
     if (isRegistrationPage) {
@@ -57,6 +55,8 @@ export const AuthForm = () => {
     }
   });
 
+  const buttonEnabled = !emailValidation.test(formik.values.email);
+
   useEffect(() => {
     if (profile?.refreshToken) {
       saveTokenStorage(profile.refreshToken);
@@ -71,6 +71,7 @@ export const AuthForm = () => {
         <Link href={`/${locale}`}>
           <Icon type="logo" width="60" height="60" />
         </Link>
+
         <h1>{formTitle()}</h1>
       </div>
       <form className="login--form" onSubmit={formik.handleSubmit}>
@@ -156,16 +157,21 @@ export const AuthForm = () => {
               Forgot password?
             </Button>
           )}
+
           {error && <div className="error-message">{error}</div>}
-          <Button generalType="submit" size="auth" className="login--btn">
+
+          <Button generalType="submit" size="auth" className="login--btn" disabled={buttonEnabled}>
             {isLoginPage ? t('login') : t('register')}
           </Button>
         </div>
+
         <Separator />
+
         <div className="login--already">
           <span className="login--already--title">
             {isRegistrationPage ? t('have_account') : t('no_account')}
           </span>
+
           {isRegistrationPage ? (
             <Link href={`/${locale}/auth/login`}>{t('login')}</Link>
           ) : (
