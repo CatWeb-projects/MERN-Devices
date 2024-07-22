@@ -16,11 +16,14 @@ interface DeviceItemProps {
 export const DevicesItem = ({ device }: DeviceItemProps) => {
   const locale = useLocale();
   const t = useTranslations('Categories');
-  const [addToFavorites, loading, error] = useUser((state) => [
+  const [userFavorites, addToFavorites, loading, error] = useUser((state) => [
+    state.userFavorites,
     state.addToFavorites,
     state.loading,
     state.error
   ]);
+
+  const activeAddToFavorites = userFavorites?.data?.find((favorite) => favorite.id === device.id);
 
   return (
     <div className="device--item">
@@ -71,7 +74,7 @@ export const DevicesItem = ({ device }: DeviceItemProps) => {
               <div className="add-to-favorites">
                 <Button
                   onClick={() => addToFavorites(device.id)}
-                  // className={userFavoritesFind ? 'added-to-favorites' : ''}
+                  id={activeAddToFavorites ? 'added-to-favorites' : ''}
                 >
                   <Icon type="heart" />
                 </Button>

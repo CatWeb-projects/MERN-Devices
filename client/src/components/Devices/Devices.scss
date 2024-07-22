@@ -186,3 +186,21 @@
 .compare-info {
   background-color: var(--device-light-green);
 }
+
+#added-to-favorites {
+  background-color: #673ab7;
+  color: #fff;
+
+  svg {
+    fill: #fff;
+  }
+}
+
+#added-to-compare {
+  background-color: #5cba48;
+  color: #fff;
+
+  svg {
+    fill: #fff;
+  }
+}

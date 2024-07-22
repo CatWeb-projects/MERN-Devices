@@ -108,7 +108,7 @@ export class UsersService {
     const token = await this.jwtService.verify(tokenData.refreshToken);
     const user = await this.users.findOne(token.id ? { _id: token.id } : { email: token.email });
 
-    if (!user && !token) {
+    if (!user || !token) {
       throw new ForbiddenException(errorMessage.invalidToken);
     }
 
@@ -132,19 +132,18 @@ export class UsersService {
   };
 
   //Add to favorites
-  addToFavorites = async (deviceId: AddToFavoritesDto, userId: string) => {
+  addToFavorites = async (deviceDto: AddToFavoritesDto, userId: string) => {
+    const { id } = deviceDto;
     const user = await this.users.findOne({ _id: userId });
-    const device = await this.devicesModel.findOne({ id: deviceId });
-    const userFavorites = user?.favorites?.data;
+    const device = await this.devicesModel.findOne({ id });
+    const userFavorites = user?.favorites?.data || [];
 
     const checkAddToFavorites = () => {
-      if (userFavorites) {
-        if (userFavorites.find((favorite) => favorite.id === device?.id)) {
-          const filteredFavorites = userFavorites.filter((favorite) => favorite.id !== device.id);
-          return filteredFavorites;
-        } else {
-          return [...userFavorites, device];
-        }
+      if (userFavorites?.find((favorite) => favorite.id === device?.id)) {
+        const filteredFavorites = userFavorites.filter((favorite) => favorite.id !== device.id);
+        return filteredFavorites;
+      } else {
+        return [...userFavorites, device];
       }
     };
 
@@ -160,22 +159,17 @@ export class UsersService {
         }
       }
     );
-    return device;
+
+    return {
+      favorites: {
+        limit: 8,
+        page: getPageNumber(1),
+        totalCount: userFavorites?.length,
+        totalPages: getTotalPages(userFavorites?.length, 8),
+        data: checkAddToFavorites()
+      }
+    };
   };
-
-  // addRefreshTokenToResponse = (res: any, refreshToken: string) => {
-  //   const expiresIn = new Date();
-  //   expiresIn.setDate(expiresIn.getDate() + 1);
-
-  //   res.cookie('refreshToken', refreshToken, {
-  //     httpOnly: true,
-  //     domain: 'localhost',
-  //     expires: expiresIn,
-  //     secure: true,
-  //     // lax if production
-  //     sameSite: 'none'
-  //   });
-  // };
 
   private issueTokens(userId: Types.ObjectId) {
     const data = { id: userId };

@@ -146,7 +146,6 @@ export const useUser = create<UserStore>((set) => ({
   validateSession: async (refreshToken: string) => {
     try {
       const response: ValidateUserPromiseProps = await validateSession(refreshToken);
-      console.log(response, 'response');
       if (response.status !== 200) {
         const message = response?.response?.data?.message;
         throw new Error(`${message}`);
@@ -166,11 +165,12 @@ export const useUser = create<UserStore>((set) => ({
   },
   addToFavorites: async (id: number) => {
     try {
-      const response = await addToFavorites(id);
+      const response: ValidateUserPromiseProps = await addToFavorites(id);
       if (response.status !== 200) {
         const message = response?.response?.data?.message;
         throw new Error(`${message}`);
       }
+      set({ userFavorites: response.data.favorites });
     } catch (error) {
       const typedError = error as Error;
       set({ error: typedError.message });

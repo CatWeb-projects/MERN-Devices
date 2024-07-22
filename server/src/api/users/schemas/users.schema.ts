@@ -1,10 +1,22 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { HydratedDocument, Types } from 'mongoose';
 import { Devices } from '../../devices/schemas/devices.schema';
 
 export type UsersDocument = HydratedDocument<Users>;
 
 class Favorites {
+  @Prop()
+  limit: number;
+
+  @Prop()
+  page: number;
+
+  @Prop()
+  totalCount: number;
+
+  @Prop()
+  totalPages: number;
+
   @Prop()
   data: Devices[];
 }

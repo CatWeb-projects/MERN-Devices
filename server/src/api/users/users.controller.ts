@@ -6,7 +6,6 @@ import {
   HttpCode,
   Param,
   Post,
-  Res,
   UsePipes,
   ValidationPipe
 } from '@nestjs/common';
@@ -16,6 +15,7 @@ import { AddToFavoritesDto, AuthUserDto, RevalidateUserDto, UserDto } from './dt
 import { badUserResponse, okAuthResponse, okUserResponse, okUsersResponse } from './api-response';
 import { Auth } from './decorators/auth.decorator';
 import { CurrentUser } from './decorators/user.decorator';
+import { okAddToFavoritesResponse } from './api-response/add-to-favorites-response';
 
 @ApiTags('Users')
 @Controller('/users')
@@ -74,11 +74,10 @@ export class UsersController {
   @Auth()
   @ApiBearerAuth()
   @HttpCode(200)
-  // @ApiOkResponse(okAuthResponse)
+  @ApiOkResponse(okAddToFavoritesResponse)
   // @ApiBadRequestResponse(badUserResponse)
   @Post('/favorites')
-  addToFavorites(@Body('id') deviceId: AddToFavoritesDto, @CurrentUser('id') userId: string) {
-    console.log(deviceId, userId);
-    return this.users.addToFavorites(deviceId, userId);
+  addToFavorites(@Body() deviceDto: AddToFavoritesDto, @CurrentUser('_id') userId: string) {
+    return this.users.addToFavorites(deviceDto, userId);
   }
 }

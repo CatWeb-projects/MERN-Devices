@@ -147,6 +147,7 @@ export interface UserProps {
   last_name: string;
   email: string;
   role: string;
+  favorites: DevicesDataProps;
 }
 
 export interface ValidateUserProps {

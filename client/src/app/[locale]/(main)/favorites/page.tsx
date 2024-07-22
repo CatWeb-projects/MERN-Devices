@@ -10,7 +10,6 @@ const FavoritesPage = () => {
     state.error
   ]);
 
-  console.log(userFavorites, 'profile');
   return (
     <div className="favorites-page">
       <Devices devices={userFavorites} loading={loading} />
