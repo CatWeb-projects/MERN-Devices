@@ -24,4 +24,14 @@ export class AuthUserDto {
   //   minUppercase: 1
   // })
   readonly password: string;
+
+  @ApiProperty({
+    example: 'Theodore'
+  })
+  readonly first_name?: string;
+
+  @ApiProperty({
+    example: 'Lightman'
+  })
+  readonly last_name?: string;
 }

@@ -51,7 +51,7 @@ export class UsersService {
   };
 
   //Register User
-  createUser = async (userDto: UserDto) => {
+  createUser = async (userDto: AuthUserDto) => {
     const { email, password } = userDto;
     if (email) {
       const emailUser = await this.users.findOne({ email });

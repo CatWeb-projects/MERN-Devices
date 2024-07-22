@@ -42,7 +42,7 @@ export class UsersController {
   @ApiOkResponse(okUserResponse)
   @ApiBadRequestResponse(badUserResponse)
   @Post('/auth/registration')
-  createUser(@Body() userDto: UserDto) {
+  createUser(@Body() userDto: AuthUserDto) {
     return this.users.createUser(userDto);
   }
 

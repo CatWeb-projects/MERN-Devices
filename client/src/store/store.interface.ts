@@ -183,7 +183,7 @@ export interface AuthProps {
   role: string;
 }
 
-export interface ValidateUserPromiseProps {
+export interface UserResponse {
   data?: UserProps;
   status?: number;
   response?: {

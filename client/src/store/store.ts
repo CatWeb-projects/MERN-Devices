@@ -6,8 +6,8 @@ import {
   DevicesStore,
   SlidesStore,
   ThemeStore,
+  UserResponse,
   UserStore,
-  ValidateUserPromiseProps
 } from './store.interface';
 import {
   addToFavorites,
@@ -145,7 +145,7 @@ export const useUser = create<UserStore>((set) => ({
   },
   validateSession: async (refreshToken: string) => {
     try {
-      const response: ValidateUserPromiseProps = await validateSession(refreshToken);
+      const response: UserResponse = await validateSession(refreshToken);
       if (response.status !== 200) {
         const message = response?.response?.data?.message;
         throw new Error(`${message}`);
@@ -165,7 +165,7 @@ export const useUser = create<UserStore>((set) => ({
   },
   addToFavorites: async (id: number) => {
     try {
-      const response: ValidateUserPromiseProps = await addToFavorites(id);
+      const response: UserResponse = await addToFavorites(id);
       if (response.status !== 200) {
         const message = response?.response?.data?.message;
         throw new Error(`${message}`);
