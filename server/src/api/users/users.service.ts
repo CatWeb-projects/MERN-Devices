@@ -8,7 +8,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { JwtService } from '@nestjs/jwt';
 import { Model, Types } from 'mongoose';
 import bcrypt from 'bcrypt';
-import { AddToFavoritesDto, AuthUserDto, UserDto } from './dto';
+import { AuthUserDto } from './dto';
 import { Users, UsersDocument } from './schemas/users.schema';
 import { Devices, DevicesDocument } from '../devices/schemas/devices.schema';
 import { getPageNumber, getTotalPages } from '../../utils/utils';
@@ -132,11 +132,14 @@ export class UsersService {
   };
 
   //Add to favorites
-  addToFavorites = async (deviceDto: AddToFavoritesDto, userId: string) => {
-    const { id } = deviceDto;
+  addToFavorites = async (deviceId: string, userId: string) => {
     const user = await this.users.findOne({ _id: userId });
-    const device = await this.devicesModel.findOne({ id });
+    const device = await this.devicesModel.findOne({ id: deviceId });
     const userFavorites = user?.favorites?.data || [];
+
+    if (!userId) {
+      throw new ForbiddenException(errorMessage.invalidToken);
+    }
 
     const checkAddToFavorites = () => {
       if (userFavorites?.find((favorite) => favorite.id === device?.id)) {
@@ -167,6 +170,30 @@ export class UsersService {
         totalCount: userFavorites?.length,
         totalPages: getTotalPages(userFavorites?.length, 8),
         data: checkAddToFavorites()
+      }
+    };
+  };
+
+  //Get User Favorites
+  getUserFavorites = async (page: number, limit: number = 8, userId: string) => {
+    const user = await this.users.findOne({ _id: userId });
+    const userFavorites = user?.favorites?.data || [];
+
+    function paginate(array, page_size, page_number) {
+      return array.slice((page_number - 1) * page_size, page_number * page_size);
+    }
+
+    if (!userId) {
+      throw new ForbiddenException(errorMessage.invalidToken);
+    }
+
+    return {
+      favorites: {
+        limit: Number(limit),
+        page: getPageNumber(page),
+        totalCount: userFavorites?.length,
+        totalPages: getTotalPages(userFavorites?.length, 8),
+        data: userFavorites
       }
     };
   };

@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { useOutsideClick, useToast } from '@chakra-ui/react';
 import { useCategories, useUser } from '@/store/store';
-import { getRefreshToken, removeFromStorage } from '@/services/auth-token.service';
+import { getRefreshToken } from '@/services/auth-token.service';
 import { Search } from '../Search/Search';
 import { Icon } from '../Icon/Icon';
 import { Topbar } from '../Topbar/Topbar';
@@ -98,7 +98,7 @@ export const Header = () => {
         isClosable: true,
         position: 'top-right'
       });
-      removeFromStorage();
+      // removeFromStorage();
     }
   }, [profileError]);
 

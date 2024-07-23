@@ -14,6 +14,7 @@ import {
   fetchCategories,
   fetchDevices,
   fetchSlides,
+  getUserFavorites,
   searchDevices,
   userLogin,
   userRegistration,
@@ -151,7 +152,7 @@ export const useUser = create<UserStore>((set) => ({
         throw new Error(`${message}`);
       }
 
-      set({ profile: { user: response.data }, userFavorites: response.data.favorites });
+      set({ profile: { user: response.data } });
     } catch (error) {
       const typedError = error as Error;
       set({ error: typedError.message });
@@ -167,6 +168,21 @@ export const useUser = create<UserStore>((set) => ({
   addToFavorites: async (id: number) => {
     try {
       const response: UserResponse = await addToFavorites(id);
+      if (response.status !== 200) {
+        const message = response?.response?.data?.message;
+        throw new Error(`${message}`);
+      }
+      // const page = window.location.search.split('page=')[1]
+      // getUserFavorites(Number(page))
+      set({ userFavorites: response.data.favorites });
+    } catch (error) {
+      const typedError = error as Error;
+      set({ error: typedError.message });
+    }
+  },
+  getUserFavorites: async (page: number) => {
+    try {
+      const response: UserResponse = await getUserFavorites(page);
       if (response.status !== 200) {
         const message = response?.response?.data?.message;
         throw new Error(`${message}`);

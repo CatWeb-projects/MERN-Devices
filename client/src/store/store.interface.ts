@@ -112,6 +112,7 @@ export interface DevicesDataProps {
   totalCount: number;
   totalPages: number;
   data: DevicesProps[];
+  activeUserFavorites: DevicesProps[];
 }
 
 export interface FoundDevices {
@@ -166,6 +167,7 @@ export interface ValidateUserProps {
 export interface UserStore {
   profile: ValidateUserProps | null;
   userFavorites?: DevicesDataProps | null;
+  activeUserFavorites?: DevicesProps[] | null;
   loading: boolean;
   error: string | null;
   registration: (auth: AuthProps) => void;
@@ -173,6 +175,7 @@ export interface UserStore {
   validateSession: (accessToken: string) => void;
   userLogOut: () => void;
   addToFavorites: (id: number) => void;
+  getUserFavorites: (page: number) => void;
 }
 
 export interface AuthProps {

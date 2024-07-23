@@ -2,13 +2,22 @@
 
 import { useUser } from '@/store/store';
 import { Devices } from '@/components';
+import { useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 const FavoritesPage = () => {
-  const [userFavorites, loading, error] = useUser((state) => [
+  const searchParams = useSearchParams();
+  const page = Number(searchParams.get('page'));
+  const [userFavorites, getUserFavorites, loading, error] = useUser((state) => [
     state.userFavorites,
+    state.getUserFavorites,
     state.loading,
     state.error
   ]);
+
+  useEffect(() => {
+    getUserFavorites(page || 1);
+  }, [page]);
 
   return (
     <div className="favorites-page">

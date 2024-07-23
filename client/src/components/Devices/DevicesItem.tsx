@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
@@ -22,8 +23,8 @@ export const DevicesItem = ({ device }: DeviceItemProps) => {
     state.loading,
     state.error
   ]);
-
-  const activeAddToFavorites = userFavorites?.data?.find((favorite) => favorite.id === device.id);
+  const favoritesData = useMemo(() => userFavorites?.data, [userFavorites?.data]);
+  const activeAddToFavorites = favoritesData?.find((favorite) => favorite.id === device.id);
 
   return (
     <div className="device--item">
