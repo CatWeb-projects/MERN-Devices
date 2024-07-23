@@ -1,6 +1,5 @@
-// import { NextRequest, NextResponse } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
-import { NextRequest, NextResponse } from 'next/server';
+// import { NextRequest, NextResponse } from 'next/server';
 
 // import { DASHBOARD_PAGES } from './config/pages-url.config'
 // import { EnumTokens } from './services/auth-token.service';
@@ -39,5 +38,10 @@ export default createMiddleware({
 
 export const config = {
   // Match only internationalized pathnames
-  matcher: ['/', '/(ro|en|ru)/:path*', '/((?!_next|_vercel|.*\\..*).*)']
+  matcher: [
+    '/',
+    '/(ro|en|ru)/:path*',
+    '/((?!_next|_vercel|.*\\..*).*)',
+    '/((?!api|_next|_vercel|.*\\..*).*)'
+  ]
 };

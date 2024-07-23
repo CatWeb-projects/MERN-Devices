@@ -7,7 +7,7 @@ import {
   SlidesStore,
   ThemeStore,
   UserResponse,
-  UserStore,
+  UserStore
 } from './store.interface';
 import {
   addToFavorites,
@@ -162,6 +162,7 @@ export const useUser = create<UserStore>((set) => ({
   userLogOut: async () => {
     set({ profile: null });
     removeFromStorage();
+    window.location.replace('/');
   },
   addToFavorites: async (id: number) => {
     try {

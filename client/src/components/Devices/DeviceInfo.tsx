@@ -1,9 +1,10 @@
 'use client';
 
-import Link from 'next/link';
-import Image from 'next/image';
+import { useMemo } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Button } from '@chakra-ui/react';
+import Link from 'next/link';
+import Image from 'next/image';
 import { DevicesProps } from '@/store/store.interface';
 import { PRODUCT_PROPERTY } from '@/constants/devicesSpecs';
 import { checkImageUrl } from '@/helpers';
@@ -26,7 +27,8 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
     state.loading,
     state.error
   ]);
-  const activeAddToFavorites = userFavorites?.data?.find((favorite) => favorite.id === device.id);
+  const favoritesData = useMemo(() => userFavorites?.data, [userFavorites?.data]);
+  const activeAddToFavorites = favoritesData?.find((favorite) => favorite.id === device.id);
   const findProperties = Object.keys(PRODUCT_PROPERTY).filter((property) => {
     return device?.[property];
   });
