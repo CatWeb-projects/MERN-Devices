@@ -148,6 +148,7 @@ export interface UserProps {
   email: string;
   role: string;
   favorites: DevicesDataProps;
+  activeFavoritesIds?: number[];
 }
 
 export interface ValidateUserProps {
@@ -166,6 +167,7 @@ export interface ValidateUserProps {
 export interface UserStore {
   profile: ValidateUserProps | null;
   userFavorites?: DevicesDataProps | null;
+  activeFavoritesIds?: number[] | null;
   loading: boolean;
   error: string | null;
   registration: (auth: AuthProps) => void;
@@ -173,6 +175,7 @@ export interface UserStore {
   validateSession: (accessToken: string) => void;
   userLogOut: () => void;
   addToFavorites: (id: number) => void;
+  getUserFavorites: (page: number) => void;
 }
 
 export interface AuthProps {
@@ -183,7 +186,7 @@ export interface AuthProps {
   role: string;
 }
 
-export interface ValidateUserPromiseProps {
+export interface UserResponse {
   data?: UserProps;
   status?: number;
   response?: {

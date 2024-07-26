@@ -1,9 +1,9 @@
 'use client';
 
-import Link from 'next/link';
-import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { Button } from '@chakra-ui/react';
+import Link from 'next/link';
+import Image from 'next/image';
 import { DevicesProps } from '@/store/store.interface';
 import { PRODUCT_PROPERTY } from '@/constants/devicesSpecs';
 import { checkImageUrl } from '@/helpers';
@@ -20,13 +20,14 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
   const t = useTranslations('Devices');
   const tCategories = useTranslations('Categories');
   const locale = useLocale();
-  const [userFavorites, addToFavorites, loading, error] = useUser((state) => [
-    state.userFavorites,
+  const [activeFavoritesIds, addToFavorites, loading, error] = useUser((state) => [
+    state.activeFavoritesIds,
     state.addToFavorites,
     state.loading,
     state.error
   ]);
-  const activeAddToFavorites = userFavorites?.data?.find((favorite) => favorite.id === device.id);
+
+  const activeAddToFavorites = activeFavoritesIds?.find((favoriteId) => favoriteId === device.id);
   const findProperties = Object.keys(PRODUCT_PROPERTY).filter((property) => {
     return device?.[property];
   });

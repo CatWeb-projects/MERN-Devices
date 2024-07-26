@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { axiosClassic, axiosWithAuth } from './interceptors';
 import {
   AuthProps,
   CategoriesProps,
@@ -8,17 +9,16 @@ import {
   FoundDevices,
   SlidesProps
 } from '@/store/store.interface';
-import { getRefreshToken } from './auth-token.service';
 
-axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5000/api';
-const refreshToken = getRefreshToken();
-const config = {
-  headers: { Authorization: `Bearer ${refreshToken}` },
-  withCredentials: true
-};
+// axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5000/api';
+// const refreshToken = getRefreshToken();
+// const config = {
+//   headers: { Authorization: `Bearer ${refreshToken}` },
+//   withCredentials: true
+// };
 
 export const fetchSlides = async (): Promise<SlidesProps[]> => {
-  const response = await axios.get('/sliders');
+  const response = await axiosClassic.get('/sliders');
 
   // if (response.status !== 200) {
   //   throw new Error(`${response.data.message}`);
@@ -35,7 +35,7 @@ export const fetchDevices = async (
   page?: number
 ): Promise<DevicesDataProps> => {
   try {
-    const response = await axios.get('/devices', {
+    const response = await axiosClassic.get('/devices', {
       // ...(category ? { params: { category } } : {}),
       params: { q, category, sort, limit, page }
     });
@@ -52,7 +52,7 @@ export const fetchDevices = async (
 
 export const fetchDevice = async (link: string): Promise<DevicesProps> => {
   try {
-    const response = await axios.get(`/devices/${link}`);
+    const response = await axiosClassic.get(`/devices/${link}`);
 
     if (response.status !== 200) {
       throw new Error(`${response.data.message}`);
@@ -66,7 +66,7 @@ export const fetchDevice = async (link: string): Promise<DevicesProps> => {
 
 export const searchDevices = async (name: string): Promise<FoundDevices[]> => {
   try {
-    const response = await axios.get(`/devices/search/${name}`);
+    const response = await axiosClassic.get(`/devices/search/${name}`);
 
     if (response.status !== 200) {
       throw new Error(`${response.data.message}`);
@@ -80,7 +80,7 @@ export const searchDevices = async (name: string): Promise<FoundDevices[]> => {
 
 export const fetchCategories = async (): Promise<CategoriesProps[]> => {
   try {
-    const response = await axios.get('/categories');
+    const response = await axiosClassic.get('/categories');
 
     if (response.status !== 200) {
       throw new Error(`${response.data.message}`);
@@ -94,7 +94,7 @@ export const fetchCategories = async (): Promise<CategoriesProps[]> => {
 
 export const fetchCollection = async (): Promise<CollectionProps[]> => {
   try {
-    const response = await axios.get('/collection');
+    const response = await axiosClassic.get('/collection');
 
     if (response.status !== 200) {
       throw new Error(`${response.data.message}`);
@@ -108,7 +108,7 @@ export const fetchCollection = async (): Promise<CollectionProps[]> => {
 
 export const userRegistration = async (auth: AuthProps) => {
   try {
-    const response = await axios.post('/users/auth/registration', {
+    const response = await axiosClassic.post('/users/auth/registration', {
       first_name: auth.first_name,
       last_name: auth.last_name,
       email: auth.email,
@@ -124,7 +124,7 @@ export const userRegistration = async (auth: AuthProps) => {
 
 export const userLogin = async (email: string, password: string) => {
   try {
-    const response = await axios.post('/users/auth/login', {
+    const response = await axiosClassic.post('/users/auth/login', {
       email,
       password
     });
@@ -137,7 +137,7 @@ export const userLogin = async (email: string, password: string) => {
 
 export const validateSession = async (refreshToken: string) => {
   try {
-    const response = await axios.post('/users/auth/validate-user', {
+    const response = await axiosClassic.post('/users/auth/validate-user', {
       refreshToken
     });
     return response;
@@ -149,7 +149,17 @@ export const validateSession = async (refreshToken: string) => {
 
 export const addToFavorites = async (id: number) => {
   try {
-    const response = await axios.post('/users/favorites', { id }, config);
+    const response = await axiosWithAuth.post(`/users/favorites/${id}`);
+    return response;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
+
+export const getUserFavorites = async (page: number) => {
+  try {
+    const response = await axiosWithAuth.get('/users/favorites/all', { params: { page } });
     return response;
   } catch (error) {
     console.error(error);

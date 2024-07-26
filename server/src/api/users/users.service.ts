@@ -8,10 +8,10 @@ import { InjectModel } from '@nestjs/mongoose';
 import { JwtService } from '@nestjs/jwt';
 import { Model, Types } from 'mongoose';
 import bcrypt from 'bcrypt';
-import { AddToFavoritesDto, AuthUserDto, UserDto } from './dto';
+import { AuthUserDto } from './dto';
 import { Users, UsersDocument } from './schemas/users.schema';
 import { Devices, DevicesDocument } from '../devices/schemas/devices.schema';
-import { getPageNumber, getTotalPages } from '../../utils/utils';
+import { getPageNumber, getTotalPages, paginate } from '../../utils/utils';
 
 const errorMessage = {
   userExists: 'user already exist, please login',
@@ -51,7 +51,7 @@ export class UsersService {
   };
 
   //Register User
-  createUser = async (userDto: UserDto) => {
+  createUser = async (userDto: AuthUserDto) => {
     const { email, password } = userDto;
     if (email) {
       const emailUser = await this.users.findOne({ email });
@@ -119,7 +119,8 @@ export class UsersService {
       id: user._id,
       role: user.role,
       isLoggedIn: true,
-      favorites: user.favorites
+      // favorites: user.favorites,
+      activeFavoritesIds: user.favorites.data.map((favorite) => favorite.id)
     };
 
     return profileUser;
@@ -132,11 +133,14 @@ export class UsersService {
   };
 
   //Add to favorites
-  addToFavorites = async (deviceDto: AddToFavoritesDto, userId: string) => {
-    const { id } = deviceDto;
+  addToFavorites = async (deviceId: string, userId: string, page) => {
     const user = await this.users.findOne({ _id: userId });
-    const device = await this.devicesModel.findOne({ id });
+    const device = await this.devicesModel.findOne({ id: deviceId });
     const userFavorites = user?.favorites?.data || [];
+
+    if (!userId) {
+      throw new ForbiddenException(errorMessage.invalidToken);
+    }
 
     const checkAddToFavorites = () => {
       if (userFavorites?.find((favorite) => favorite.id === device?.id)) {
@@ -153,20 +157,32 @@ export class UsersService {
         favorites: {
           limit: 8,
           page: getPageNumber(1),
-          totalCount: userFavorites?.length,
-          totalPages: getTotalPages(userFavorites?.length, 8),
+          totalCount: checkAddToFavorites()?.length,
+          totalPages: getTotalPages(checkAddToFavorites()?.length, 8),
           data: checkAddToFavorites()
         }
       }
     );
 
+    return device;
+  };
+
+  //Get User Favorites
+  getUserFavorites = async (page: number, limit: number = 8, userId: string) => {
+    const user = await this.users.findOne({ _id: userId });
+    const userFavorites = user?.favorites?.data || [];
+
+    if (!userId) {
+      throw new ForbiddenException(errorMessage.invalidToken);
+    }
+
     return {
       favorites: {
-        limit: 8,
-        page: getPageNumber(1),
+        limit: Number(limit),
+        page: getPageNumber(page),
         totalCount: userFavorites?.length,
         totalPages: getTotalPages(userFavorites?.length, 8),
-        data: checkAddToFavorites()
+        data: paginate(userFavorites, 8, page)
       }
     };
   };

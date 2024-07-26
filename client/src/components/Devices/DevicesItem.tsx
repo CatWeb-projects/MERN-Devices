@@ -16,14 +16,13 @@ interface DeviceItemProps {
 export const DevicesItem = ({ device }: DeviceItemProps) => {
   const locale = useLocale();
   const t = useTranslations('Categories');
-  const [userFavorites, addToFavorites, loading, error] = useUser((state) => [
-    state.userFavorites,
+  const [activeFavoritesIds, addToFavorites, loading, error] = useUser((state) => [
+    state.activeFavoritesIds,
     state.addToFavorites,
     state.loading,
     state.error
   ]);
-
-  const activeAddToFavorites = userFavorites?.data?.find((favorite) => favorite.id === device.id);
+  const activeAddToFavorites = activeFavoritesIds?.find((favoriteId) => favoriteId === device.id);
 
   return (
     <div className="device--item">

@@ -16,9 +16,6 @@ const axiosWithAuth = axios.create(options);
 
 axiosWithAuth.interceptors.request.use((config) => {
   const refreshToken = getRefreshToken();
-  console.log(refreshToken, 'refreshtoken');
-  console.log(config, 'config');
-
   if (config?.headers && refreshToken) config.headers.Authorization = `Bearer ${refreshToken}`;
 
   return config;
@@ -38,6 +35,7 @@ axiosWithAuth.interceptors.response.use(
     ) {
       originalRequest._isRetry = true;
       try {
+        window.location.replace('/');
         return axiosWithAuth.request(originalRequest);
       } catch (error) {
         if (errorCatch(error) === 'jwt expired') removeFromStorage();

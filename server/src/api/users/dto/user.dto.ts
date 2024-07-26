@@ -48,7 +48,7 @@ export class UserDto {
 
   @IsString()
   @IsOptional()
-  readonly created_at?: string | null;
+  readonly created_at: string | null;
 
   @IsString()
   @IsNotEmpty()

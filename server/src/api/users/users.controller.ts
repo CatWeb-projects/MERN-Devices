@@ -6,12 +6,19 @@ import {
   HttpCode,
   Param,
   Post,
+  Query,
   UsePipes,
   ValidationPipe
 } from '@nestjs/common';
-import { ApiBadRequestResponse, ApiBearerAuth, ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBadRequestResponse,
+  ApiBearerAuth,
+  ApiOkResponse,
+  ApiQuery,
+  ApiTags
+} from '@nestjs/swagger';
 import { UsersService } from './users.service';
-import { AddToFavoritesDto, AuthUserDto, RevalidateUserDto, UserDto } from './dto';
+import { AuthUserDto, RevalidateUserDto } from './dto';
 import { badUserResponse, okAuthResponse, okUserResponse, okUsersResponse } from './api-response';
 import { Auth } from './decorators/auth.decorator';
 import { CurrentUser } from './decorators/user.decorator';
@@ -42,7 +49,7 @@ export class UsersController {
   @ApiOkResponse(okUserResponse)
   @ApiBadRequestResponse(badUserResponse)
   @Post('/auth/registration')
-  createUser(@Body() userDto: UserDto) {
+  createUser(@Body() userDto: AuthUserDto) {
     return this.users.createUser(userDto);
   }
 
@@ -76,8 +83,37 @@ export class UsersController {
   @HttpCode(200)
   @ApiOkResponse(okAddToFavoritesResponse)
   // @ApiBadRequestResponse(badUserResponse)
-  @Post('/favorites')
-  addToFavorites(@Body() deviceDto: AddToFavoritesDto, @CurrentUser('_id') userId: string) {
-    return this.users.addToFavorites(deviceDto, userId);
+  @Post('/favorites/:id')
+  addToFavorites(
+    @Param('id') deviceId: string,
+    @CurrentUser('_id') userId: string,
+    @Query('page') page: number
+  ) {
+    return this.users.addToFavorites(deviceId, userId, page);
+  }
+
+  @Auth()
+  @ApiBearerAuth()
+  @HttpCode(200)
+  @ApiOkResponse(okAddToFavoritesResponse)
+  @ApiQuery({
+    name: 'page',
+    required: false,
+    type: Number,
+    example: '1'
+  })
+  @ApiQuery({
+    name: 'limit',
+    required: false,
+    type: Number,
+    example: '8'
+  })
+  @Get('/favorites/all')
+  getUserFavorites(
+    @Query('limit') limit: number,
+    @Query('page') page: number,
+    @CurrentUser('_id') userId: string
+  ) {
+    return this.users.getUserFavorites(page, limit, userId);
   }
 }
