@@ -1,6 +1,5 @@
 'use client';
 
-import { useMemo } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Button } from '@chakra-ui/react';
 import Link from 'next/link';
@@ -21,14 +20,14 @@ export const DeviceInfo = ({ device }: DeviceInfoProps) => {
   const t = useTranslations('Devices');
   const tCategories = useTranslations('Categories');
   const locale = useLocale();
-  const [userFavorites, addToFavorites, loading, error] = useUser((state) => [
-    state.userFavorites,
+  const [activeFavoritesIds, addToFavorites, loading, error] = useUser((state) => [
+    state.activeFavoritesIds,
     state.addToFavorites,
     state.loading,
     state.error
   ]);
-  const favoritesData = useMemo(() => userFavorites?.data, [userFavorites?.data]);
-  const activeAddToFavorites = favoritesData?.find((favorite) => favorite.id === device.id);
+
+  const activeAddToFavorites = activeFavoritesIds?.find((favoriteId) => favoriteId === device.id);
   const findProperties = Object.keys(PRODUCT_PROPERTY).filter((property) => {
     return device?.[property];
   });

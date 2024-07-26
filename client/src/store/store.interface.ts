@@ -112,7 +112,6 @@ export interface DevicesDataProps {
   totalCount: number;
   totalPages: number;
   data: DevicesProps[];
-  activeUserFavorites: DevicesProps[];
 }
 
 export interface FoundDevices {
@@ -149,6 +148,7 @@ export interface UserProps {
   email: string;
   role: string;
   favorites: DevicesDataProps;
+  activeFavoritesIds?: number[];
 }
 
 export interface ValidateUserProps {
@@ -167,7 +167,7 @@ export interface ValidateUserProps {
 export interface UserStore {
   profile: ValidateUserProps | null;
   userFavorites?: DevicesDataProps | null;
-  activeUserFavorites?: DevicesProps[] | null;
+  activeFavoritesIds?: number[] | null;
   loading: boolean;
   error: string | null;
   registration: (auth: AuthProps) => void;

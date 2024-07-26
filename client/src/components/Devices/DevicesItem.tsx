@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
@@ -17,14 +16,13 @@ interface DeviceItemProps {
 export const DevicesItem = ({ device }: DeviceItemProps) => {
   const locale = useLocale();
   const t = useTranslations('Categories');
-  const [userFavorites, addToFavorites, loading, error] = useUser((state) => [
-    state.userFavorites,
+  const [activeFavoritesIds, addToFavorites, loading, error] = useUser((state) => [
+    state.activeFavoritesIds,
     state.addToFavorites,
     state.loading,
     state.error
   ]);
-  const favoritesData = useMemo(() => userFavorites?.data, [userFavorites?.data]);
-  const activeAddToFavorites = favoritesData?.find((favorite) => favorite.id === device.id);
+  const activeAddToFavorites = activeFavoritesIds?.find((favoriteId) => favoriteId === device.id);
 
   return (
     <div className="device--item">

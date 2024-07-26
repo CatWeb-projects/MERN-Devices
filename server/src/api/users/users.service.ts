@@ -11,7 +11,7 @@ import bcrypt from 'bcrypt';
 import { AuthUserDto } from './dto';
 import { Users, UsersDocument } from './schemas/users.schema';
 import { Devices, DevicesDocument } from '../devices/schemas/devices.schema';
-import { getPageNumber, getTotalPages } from '../../utils/utils';
+import { getPageNumber, getTotalPages, paginate } from '../../utils/utils';
 
 const errorMessage = {
   userExists: 'user already exist, please login',
@@ -119,7 +119,8 @@ export class UsersService {
       id: user._id,
       role: user.role,
       isLoggedIn: true,
-      favorites: user.favorites
+      // favorites: user.favorites,
+      activeFavoritesIds: user.favorites.data.map((favorite) => favorite.id)
     };
 
     return profileUser;
@@ -132,7 +133,7 @@ export class UsersService {
   };
 
   //Add to favorites
-  addToFavorites = async (deviceId: string, userId: string) => {
+  addToFavorites = async (deviceId: string, userId: string, page) => {
     const user = await this.users.findOne({ _id: userId });
     const device = await this.devicesModel.findOne({ id: deviceId });
     const userFavorites = user?.favorites?.data || [];
@@ -156,32 +157,20 @@ export class UsersService {
         favorites: {
           limit: 8,
           page: getPageNumber(1),
-          totalCount: userFavorites?.length,
-          totalPages: getTotalPages(userFavorites?.length, 8),
+          totalCount: checkAddToFavorites()?.length,
+          totalPages: getTotalPages(checkAddToFavorites()?.length, 8),
           data: checkAddToFavorites()
         }
       }
     );
 
-    return {
-      favorites: {
-        limit: 8,
-        page: getPageNumber(1),
-        totalCount: userFavorites?.length,
-        totalPages: getTotalPages(userFavorites?.length, 8),
-        data: checkAddToFavorites()
-      }
-    };
+    return device;
   };
 
   //Get User Favorites
   getUserFavorites = async (page: number, limit: number = 8, userId: string) => {
     const user = await this.users.findOne({ _id: userId });
     const userFavorites = user?.favorites?.data || [];
-
-    function paginate(array, page_size, page_number) {
-      return array.slice((page_number - 1) * page_size, page_number * page_size);
-    }
 
     if (!userId) {
       throw new ForbiddenException(errorMessage.invalidToken);
@@ -193,7 +182,7 @@ export class UsersService {
         page: getPageNumber(page),
         totalCount: userFavorites?.length,
         totalPages: getTotalPages(userFavorites?.length, 8),
-        data: userFavorites
+        data: paginate(userFavorites, 8, page)
       }
     };
   };

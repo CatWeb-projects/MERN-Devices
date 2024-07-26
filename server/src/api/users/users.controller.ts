@@ -84,8 +84,12 @@ export class UsersController {
   @ApiOkResponse(okAddToFavoritesResponse)
   // @ApiBadRequestResponse(badUserResponse)
   @Post('/favorites/:id')
-  addToFavorites(@Param('id') deviceId: string, @CurrentUser('_id') userId: string) {
-    return this.users.addToFavorites(deviceId, userId);
+  addToFavorites(
+    @Param('id') deviceId: string,
+    @CurrentUser('_id') userId: string,
+    @Query('page') page: number
+  ) {
+    return this.users.addToFavorites(deviceId, userId, page);
   }
 
   @Auth()

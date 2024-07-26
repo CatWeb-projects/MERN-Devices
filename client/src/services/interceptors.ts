@@ -35,6 +35,7 @@ axiosWithAuth.interceptors.response.use(
     ) {
       originalRequest._isRetry = true;
       try {
+        window.location.replace('/');
         return axiosWithAuth.request(originalRequest);
       } catch (error) {
         if (errorCatch(error) === 'jwt expired') removeFromStorage();

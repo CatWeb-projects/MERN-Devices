@@ -3,6 +3,7 @@ import { createJSONStorage, persist } from 'zustand/middleware';
 import {
   AuthProps,
   CategoriesStore,
+  DevicesProps,
   DevicesStore,
   SlidesStore,
   ThemeStore,
@@ -112,6 +113,7 @@ export const useDevices = create<DevicesStore>((set) => ({
 export const useUser = create<UserStore>((set) => ({
   profile: null,
   userFavorites: null,
+  activeFavoritesIds: null,
   loading: true,
   error: null,
   registration: async (auth: AuthProps) => {
@@ -152,7 +154,10 @@ export const useUser = create<UserStore>((set) => ({
         throw new Error(`${message}`);
       }
 
-      set({ profile: { user: response.data } });
+      set({
+        profile: { user: response.data },
+        activeFavoritesIds: response.data.activeFavoritesIds
+      });
     } catch (error) {
       const typedError = error as Error;
       set({ error: typedError.message });
@@ -172,9 +177,42 @@ export const useUser = create<UserStore>((set) => ({
         const message = response?.response?.data?.message;
         throw new Error(`${message}`);
       }
-      // const page = window.location.search.split('page=')[1]
-      // getUserFavorites(Number(page))
-      set({ userFavorites: response.data.favorites });
+
+      const responseFavoriteId = Number(response?.data?.id);
+
+      const checkFavorites = (favorites: DevicesProps[]) => {
+        if (favorites?.length > 0) {
+          const newFavorites = [...favorites, response.data];
+          if (favorites?.find((favorite) => favorite.id === responseFavoriteId)) {
+            const filteredFavorites = favorites?.filter(
+              (favorite) => favorite.id !== responseFavoriteId
+            );
+            return filteredFavorites;
+          } else {
+            return newFavorites;
+          }
+        }
+      };
+
+      const checkFavoritesIds = (activeFavoritesIds: number[]) => {
+        const newFavoritesIds = [...activeFavoritesIds, responseFavoriteId];
+        if (activeFavoritesIds?.find((favoriteId) => favoriteId === responseFavoriteId)) {
+          const filteredFavoritesIds = activeFavoritesIds?.filter(
+            (favoriteId) => favoriteId !== responseFavoriteId
+          );
+          return filteredFavoritesIds;
+        } else {
+          return newFavoritesIds;
+        }
+      };
+
+      set((state: any) => ({
+        userFavorites: {
+          ...state?.userFavorites,
+          data: checkFavorites(state?.userFavorites?.data)
+        },
+        activeFavoritesIds: checkFavoritesIds(state.activeFavoritesIds)
+      }));
     } catch (error) {
       const typedError = error as Error;
       set({ error: typedError.message });
