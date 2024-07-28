@@ -159,7 +159,7 @@ export const addToFavorites = async (id: number) => {
 
 export const getUserFavorites = async (page: number) => {
   try {
-    const response = await axiosWithAuth.get('/users/favorites/all', { params: { page } });
+    const response = await axiosWithAuth.get('/users/favorites', { params: { page } });
     return response;
   } catch (error) {
     console.error(error);

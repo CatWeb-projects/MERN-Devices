@@ -29,21 +29,6 @@ import { okAddToFavoritesResponse } from './api-response/add-to-favorites-respon
 export class UsersController {
   constructor(private users: UsersService) {}
 
-  @HttpCode(200)
-  @ApiOkResponse(okUsersResponse)
-  @Get()
-  getAllUsers() {
-    return this.users.getAllUsers();
-  }
-
-  @HttpCode(200)
-  @ApiOkResponse(okUserResponse)
-  @ApiBadRequestResponse(badUserResponse)
-  @Get(':email')
-  getUserByEmail(@Param('email') email: string) {
-    return this.users.getUserByEmail(email);
-  }
-
   @UsePipes(new ValidationPipe())
   @HttpCode(200)
   @ApiOkResponse(okUserResponse)
@@ -108,12 +93,27 @@ export class UsersController {
     type: Number,
     example: '8'
   })
-  @Get('/favorites/all')
+  @Get('favorites')
   getUserFavorites(
     @Query('limit') limit: number,
     @Query('page') page: number,
     @CurrentUser('_id') userId: string
   ) {
     return this.users.getUserFavorites(page, limit, userId);
+  }
+
+  @HttpCode(200)
+  @ApiOkResponse(okUsersResponse)
+  @Get()
+  getAllUsers() {
+    return this.users.getAllUsers();
+  }
+
+  @HttpCode(200)
+  @ApiOkResponse(okUserResponse)
+  @ApiBadRequestResponse(badUserResponse)
+  @Get(':email')
+  getUserByEmail(@Param('email') email: string) {
+    return this.users.getUserByEmail(email);
   }
 }
