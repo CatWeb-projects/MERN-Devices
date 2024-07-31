@@ -19,3 +19,4 @@ export { Features } from './Features/Features';
 export { AuthForm } from './AuthForm/AuthForm';
 export { Separator } from './Separator/Separator';
 export { Pagination } from './Pagination/Pagination';
+export { Menu } from './Menu/Menu';
