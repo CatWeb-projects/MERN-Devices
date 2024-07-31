@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import { useUser } from '@/store/store';
 import { Button } from '../Button/Button';
 import { Icon } from '../Icon/Icon';
@@ -37,7 +38,13 @@ export const AuthForm = () => {
     }
   };
 
-  const formik = useFormik({
+  const formik = useFormik<{
+    first_name: string;
+    last_name: string;
+    email: string;
+    password: string;
+    role: string;
+  }>({
     initialValues: {
       first_name: '',
       last_name: '',
@@ -45,6 +52,22 @@ export const AuthForm = () => {
       password: '',
       role: 'user'
     },
+    validationSchema: Yup.object({
+      first_name: Yup.string()
+        // .required('First name is required')
+        .max(16, 'First name must not be more than 16 characters'),
+      last_name: Yup.string()
+        // .required('First name is required')
+        .max(16, 'First name must not be more than 16 characters'),
+      email: Yup.string().required('Email is required').email('Invalid email address'),
+      password: Yup.string()
+        .required('Password is required')
+        .min(6, 'Password must have at least 6 characters')
+        .max(18, 'Max password length is 18')
+      // confirmPassword: Yup.string()
+      //   .oneOf([Yup.ref('password')], 'Confirm password must match')
+      //   .required('Confirm password is required')
+    }),
     onSubmit: (values: any) => {
       console.log(values, 'form values');
       if (isRegistrationPage) {
@@ -74,7 +97,7 @@ export const AuthForm = () => {
 
         <h1>{formTitle()}</h1>
       </div>
-      <form className="login--form" onSubmit={formik.handleSubmit}>
+      <form className="login--form" autoComplete="off" onSubmit={formik.handleSubmit}>
         {isRegistrationPage && (
           <>
             <div className="login--input-wrapper">
@@ -88,9 +111,14 @@ export const AuthForm = () => {
                 type="text"
                 onChange={formik.handleChange}
                 value={formik.values.first_name}
+                onBlur={formik.handleBlur}
                 placeholder={t('first_name')}
                 autoComplete="off"
               />
+
+              {formik.submitCount > 0 && formik.errors.first_name && (
+                <p>{formik.errors.first_name}</p>
+              )}
             </div>
 
             <div className="login--input-wrapper">
@@ -104,9 +132,14 @@ export const AuthForm = () => {
                 type="text"
                 onChange={formik.handleChange}
                 value={formik.values.last_name}
+                onBlur={formik.handleBlur}
                 placeholder={t('last_name')}
                 autoComplete="off"
               />
+
+              {formik.submitCount > 0 && formik.errors.last_name && (
+                <p>{formik.errors.last_name}</p>
+              )}
             </div>
           </>
         )}
@@ -122,10 +155,13 @@ export const AuthForm = () => {
             type="email"
             onChange={formik.handleChange}
             value={formik.values.email}
+            onBlur={formik.handleBlur}
             placeholder={t('email')}
             autoComplete="off"
           />
         </div>
+
+        {formik.submitCount > 0 && formik.errors.email && <div>{formik.errors.email}</div>}
 
         <div className="login--input-wrapper">
           <span>
@@ -139,8 +175,11 @@ export const AuthForm = () => {
             placeholder={t('password')}
             onChange={formik.handleChange}
             value={formik.values.password}
+            onBlur={formik.handleBlur}
             autoComplete="off"
           />
+
+          {formik.submitCount > 0 && formik.errors.password && <p>{formik.errors.password}</p>}
 
           <button
             type="button"
