@@ -1,25 +1,34 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
-import { CategoriesProps } from '@/store/store.interface';
+import { useCategories } from '@/store/store';
 import { apiBaseUrl } from '@/helpers';
 import { quickLinks } from '@/constants/quickLinks';
 
 import './Menu.scss';
 
 interface Props {
-  categories: CategoriesProps[];
   showMenu: boolean;
   toggleMenu: () => void;
 }
 
-export const Menu = ({ categories, showMenu, toggleMenu }: Props) => {
+export const Menu = ({ showMenu, toggleMenu }: Props) => {
   const [showQuickLinks, setShowQuickLinks] = useState('');
   const locale = useLocale();
   const tCategories = useTranslations('Categories');
+  const [categories, getCategories, loading, error] = useCategories((state) => [
+    state.categories,
+    state.getCategories,
+    state.loading,
+    state.error
+  ]);
+
+  useEffect(() => {
+    getCategories();
+  }, []);
 
   const checkQuickLinksRedirect = (submenu: any, category: string) => {
     if (submenu.getInfo) {
