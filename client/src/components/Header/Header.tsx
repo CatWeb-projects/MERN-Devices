@@ -4,15 +4,15 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { useOutsideClick, useToast } from '@chakra-ui/react';
-import { useCategories, useUser } from '@/store/store';
+import { useUser } from '@/store/store';
 import { getRefreshToken } from '@/services/auth-token.service';
 import { Search } from '../Search/Search';
 import { Icon } from '../Icon/Icon';
 import { TopBar } from '../TopBar/TopBar';
 import { Button } from '../Button/Button';
+import { Menu } from '../Menu/Menu';
 
 import './Header.scss';
-import { Menu } from '../Menu/Menu';
 
 export const Header = () => {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
@@ -34,17 +34,6 @@ export const Header = () => {
     state.userLogOut,
     state.error
   ]);
-
-  const [categories, getCategories, loading, error] = useCategories((state) => [
-    state.categories,
-    state.getCategories,
-    state.loading,
-    state.error
-  ]);
-
-  useEffect(() => {
-    getCategories();
-  }, []);
 
   useEffect(() => {
     if (refreshToken) {
@@ -108,7 +97,7 @@ export const Header = () => {
             <Icon type="menu" />
             {t('menu')}
 
-            <Menu categories={categories} showMenu={showMenu} toggleMenu={toggleMenu} />
+            <Menu showMenu={showMenu} toggleMenu={toggleMenu} />
           </div>
 
           <Search />

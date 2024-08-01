@@ -62,22 +62,24 @@ export class UsersService {
     }
 
     const hashedPassword = await bcrypt.hash(password, 5);
-    const token = await this.jwtService.signAsync(
-      { email },
-      {
-        expiresIn: '1h'
-        // secret: this._configService.get('JWT_SECRET'),
-      }
-    );
+    // const token = await this.jwtService.sign(
+    //   { email },
+    //   {
+    //     expiresIn: '1h'
+    //     // secret: this._configService.get('JWT_SECRET'),
+    //   }
+    // );
     const user = await this.users.create({
       ...userDto,
       created_at: new Date(),
       password: hashedPassword
     });
 
+    const tokens = await this.issueTokens(user._id);
+
     return {
       user,
-      refreshToken: token
+      ...tokens
     };
   };
 
@@ -106,7 +108,7 @@ export class UsersService {
   //Validate user
   async validateSession(tokenData: { refreshToken: string }) {
     const token = await this.jwtService.verify(tokenData.refreshToken);
-    const user = await this.users.findOne(token.id ? { _id: token.id } : { email: token.email });
+    const user = await this.users.findOne({ _id: token.id });
 
     if (!user || !token) {
       throw new ForbiddenException(errorMessage.invalidToken);
@@ -120,7 +122,7 @@ export class UsersService {
       role: user.role,
       isLoggedIn: true,
       // favorites: user.favorites,
-      activeFavoritesIds: user.favorites.data.map((favorite) => favorite.id)
+      activeFavoritesIds: user?.favorites?.data.map((favorite) => favorite.id) || []
     };
 
     return profileUser;
