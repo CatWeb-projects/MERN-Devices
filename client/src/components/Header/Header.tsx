@@ -1,16 +1,16 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
-import { useLocale, useTranslations } from 'next-intl';
-import { useOutsideClick, useToast } from '@chakra-ui/react';
-import { useUser } from '@/store/store';
 import { getRefreshToken } from '@/services/auth-token.service';
-import { Search } from '../Search/Search';
-import { Icon } from '../Icon/Icon';
-import { TopBar } from '../TopBar/TopBar';
+import { useUser } from '@/store/store';
+import { useOutsideClick, useToast } from '@chakra-ui/react';
+import { useLocale, useTranslations } from 'next-intl';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 import { Button } from '../Button/Button';
+import { Icon } from '../Icon/Icon';
 import { Menu } from '../Menu/Menu';
+import { Search } from '../Search/Search';
+import { TopBar } from '../TopBar/TopBar';
 
 import './Header.scss';
 
