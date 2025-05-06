@@ -6,6 +6,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import { useShallow } from 'zustand/shallow';
 import { Icon } from '../Icon/Icon';
 import './Devices.scss';
 
@@ -17,12 +18,14 @@ export const DevicesItem = ({ device }: DeviceItemProps) => {
 	const locale = useLocale();
 	const t = useTranslations('Categories');
 	const [imgSrc, setImgSrc] = useState(checkImageUrl(device?.imageUrl));
-	const [activeFavoritesIds, addToFavorites, loading, error] = useUser((state) => [
-		state.activeFavoritesIds,
-		state.addToFavorites,
-		state.loading,
-		state.error,
-	]);
+	const [activeFavoritesIds, addToFavorites, loading, error] = useUser(
+		useShallow((state) => [
+			state.activeFavoritesIds,
+			state.addToFavorites,
+			state.loading,
+			state.error,
+		]),
+	);
 	const activeAddToFavorites = activeFavoritesIds?.find((favoriteId) => favoriteId === device.id);
 
 	const handleImageError = () => {

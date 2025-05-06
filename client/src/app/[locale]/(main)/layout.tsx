@@ -25,7 +25,6 @@ export default async function LocaleLayout({
 	if (!hasLocale(routing.locales, locale)) {
 		notFound();
 	}
-	console.log(locale, 'home');
 	return (
 		<CacheProvider>
 			<html lang={locale}>
