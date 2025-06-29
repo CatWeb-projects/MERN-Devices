@@ -7,7 +7,7 @@ import { Button } from '@chakra-ui/react';
 import { useTheme } from '@/store/store';
 import { Icon } from '../Icon/Icon';
 
-import './TopBar.scss';
+import './Topbar.scss';
 
 export const TopBar = () => {
   const pathname = usePathname();
