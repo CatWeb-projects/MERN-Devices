@@ -1,16 +1,17 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
-import { useLocale, useTranslations } from 'next-intl';
-import { useOutsideClick, useToast } from '@chakra-ui/react';
-import { useUser } from '@/store/store';
 import { getRefreshToken } from '@/services/auth-token.service';
-import { Search } from '../Search/Search';
-import { Icon } from '../Icon/Icon';
-import { TopBar } from '../TopBar/TopBar';
+import { useUser } from '@/store/store';
+import { useOutsideClick, useToast } from '@chakra-ui/react';
+import { useLocale, useTranslations } from 'next-intl';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
+import { useShallow } from 'zustand/react/shallow';
 import { Button } from '../Button/Button';
+import { Icon } from '../Icon/Icon';
 import { Menu } from '../Menu/Menu';
+import { Search } from '../Search/Search';
+import { TopBar } from '../Topbar/Topbar';
 
 import './Header.scss';
 
@@ -24,16 +25,18 @@ export const Header = () => {
   const refreshToken = getRefreshToken();
   useOutsideClick({
     ref: showRef,
-    handler: () => setShowProfileMenu(false)
+    handler: () => setShowProfileMenu(false),
   });
   const toast = useToast();
 
-  const [profile, validateSession, userLogOut, profileError] = useUser((state) => [
-    state.profile,
-    state.validateSession,
-    state.userLogOut,
-    state.error
-  ]);
+  const [profile, validateSession, userLogOut, profileError] = useUser(
+    useShallow((state) => [
+      state.profile,
+      state.validateSession,
+      state.userLogOut,
+      state.error,
+    ]),
+  );
 
   useEffect(() => {
     if (refreshToken) {
@@ -69,7 +72,7 @@ export const Header = () => {
         status: 'error',
         duration: 9000,
         isClosable: true,
-        position: 'top-right'
+        position: 'top-right',
       });
       // removeFromStorage();
     }
@@ -124,7 +127,9 @@ export const Header = () => {
             {profile?.user ? (
               <div className="header--user">
                 <Button
-                  className={`logged-in ${showProfileMenu ? 'logged-in--open' : ''}`}
+                  className={`logged-in ${
+                    showProfileMenu ? 'logged-in--open' : ''
+                  }`}
                   size="auto"
                   onClick={toggleProfileMenu}
                 >
@@ -134,7 +139,10 @@ export const Header = () => {
 
                 {showProfileMenu && (
                   <div className="profile-menu" ref={showRef}>
-                    <Link onClick={() => setShowProfileMenu(false)} href={`/${locale}/profile`}>
+                    <Link
+                      onClick={() => setShowProfileMenu(false)}
+                      href={`/${locale}/profile`}
+                    >
                       {tAuth('profile')}
                     </Link>
                     <Button size="small" onClick={logout}>
